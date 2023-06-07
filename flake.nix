@@ -15,9 +15,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    devenv = {
+    url = "github:cachix/devenv/main";
+    inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, devenv, ... }:
 
     let
       system = "x86_64-linux";
@@ -35,7 +40,7 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit inputs user system home-manager hyprland;
+          inherit inputs user system home-manager hyprland devenv;
         }
       );
     };

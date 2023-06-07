@@ -1,10 +1,11 @@
-{ config, lib, pkgs, stable, user, ... }:
+{ config, lib, pkgs, stable, user, devenv, ... }:
 
 {
   imports = # Home Manager Modules
     [ (import ../modules/shell/git/home.nix) ] ++
     [ (import ../modules/programs/wofi.nix) ] ++
     [ (import ../modules/editors/nvim/home.nix) ] ++
+    [ (import ../modules/programs/devenv/home.nix) ] ++
     [ (import ../modules/shell/zsh/home.nix) ];
 
   home = {
@@ -12,6 +13,7 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+
       # Terminal
       btop # Resource Manager
       nitch # Minimal fetch
