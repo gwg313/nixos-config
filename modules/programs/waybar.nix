@@ -95,9 +95,9 @@
           layer = "top";
           position = "top";
           height = 16;
-          output = [
-            "${mainMonitor}"
-          ];
+          #          output = [
+          #            "${mainMonitor}"
+          #          ];
           tray = { spacing = 5; };
           #modules-center = [ "clock" ];
           modules-left = with config;
