@@ -39,7 +39,7 @@
   users.users.glen = {
     isNormalUser = true;
     description = "Glen";
-    extraGroups = [ "networkmanager" "wheel" "video" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "docker" "audio" ];
     shell = pkgs.zsh; # Default shell
     packages = with pkgs; [ ];
   };
