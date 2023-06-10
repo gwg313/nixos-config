@@ -40,6 +40,7 @@
       nixpkgs-fmt
 
 
+
       # Video/Audio
       feh # Image Viewer
       #mpv               # Media Player
@@ -53,6 +54,8 @@
       firefox # Browser
       google-chrome # Browser
       remmina # XRDP & VNC Client
+      anki
+      obsidian
 
       # File Management
       gnome.file-roller # Archive Manager
