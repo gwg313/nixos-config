@@ -4,6 +4,7 @@
     enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch";
+      clean = "nix-collect-garbage -d";
       reload = "source ~/.zshrc";
 
       "." = "cd ../";

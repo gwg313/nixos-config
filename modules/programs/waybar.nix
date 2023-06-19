@@ -26,8 +26,7 @@
           background-color: rgba(80,100,100,0.4);
         }
         window#waybar {
-          background-color: rgba(0,0,0,0.5);
-          background: transparent;
+          background-color: rgba(0,0,0,0.8);
           transition-property: background-color;
           transition-duration: .5s;
           border-bottom: none;

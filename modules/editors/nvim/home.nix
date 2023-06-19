@@ -26,7 +26,7 @@
       nvim-lspconfig
       nvim-tree-lua
       nvim-ts-rainbow
-      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+      nvim-treesitter.withAllGrammars
       plenary-nvim
       telescope-fzy-native-nvim
       telescope-nvim

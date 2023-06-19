@@ -11,6 +11,15 @@
     };
   };
 
+  programs.zsh = {
+    shellAliases = {
+
+      trackme = "git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)";
+      rebasemain = "git pull origin main --rebase";
+
+    };
+  };
+
   home.packages = with pkgs; [
     cocogitto
     lazygit

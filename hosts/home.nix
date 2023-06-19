@@ -6,6 +6,7 @@
     [ (import ../modules/programs/wofi.nix) ] ++
     [ (import ../modules/editors/nvim/home.nix) ] ++
     [ (import ../modules/programs/devenv/home.nix) ] ++
+    [ (import ../modules/shell/tmux/home.nix) ] ++
     [ (import ../modules/shell/zsh/home.nix) ];
 
   home = {
@@ -15,7 +16,7 @@
     packages = with pkgs; [
 
       # Terminal
-      btop # Resource Manager
+      htop
       nitch # Minimal fetch
       tldr # Helper
       zellij # multiplexer
@@ -38,6 +39,17 @@
       dbeaver
       ansible
       nixpkgs-fmt
+      zoxide
+      webcord
+      nfs-utils
+      keychain
+      slides
+      glow
+      entr
+      just
+      bandwhich
+      navi
+      git-crypt
 
 
 

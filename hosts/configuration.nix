@@ -71,6 +71,7 @@
       pciutils
       usbutils
       wget
+      lsof
     ];
   };
 
@@ -95,6 +96,7 @@
     };
     pulse.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 
   # Open ports in the firewall.

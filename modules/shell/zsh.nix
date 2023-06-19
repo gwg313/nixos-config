@@ -22,7 +22,7 @@
         # Hook direnv
         #emulate zsh -c "$(direnv hook zsh)"
         # Swag
-        ${pkgs.nitch}/bin/nitch
+        #${pkgs.nitch}/bin/nitch
 
         #eval "$(direnv hook zsh)"
 	eval "$(atuin init zsh)"
