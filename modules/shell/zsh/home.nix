@@ -51,6 +51,8 @@
       clock = "sudo ntpd -gq";
       octal = "stat -c '%a %n'";
 
+      v = "nix run ~/Projects/nvim-flake --";
+
     };
 
     zplug = {
