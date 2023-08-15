@@ -7,13 +7,32 @@
     [ (import ../modules/editors/nvim/home.nix) ] ++
     [ (import ../modules/programs/devenv/home.nix) ] ++
     [ (import ../modules/shell/tmux/home.nix) ] ++
+    [ (import ../modules/editors/lvim/home.nix) ] ++
     [ (import ../modules/shell/zsh/home.nix) ];
+
+
+  #Add support for ./local/bin
+  #home.sessionPath = [
+  #"$HOME/.local/bin"
+  #];
 
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      jetbrains.datagrip
+      kubernetes-helm
+      argocd
+      k3d
+
+      tor-browser-bundle-bin
+      nmap
+      dig
+      signal-desktop
+      minikube
+      kubectl
+      viddy
 
       # Terminal
       htop
