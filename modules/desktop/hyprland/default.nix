@@ -48,6 +48,7 @@ in
   programs = {
     hyprland = {
       enable = true;
+      package = hyprland.packages.${pkgs.system}.hyprland;
     };
   };
 
@@ -57,10 +58,4 @@ in
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  nixpkgs.overlays = [
-    # Waybar with experimental features
-    (final: prev: {
-      waybar = hyprland.packages.${system}.waybar-hyprland;
-    })
-  ];
 }
