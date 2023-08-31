@@ -25,6 +25,8 @@
       kubernetes-helm
       argocd
       k3d
+      element-desktop
+      nix-init
 
       tor-browser-bundle-bin
       nmap
