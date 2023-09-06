@@ -101,7 +101,7 @@
           #modules-center = [ "clock" ];
           modules-left = with config;
             if programs.hyprland.enable == true then
-              [ "custom/menu" "wlr/workspaces" ]
+              [ "custom/menu" "hyprland/workspaces" ]
             else if programs.sway.enable == true then
               [ "sway/workspaces" "sway/window" "sway/mode" ]
             else [ ];
@@ -160,6 +160,9 @@
             #all-outputs = true;
             active-only = false;
             on-click = "activate";
+          };
+          "hyprland/workspaces" = {
+            format = "<span font='11'>{name}</span>";
           };
           clock = {
             format = "{:%b %d %H:%M}  ";
