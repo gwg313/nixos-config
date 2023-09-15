@@ -20,9 +20,10 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user devenv; };
+        home-manager.extraSpecialArgs = { inherit user devenv inputs; };
         home-manager.users.${user} = {
           imports = [ (import ./home.nix) ] ++ [ (import ./thinkpad/home.nix) ];
+
         };
       }
     ];

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stable, user, devenv, ... }:
+{ config, lib, pkgs, stable, user, devenv, inputs, ... }:
 
 {
   imports = # Home Manager Modules
@@ -6,8 +6,12 @@
     [ (import ../modules/programs/wofi.nix) ] ++
     [ (import ../modules/editors/nvim/home.nix) ] ++
     [ (import ../modules/programs/devenv/home.nix) ] ++
+    [ (import ../modules/programs/kitty.nix) ] ++
     [ (import ../modules/shell/tmux/home.nix) ] ++
     [ (import ../modules/editors/lvim/home.nix) ] ++
+    [ (import ../modules/themes/home.nix) ] ++
+    [ (import ../modules/programs/mako.nix) ] ++
+    [ (import ../modules/programs/alacritty.nix) ] ++
     [ (import ../modules/shell/zsh/home.nix) ];
 
 
@@ -21,6 +25,7 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      libnotify
       jetbrains.datagrip
       kubernetes-helm
       argocd

@@ -19,10 +19,10 @@
       url = "github:cachix/devenv/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, devenv, ... }:
+  outputs = { self, nixpkgs, home-manager, hyprland, devenv, ... }@inputs:
 
     let
       system = "x86_64-linux";
@@ -40,6 +40,7 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
+          specialArgs = { inherit inputs; };
           inherit inputs user system home-manager hyprland devenv;
         }
       );

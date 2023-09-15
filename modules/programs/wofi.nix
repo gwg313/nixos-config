@@ -32,11 +32,11 @@ in
         hide_scroll=true
       '';
     };
-    ".config/wofi/style.css" = with colors.scheme.doom; {
+    ".config/wofi/style.css" = {
       text = ''
         window {
           margin: 0px;
-          background-color: #${bg};
+          background-color: #${config.colorScheme.colors.base00};
         }
 
         #input {
@@ -45,10 +45,10 @@ in
           padding: 4px 10px;
           margin: 4px;
           border: none;
-          color: #dfdfdf;
+          color: #${config.colorScheme.colors.base08};
           font-weight: bold;
-          background-color: #${bg};
-          outline: #dfdfdf;
+          background-color: #${config.colorScheme.colors.base00};
+          outline: #fff;
         }
 
         #inner-box {
@@ -61,20 +61,24 @@ in
           padding: 3px;
           border: none;
           border-radius: 10px;
-          border: 3px solid #${text};
+          border: 3px solid #${config.colorScheme.colors.base05};
         }
 
+         #text {
+            color: #${config.colorScheme.colors.base09};
+         }
+
         #text:selected {
-          color: #282c34;
+          color: #${config.colorScheme.colors.base08};
           background-color: transparent;
         }
 
         #entry:selected {
-          background-color: #${text};
+          background-color: #${config.colorScheme.colors.base05};
         }
       '';
     };
-    ".config/wofi/power.sh" = with colors.scheme.doom; {
+    ".config/wofi/power.sh" = {
       executable = true;
       text = ''
         #!/bin/sh

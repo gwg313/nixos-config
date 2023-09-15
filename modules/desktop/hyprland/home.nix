@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   hyprlandConf = ''
@@ -16,7 +16,7 @@ let
           border_size=3
           gaps_in=5
           gaps_out=7
-          col.active_border=rgba(33ccffee) rgba(00ff99ee) 45deg
+          col.active_border=rgba(${config.colorScheme.colors.base05}ee) rgba(${config.colorScheme.colors.base08}ee) 45deg
           col.inactive_border=0x66333333
           layout=dwindle
         }

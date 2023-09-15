@@ -1,4 +1,4 @@
-{ config, lib, pkgs, system, hyprland, ... }:
+{ config, lib, pkgs, system, inputs, ... }:
 let
   exec = "exec Hyprland";
 in
@@ -48,7 +48,7 @@ in
   programs = {
     hyprland = {
       enable = true;
-      package = hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
 

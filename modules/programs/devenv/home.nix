@@ -1,8 +1,8 @@
-{ config, lib, pkgs, user, devenv, ... }: {
+{ config, lib, pkgs, user, devenv, inputs, ... }: {
 
   home.packages = with pkgs; [
     cachix
-    devenv.packages.${system}.devenv
+    inputs.devenv.packages.${system}.devenv
   ];
 
   programs.direnv.enable = true;
