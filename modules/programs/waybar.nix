@@ -20,13 +20,13 @@
           font-family: FiraCode Nerd Font Mono;
           /*font-weight: bold;*/
           font-size: 12px;
-          text-shadow: 0px 0px 5px #000000;
+          text-shadow: 0px 0px 5px #${config.colorScheme.colors.base00};
         }
         button:hover {
           background-color: rgba(80,100,100,0.4);
         }
         window#waybar {
-          background-color: rgba(0,0,0,0.8);
+          background-color: #${config.colorScheme.colors.base00};
           transition-property: background-color;
           transition-duration: .5s;
           border-bottom: none;
@@ -50,7 +50,7 @@
         #battery,
         #custom-ds4,
         #tray {
-          color: #999999;
+          color: #${config.colorScheme.colors.base09};
           background-clip: padding-box;
         }
         #custom-menu {
@@ -60,18 +60,18 @@
         #workspaces button {
           padding: 0px 5px;
           min-width: 5px;
-          color: rgba(255,255,255,0.8);
+          color: #${config.colorScheme.colors.base09};
         }
         #workspaces button:hover {
-          background-color: rgba(0,0,0,0.2);
+          background-color: #${config.colorScheme.colors.base02};
         }
         /*#workspaces button.focused {*/
         #workspaces button.active {
-          color: rgba(255,255,255,0.8);
-          background-color: rgba(80,100,100,0.4);
+          color: #${config.colorScheme.colors.base0C};
+          background-color: #${config.colorScheme.colors.base02};
         }
         #workspaces button.visible {
-          color: #ccffff;
+          color: #${config.colorScheme.colors.base0E};
         }
         #workspaces button.hidden {
           color: #999999;

@@ -1,11 +1,11 @@
-{ lib, inputs, system, home-manager, user, hyprland, devenv, ... }:
+{ lib, inputs, system, home-manager, user, ... }:
 
 {
 
   thinkpad = lib.nixosSystem {
     inherit system;
     specialArgs = {
-      inherit user inputs hyprland system devenv;
+      inherit user inputs system;
       host = {
         hostName = "thinkpad";
         mainMonitor = "eDP-1";
@@ -15,12 +15,13 @@
     modules = [
       ./thinkpad
       ./configuration.nix
+      ../modules/themes/home.nix
 
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user devenv inputs; };
+        home-manager.extraSpecialArgs = { inherit user inputs; };
         home-manager.users.${user} = {
           imports = [ (import ./home.nix) ] ++ [ (import ./thinkpad/home.nix) ];
 

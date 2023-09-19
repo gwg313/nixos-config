@@ -31,6 +31,7 @@
     #logind.lidSwitch = "ignore";           # Laptop does not go to sleep when lid is closed
     auto-cpufreq.enable = true;
     blueman.enable = true;
+    tailscale.enable = true;
   };
 
   #temporary bluetooth fix
