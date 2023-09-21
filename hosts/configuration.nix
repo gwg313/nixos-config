@@ -72,6 +72,7 @@
       usbutils
       wget
       lsof
+      firefox
     ];
   };
 
@@ -85,8 +86,6 @@
   programs.hyprland.enable = true;
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
   services.pipewire = {
     # Sound
     enable = true;
@@ -107,11 +106,36 @@
 
   nix.settings.auto-optimise-store = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # enable firewall and block all ports
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
+
+  # only members of wheel can interact with the nix daemon
+  nix.settings.allowed-users = [ "@wheel" ];
+  security.sudo.execWheelOnly = true;
+
+  programs.firejail = {
+    enable = true;
+    wrappedBinaries = {
+      firefox = {
+        executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
+        profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
+        extraArgs = [
+          # Required for U2F USB stick
+          "--ignore=private-dev"
+          # Enable system notifications
+          "--dbus-user.talk=org.freedesktop.Notifications"
+        ];
+      };
+    };
+  };
+
+
+  # enable antivirus clamav and
+  # keep the signatures' database updated
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

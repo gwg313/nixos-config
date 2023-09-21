@@ -5,8 +5,12 @@
     [ (import ./hardware-configuration.nix) ] ++ # Current system hardware config @ /etc/nixos/hardware-configuration.nix
     (import ../../modules/desktop/virtualisation/default.nix) ++
     (import ../../modules/hardware/default.nix) ++
+    #    (import ./auditd.nix) ++
+    [ (import ./sysctl.nix) ] ++
+    [ (import ./kernel.nix) ] ++
+    [ (import ./auditd.nix) ] ++
+    [ (import ./openssh.nix) ] ++
     [ (import ../../modules/desktop/hyprland/default.nix) ]; # Window Manager
-
 
   hardware.sane = {
     # Used for scanning with Xsane
@@ -33,6 +37,8 @@
     blueman.enable = true;
     tailscale.enable = true;
   };
+
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   #temporary bluetooth fix
   systemd.tmpfiles.rules = [

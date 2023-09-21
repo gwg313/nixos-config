@@ -51,7 +51,7 @@
       clock = "sudo ntpd -gq";
       octal = "stat -c '%a %n'";
 
-      v = "nix run ~/Projects/nvim-flake --";
+      v = "nix run ~/Projects/nixvim --";
       lvim = "/home/glen/.local/bin/lvim";
 
     };
