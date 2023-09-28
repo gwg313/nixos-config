@@ -2,13 +2,19 @@
 
 let
   hyprlandConf = ''
-        monitor=,preferred,auto,auto
+        monitor=,preferred,auto,1
+        #monitor=,preferred,auto,auto
 
         # trigger when the switch is turning off
     #    bindl = , switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1"
         # trigger when the switch is turning on
     #    bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
          bindl=,switch:Lid Switch, exec, displayswitch
+
+      # use this instead of hidpi patches
+      xwayland {
+        force_zero_scaling = true
+      }
 
         $mainMod=SUPER
 
