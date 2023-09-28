@@ -50,7 +50,7 @@
         family = "MonoLisa";
         style = "Bold Italic";
       };
-      size = 12;
+      size = 18;
       #bold_italic = {};
     };
   };
