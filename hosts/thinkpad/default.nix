@@ -10,6 +10,7 @@
     [ (import ./kernel.nix) ] ++
     [ (import ./auditd.nix) ] ++
     [ (import ./openssh.nix) ] ++
+    [ (import ./apparmor.nix) ] ++
     [ (import ../../modules/desktop/hyprland/default.nix) ]; # Window Manager
 
   hardware.sane = {
