@@ -8,6 +8,7 @@
     [ (import ../modules/programs/devenv/home.nix) ] ++
     [ (import ../modules/programs/kitty.nix) ] ++
     [ (import ../modules/shell/tmux/home.nix) ] ++
+    [ (import ../modules/shell/ranger/home.nix) ] ++
     [ (import ../modules/editors/lvim/home.nix) ] ++
     [ (import ../modules/themes/home.nix) ] ++
     [ (import ../modules/programs/mako.nix) ] ++
@@ -25,8 +26,8 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      nix-prefetch-git
       libnotify
-      jetbrains.datagrip
       kubernetes-helm
       argocd
       k3d
@@ -55,7 +56,7 @@
       ncdu
       duf
       atuin
-      xplr
+      ranger
       thefuck
       hyperfine
       procs
@@ -89,7 +90,7 @@
 
       # Apps
       appimage-run # Runs AppImages on NixOS
-      #firefox # Browser
+      firefox # Browser
       google-chrome # Browser
       remmina # XRDP & VNC Client
       anki
