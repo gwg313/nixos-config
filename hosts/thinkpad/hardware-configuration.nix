@@ -20,6 +20,20 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home/glen/media" =
+    {
+      device = "192.168.10.2:/mnt/tank/media";
+      fsType = "nfs";
+      options = [ "x-systemd.automount" "noauto" "x-systemd.after=network-online.target" "x-systemd.mount-timeout=90" ];
+    };
+
+  fileSystems."/home/glen/books" =
+    {
+      device = "192.168.10.2:/mnt/tank/books";
+      fsType = "nfs";
+      options = [ "x-systemd.automount" "noauto" "x-systemd.after=network-online.target" "x-systemd.mount-timeout=90" ];
+    };
+
   boot.initrd.luks.devices."luks-9d4b251f-b7d5-4a28-8e5d-6df09b434e47".device = "/dev/disk/by-uuid/9d4b251f-b7d5-4a28-8e5d-6df09b434e47";
 
   fileSystems."/boot/efi" =
