@@ -12,11 +12,11 @@
       "..." = "cd ../../../";
       "...." = "cd ../../../../";
 
-      ls = "exa --icons";
-      l = "exa -al --icons";
-      la = "exa -a --color=always --group-directories-first --icons"; # all files and dirs
-      ll = "exa -l --color=always --group-directories-first --icons"; # long format
-      lt = "exa -aT --color=always --group-directories-first --icons"; # tree listing
+      ls = "eza --icons";
+      l = "eza -al --icons";
+      la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
+      ll = "eza -l --color=always --group-directories-first --icons"; # long format
+      lt = "eza -aT --color=always --group-directories-first --icons"; # tree listing
 
       cat = "bat";
       ps = "procs";

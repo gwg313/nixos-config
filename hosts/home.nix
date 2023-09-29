@@ -48,7 +48,7 @@
       tldr # Helper
       zellij # multiplexer
       dog # dns tool
-      exa # better ls
+      eza # better ls
       bat # better cap
       sd # simpler sed
       fd # simpler find
