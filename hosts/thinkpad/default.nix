@@ -29,6 +29,8 @@
     # No xbacklight, this is the alterantive
     dconf.enable = true;
     light.enable = true;
+    command-not-found.enable = false;
+    nix-index-database.comma.enable = true;
   };
 
   services = {

@@ -16,7 +16,7 @@
       ./thinkpad
       ./configuration.nix
       ../modules/themes/home.nix
-
+      inputs.nix-index-database.nixosModules.nix-index
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -28,7 +28,6 @@
         };
       }
     ];
-
   };
 
 

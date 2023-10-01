@@ -26,6 +26,7 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      devbox
       nix-prefetch-git
       libnotify
       kubernetes-helm
