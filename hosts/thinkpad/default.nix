@@ -11,6 +11,7 @@
     [ (import ./auditd.nix) ] ++
     [ (import ./openssh.nix) ] ++
     [ (import ./apparmor.nix) ] ++
+    [ (import ../../modules/programs/thunar.nix) ] ++
     [ (import ../../modules/desktop/hyprland/default.nix) ]; # Window Manager
 
   hardware.sane = {

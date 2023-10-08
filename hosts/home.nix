@@ -13,6 +13,7 @@
     [ (import ../modules/themes/home.nix) ] ++
     [ (import ../modules/programs/mako.nix) ] ++
     [ (import ../modules/programs/alacritty.nix) ] ++
+    [ (import ../modules/desktop/gtk.nix) ] ++
     [ (import ../modules/shell/zsh/home.nix) ];
 
 
@@ -101,7 +102,6 @@
       gnome.file-roller # Archive Manager
       okular # PDF Viewer
       #pcmanfm           # File Manager
-      xfce.thunar # File Manager
       p7zip # Zip Encryption
       rsync # Syncer - $ rsync -r dir1/ dir2/
       unzip # Zip Files

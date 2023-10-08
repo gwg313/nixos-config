@@ -20,12 +20,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    gtk-nix.url = "github:the-argus/gtk-nix";
 
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, devenv, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
 
     let
       system = "x86_64-linux";
@@ -44,7 +45,7 @@
         import ./hosts {
           inherit (nixpkgs) lib;
           specialArgs = { inherit inputs; };
-          inherit inputs user system home-manager hyprland devenv;
+          inherit inputs user system;
         }
       );
     };

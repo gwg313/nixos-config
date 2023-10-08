@@ -1,4 +1,4 @@
-{ lib, inputs, system, home-manager, user, ... }:
+{ lib, inputs, system, user, ... }:
 
 {
 
@@ -17,7 +17,7 @@
       ./configuration.nix
       ../modules/themes/home.nix
       inputs.nix-index-database.nixosModules.nix-index
-      home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
