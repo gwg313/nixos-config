@@ -13,6 +13,7 @@
     [ (import ../modules/themes/home.nix) ] ++
     [ (import ../modules/programs/mako.nix) ] ++
     [ (import ../modules/programs/alacritty.nix) ] ++
+    [ (import ../modules/programs/zathura.nix) ] ++
     [ (import ../modules/desktop/gtk.nix) ] ++
     [ (import ../modules/shell/zsh/home.nix) ];
 
