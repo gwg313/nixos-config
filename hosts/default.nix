@@ -17,6 +17,7 @@
       ./configuration.nix
       ../modules/themes/home.nix
       inputs.nix-index-database.nixosModules.nix-index
+      inputs.agenix.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

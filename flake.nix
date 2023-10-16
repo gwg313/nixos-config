@@ -24,6 +24,8 @@
 
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

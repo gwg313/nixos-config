@@ -29,7 +29,6 @@ let
 
         decoration {
           rounding=5
-          multisample_edges=true
           active_opacity=0.93
           inactive_opacity=0.93
           fullscreen_opacity=1

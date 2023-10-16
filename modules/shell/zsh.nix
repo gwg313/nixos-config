@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
+  age.secrets.env = {
+    file = ../../secrets/env.age;
+    owner = "glen";
+  };
+
   programs = {
     zsh = {
       enable = true;
@@ -25,9 +30,10 @@
         #${pkgs.nitch}/bin/nitch
 
         #eval "$(direnv hook zsh)"
-	eval "$(atuin init zsh)"
-	clear
-	pfetch
+        eval "$(atuin init zsh)"
+        clear
+        pfetch
+        source ${config.age.secrets.env.path}
       '';
     };
   };

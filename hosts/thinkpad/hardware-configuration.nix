@@ -20,16 +20,30 @@
       fsType = "ext4";
     };
 
-  fileSystems."/home/glen/media" =
+  fileSystems."/media" =
     {
       device = "192.168.10.2:/mnt/tank/media";
       fsType = "nfs";
       options = [ "x-systemd.automount" "noauto" "x-systemd.after=network-online.target" "x-systemd.mount-timeout=90" ];
     };
 
-  fileSystems."/home/glen/books" =
+  fileSystems."/books" =
     {
       device = "192.168.10.2:/mnt/tank/books";
+      fsType = "nfs";
+      options = [ "x-systemd.automount" "noauto" "x-systemd.after=network-online.target" "x-systemd.mount-timeout=90" ];
+    };
+
+  fileSystems."/music" =
+    {
+      device = "192.168.10.2:/mnt/tank/music";
+      fsType = "nfs";
+      options = [ "x-systemd.automount" "noauto" "x-systemd.after=network-online.target" "x-systemd.mount-timeout=90" ];
+    };
+
+  fileSystems."/projects" =
+    {
+      device = "192.168.10.2:/mnt/tank/projects";
       fsType = "nfs";
       options = [ "x-systemd.automount" "noauto" "x-systemd.after=network-online.target" "x-systemd.mount-timeout=90" ];
     };
