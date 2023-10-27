@@ -28,6 +28,7 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      kicad
       devbox
       nix-prefetch-git
       libnotify

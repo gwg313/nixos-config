@@ -14,6 +14,7 @@
       #      }
       resurrect
       continuum
+      vim-tmux-navigator
     ];
 
     extraConfig = ''
