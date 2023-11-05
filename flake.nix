@@ -26,6 +26,8 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     agenix.url = "github:ryantm/agenix";
+
+    neovim-config.url = "github:gwg313/nvim-nix";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -43,6 +45,9 @@
 
     in
     {
+      # Your custom packages and modifications, exported as overlays
+      overlays = import ./overlays { inherit inputs; };
+
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;

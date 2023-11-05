@@ -1,5 +1,0 @@
-reload "user.plugins"
-reload "user.surround"
-reload "user.dial"
-reload "user.oil"
-reload "user.keymaps"

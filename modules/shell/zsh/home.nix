@@ -3,6 +3,8 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
+
+      vim = "nvim";
       update = "sudo nixos-rebuild switch";
       clean = "nix-collect-garbage -d";
       reload = "source ~/.zshrc";
@@ -12,11 +14,11 @@
       "..." = "cd ../../../";
       "...." = "cd ../../../../";
 
-      ls = "eza --icons";
-      l = "eza -al --icons";
-      la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
-      ll = "eza -l --color=always --group-directories-first --icons"; # long format
-      lt = "eza -aT --color=always --group-directories-first --icons"; # tree listing
+      ls = "eza --icons=always";
+      l = "eza -al --icons=always";
+      la = "eza -a --color=always --group-directories-first --icons=always"; # all files and dirs
+      ll = "eza -l --color=always --group-directories-first --icons=always"; # long format
+      lt = "eza -aT --color=always --group-directories-first --icons=always"; # tree listing
 
       cat = "bat";
       ps = "procs";
@@ -50,9 +52,6 @@
       tra = "transmission-remote -a";
       clock = "sudo ntpd -gq";
       octal = "stat -c '%a %n'";
-
-      v = "nix run ~/Projects/nixvim --";
-      lvim = "/home/glen/.local/bin/lvim";
 
     };
 

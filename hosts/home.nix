@@ -4,12 +4,10 @@
   imports = # Home Manager Modules
     [ (import ../modules/shell/git/home.nix) ] ++
     [ (import ../modules/programs/wofi.nix) ] ++
-    [ (import ../modules/editors/nvim/home.nix) ] ++
     [ (import ../modules/programs/devenv/home.nix) ] ++
     [ (import ../modules/programs/kitty.nix) ] ++
     [ (import ../modules/shell/tmux/home.nix) ] ++
     [ (import ../modules/shell/ranger/home.nix) ] ++
-    [ (import ../modules/editors/lvim/home.nix) ] ++
     [ (import ../modules/themes/home.nix) ] ++
     [ (import ../modules/programs/mako.nix) ] ++
     [ (import ../modules/programs/alacritty.nix) ] ++
@@ -28,6 +26,7 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      inputs.neovim-config.packages.${system}.default
       kicad
       devbox
       nix-prefetch-git
