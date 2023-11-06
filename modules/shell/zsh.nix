@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   age.secrets.env = {
     file = ../../secrets/env.age;
     owner = "glen";
@@ -17,7 +19,7 @@
       ohMyZsh = {
         # Extra plugins for zsh
         enable = true;
-        plugins = [ "git" ];
+        plugins = ["git"];
       };
 
       shellInit = ''                            # Zsh theme

@@ -1,5 +1,10 @@
-{ config, lib, pkgs, user, ... }: {
-
+{
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}: {
   programs.git = {
     enable = true;
     userName = "Glen Goodwin";
@@ -13,10 +18,8 @@
 
   programs.zsh = {
     shellAliases = {
-
       trackme = "git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)";
       rebasemain = "git pull origin main --rebase";
-
     };
   };
 

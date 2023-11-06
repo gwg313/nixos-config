@@ -1,11 +1,8 @@
-{ pkgs, ... }:
-
-{
-  imports =
-    [
-      ../../modules/shell/git/home.nix
-      ../../modules/desktop/hyprland/home.nix
-    ];
+{pkgs, ...}: {
+  imports = [
+    ../../modules/shell/git/home.nix
+    ../../modules/desktop/hyprland/home.nix
+  ];
 
   home = {
     # Specific packages for laptop

@@ -1,23 +1,29 @@
-{ config, pkgs, user, ... }:
-
 {
-  imports = # For now, if applying to other system, swap files
-    [ (import ./hardware-configuration.nix) ] ++ # Current system hardware config @ /etc/nixos/hardware-configuration.nix
-    (import ../../modules/desktop/virtualisation/default.nix) ++
-    (import ../../modules/hardware/default.nix) ++
+  config,
+  pkgs,
+  user,
+  ...
+}: {
+  imports =
+    # For now, if applying to other system, swap files
+    [(import ./hardware-configuration.nix)]
+    ++ # Current system hardware config @ /etc/nixos/hardware-configuration.nix
+    (import ../../modules/desktop/virtualisation/default.nix)
+    ++ (import ../../modules/hardware/default.nix)
+    ++
     #    (import ./auditd.nix) ++
-    [ (import ./sysctl.nix) ] ++
-    [ (import ./kernel.nix) ] ++
-    [ (import ./auditd.nix) ] ++
-    [ (import ./openssh.nix) ] ++
-    [ (import ./apparmor.nix) ] ++
-    [ (import ../../modules/programs/thunar.nix) ] ++
-    [ (import ../../modules/desktop/hyprland/default.nix) ]; # Window Manager
+    [(import ./sysctl.nix)]
+    ++ [(import ./kernel.nix)]
+    ++ [(import ./auditd.nix)]
+    ++ [(import ./openssh.nix)]
+    ++ [(import ./apparmor.nix)]
+    ++ [(import ../../modules/programs/thunar.nix)]
+    ++ [(import ../../modules/desktop/hyprland/default.nix)]; # Window Manager
 
   hardware.sane = {
     # Used for scanning with Xsane
     enable = true;
-    extraBackends = [ pkgs.sane-airscan ];
+    extraBackends = [pkgs.sane-airscan];
   };
 
   environment = {
@@ -42,11 +48,11 @@
     tailscale.enable = true;
   };
 
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.trustedInterfaces = ["tailscale0"];
 
   #temporary bluetooth fix
   systemd.tmpfiles.rules = [
     "d /var/lib/bluetooth 700 root root - -"
   ];
-  systemd.targets."bluetooth".after = [ "systemd-tmpfiles-setup.service" ];
+  systemd.targets."bluetooth".after = ["systemd-tmpfiles-setup.service"];
 }

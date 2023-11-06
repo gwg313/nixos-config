@@ -1,6 +1,11 @@
-{ config, lib, pkgs, host, user, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  host,
+  user,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     waybar
   ];
@@ -97,20 +102,19 @@
           #          output = [
           #            "${mainMonitor}"
           #          ];
-          tray = { spacing = 5; };
+          tray = {spacing = 5;};
           #modules-center = [ "clock" ];
           modules-left = with config;
-            if programs.hyprland.enable == true then
-              [ "custom/menu" "hyprland/workspaces" ]
-            else if programs.sway.enable == true then
-              [ "sway/workspaces" "sway/window" "sway/mode" ]
-            else [ ];
+            if programs.hyprland.enable == true
+            then ["custom/menu" "hyprland/workspaces"]
+            else if programs.sway.enable == true
+            then ["sway/workspaces" "sway/window" "sway/mode"]
+            else [];
 
           modules-right =
-            if hostName == "desktop" then
-              [ "custom/ds4" "custom/pad" "network" "cpu" "memory" "custom/pad" "pulseaudio" "custom/sink" "custom/pad" "clock" "tray" ]
-            else
-              [ "cpu" "memory" "custom/pad" "battery" "custom/pad" "backlight" "custom/pad" "pulseaudio" "custom/pad" "clock" "tray" ];
+            if hostName == "desktop"
+            then ["custom/ds4" "custom/pad" "network" "cpu" "memory" "custom/pad" "pulseaudio" "custom/sink" "custom/pad" "clock" "tray"]
+            else ["cpu" "memory" "custom/pad" "battery" "custom/pad" "backlight" "custom/pad" "pulseaudio" "custom/pad" "clock" "tray"];
 
           "custom/pad" = {
             format = "      ";
@@ -135,11 +139,11 @@
             };
             all-outputs = true;
             persistent_workspaces = {
-              "1" = [ ];
-              "2" = [ ];
-              "3" = [ ];
-              "4" = [ ];
-              "5" = [ ];
+              "1" = [];
+              "2" = [];
+              "3" = [];
+              "4" = [];
+              "5" = [];
             };
           };
           "wlr/workspaces" = {
@@ -185,7 +189,7 @@
           backlight = {
             device = "intel_backlight";
             format = "{percent}% <span font='11'>{icon}</span>";
-            format-icons = [ "" "" ];
+            format-icons = ["" ""];
             on-scroll-down = "${pkgs.light}/bin/light -U 5";
             on-scroll-up = "${pkgs.light}/bin/light -A 5";
           };
@@ -197,7 +201,7 @@
             };
             format = "{capacity}% <span font='11'>{icon}</span>";
             format-charging = "{capacity}% <span font='11'></span>";
-            format-icons = [ "" "" "" "" "" ];
+            format-icons = ["" "" "" "" ""];
             max-length = 25;
           };
           network = {
@@ -219,7 +223,7 @@
             format-source = "<span font='10'></span> ";
             format-source-muted = "<span font='11'> </span> ";
             format-icons = {
-              default = [ "" "" "" ];
+              default = ["" "" ""];
               headphone = "";
               #hands-free = "";
               #headset = "";
@@ -249,24 +253,26 @@
           };
         };
         Sec =
-          if hostName == "desktop" || hostName == "work" then {
+          if hostName == "desktop" || hostName == "work"
+          then {
             layer = "top";
             position = "top";
             height = 16;
             output =
-              if hostName == "desktop" then [
+              if hostName == "desktop"
+              then [
                 "${secondMonitor}"
-              ] else [
+              ]
+              else [
                 "${secondMonitor}"
                 "${thirdMonitor}"
               ];
-            modules-left = [ "custom/menu" "wlr/workspaces" ];
+            modules-left = ["custom/menu" "wlr/workspaces"];
 
             modules-right =
-              if hostName == "desktop" then
-                [ "custom/ds4" "custom/pad" "pulseaudio" "custom/sink" "custom/pad" "clock" ]
-              else
-                [ "cpu" "memory" "custom/pad" "battery" "custom/pad" "backlight" "custom/pad" "pulseaudio" "custom/pad" "clock" ];
+              if hostName == "desktop"
+              then ["custom/ds4" "custom/pad" "pulseaudio" "custom/sink" "custom/pad" "clock"]
+              else ["cpu" "memory" "custom/pad" "battery" "custom/pad" "backlight" "custom/pad" "pulseaudio" "custom/pad" "clock"];
 
             "custom/pad" = {
               format = "      ";
@@ -321,7 +327,7 @@
             backlight = {
               device = "intel_backlight";
               format = "{percent}% <span font='11'>{icon}</span>";
-              format-icons = [ "" "" ];
+              format-icons = ["" ""];
               on-scroll-down = "${pkgs.light}/bin/light -U 5";
               on-scroll-up = "${pkgs.light}/bin/light -A 5";
             };
@@ -333,7 +339,7 @@
               };
               format = "{capacity}% <span font='11'>{icon}</span>";
               format-charging = "{capacity}% <span font='11'></span>";
-              format-icons = [ "" "" "" "" "" ];
+              format-icons = ["" "" "" "" ""];
               max-length = 25;
             };
             pulseaudio = {
@@ -345,7 +351,7 @@
               format-source = "<span font='10'></span> ";
               format-source-muted = "<span font='11'></span> ";
               format-icons = {
-                default = [ "" "" "" ];
+                default = ["" "" ""];
                 headphone = "";
                 #hands-free = "";
                 #headset = "";
@@ -371,7 +377,8 @@
               exec = "$HOME/.config/waybar/script/ds4.sh";
               interval = 60;
             };
-          } else { };
+          }
+          else {};
       };
     };
     home.file = {

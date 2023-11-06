@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   hyprlandConf = ''
         monitor=,preferred,auto,1
         #monitor=,preferred,auto,auto
@@ -153,8 +155,7 @@ let
         exec-once=${pkgs.blueman}/bin/blueman-applet
         exec-once=${pkgs.swaybg}/bin/swaybg -m fill -i $HOME/.config/wall
   '';
-in
-{
+in {
   xdg.configFile."hypr/hyprland.conf".text = hyprlandConf;
 
   programs.swaylock.settings = {
@@ -186,11 +187,20 @@ in
   services.swayidle = {
     enable = true;
     events = [
-      { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -f"; }
-      { event = "lock"; command = "lock"; }
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
+      {
+        event = "lock";
+        command = "lock";
+      }
     ];
     timeouts = [
-      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -f"; }
+      {
+        timeout = 300;
+        command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
     ];
     systemdTarget = "xdg-desktop-portal-hyprland.service";
   };
@@ -198,7 +208,7 @@ in
   home.packages = [
     (pkgs.writeShellApplication {
       name = "displayswitch";
-      runtimeInputs = [ ];
+      runtimeInputs = [];
       text = builtins.readFile ./displayswitch.sh;
     })
   ];

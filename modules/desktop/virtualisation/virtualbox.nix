@@ -1,11 +1,12 @@
-{ config, pkgs, user, ... }:
-
 {
-
+  config,
+  pkgs,
+  user,
+  ...
+}: {
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "${user}" ];
+  users.extraGroups.vboxusers.members = ["${user}"];
   virtualisation.virtualbox.host.enableExtensionPack = true;
-
 
   #environment = {
   #  interactiveShellInit = ''
@@ -17,4 +18,3 @@
     vagrant
   ];
 }
-

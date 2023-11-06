@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   boot.kernel.sysctl = {
     # Restrict kernel pointers
     "kernel.kptr_restrict" = 2;

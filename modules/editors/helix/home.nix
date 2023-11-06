@@ -1,12 +1,9 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs = {
-    helix = { enable = true; };
-
+    helix = {enable = true;};
   };
 
-  xdg.configFile = { "helix/config.toml".source = ./config.toml; };
+  xdg.configFile = {"helix/config.toml".source = ./config.toml;};
 
   home.packages = with pkgs; [
     pyright
@@ -21,5 +18,4 @@
     nodePackages_latest.typescript-language-server
     python311Packages.python-lsp-server
   ];
-
 }

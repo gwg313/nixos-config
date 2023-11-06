@@ -1,9 +1,13 @@
-{ config, lib, pkgs, user, ... }: {
-
+{
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     shellAliases = {
-
       vim = "nvim";
       update = "sudo nixos-rebuild switch";
       clean = "nix-collect-garbage -d";
@@ -52,16 +56,15 @@
       tra = "transmission-remote -a";
       clock = "sudo ntpd -gq";
       octal = "stat -c '%a %n'";
-
     };
 
     zplug = {
       enable = true;
       plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
-        { name = "MichaelAquilina/zsh-you-should-use"; }
+        {name = "zsh-users/zsh-autosuggestions";}
+        {name = "zsh-users/zsh-completions";}
+        {name = "zsh-users/zsh-syntax-highlighting";}
+        {name = "MichaelAquilina/zsh-you-should-use";}
       ];
     };
 
@@ -76,5 +79,4 @@
        eval $(thefuck --alias)
     '';
   };
-
 }

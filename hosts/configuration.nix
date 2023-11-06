@@ -1,12 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports = (import ../modules/editors) ++
-    (import ../modules/shell);
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports =
+    (import ../modules/editors)
+    ++ (import ../modules/shell);
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -41,9 +44,9 @@
   users.users.glen = {
     isNormalUser = true;
     description = "Glen";
-    extraGroups = [ "networkmanager" "wheel" "video" "docker" "audio" ];
+    extraGroups = ["networkmanager" "wheel" "video" "docker" "audio"];
     shell = pkgs.zsh; # Default shell
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -110,14 +113,12 @@
 
   # enable firewall and block all ports
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ ];
-  networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
 
   # only members of wheel can interact with the nix daemon
-  nix.settings.allowed-users = [ "@wheel" ];
+  nix.settings.allowed-users = ["@wheel"];
   security.sudo.execWheelOnly = true;
-
-
 
   # enable antivirus clamav and
   # keep the signatures' database updated
@@ -136,5 +137,4 @@
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
-
 }

@@ -23,7 +23,7 @@ if [ "$DIR" = "--start" ]; then
   session_name="${path_name//./_}"
 else
   # Ask the user which directory to start in
-  _session_name=$(cd "$DIR" && find -L . -maxdepth 1 -type d -printf "%f\n" | sed "s|/||g" | fzf --reverse --header="Select project from $(basename "$DIR") >")
+  _session_name=$(cd "$DIR" && find -L . -maxdepth 1 -type d -printf "%f\n" | sed "s|/||g" | fzf --reverse --header="Select project from $(basename "$DIR") ")
   session_name="${_session_name//./_}"
   path_name="$DIR/$_session_name"
 fi

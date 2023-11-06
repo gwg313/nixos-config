@@ -28,33 +28,53 @@
     agenix.url = "github:ryantm/agenix";
 
     neovim-config.url = "github:gwg313/nvim-nix";
+
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    user = "glen";
 
-    let
-      system = "x86_64-linux";
-      user = "glen";
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      lib = nixpkgs.lib;
-
-    in
-    {
-      # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
-
-      nixosConfigurations = (
-        import ./hosts {
-          inherit (nixpkgs) lib;
-          specialArgs = { inherit inputs; };
-          inherit inputs user system;
-        }
-      );
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
     };
 
+    lib = nixpkgs.lib;
+  in {
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
+
+    nixosConfigurations = (
+      import ./hosts {
+        inherit (nixpkgs) lib;
+        specialArgs = {inherit inputs;};
+        inherit inputs user system;
+      }
+    );
+
+    devShells.${system} = {
+      default = pkgs.mkShell {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        buildInputs = with pkgs; [
+          alejandra
+        ];
+      };
+    };
+
+    checks.${system} = {
+      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+        };
+      };
+    };
+  };
 }

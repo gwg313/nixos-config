@@ -1,9 +1,11 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
-    env = { TERM = "xterm-256color"; };
+    env = {TERM = "xterm-256color";};
     colors = with config.colorScheme.colors; {
       bright = {
         black = "0x${base03}";

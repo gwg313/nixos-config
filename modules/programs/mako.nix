@@ -1,7 +1,8 @@
-{ pkgs, config, ... }:
-
 {
-
+  pkgs,
+  config,
+  ...
+}: {
   services.mako = with config.colorScheme.colors; {
     enable = true;
     backgroundColor = "#${base01}";
@@ -11,5 +12,4 @@
     textColor = "#${base04}";
     layer = "overlay";
   };
-
 }

@@ -1,9 +1,14 @@
-{ config, lib, pkgs, system, inputs, ... }:
-let
-  exec = "exec Hyprland";
-in
 {
-  imports = [ ../../programs/waybar.nix ];
+  config,
+  lib,
+  pkgs,
+  system,
+  inputs,
+  ...
+}: let
+  exec = "exec Hyprland";
+in {
+  imports = [../../programs/waybar.nix];
 
   environment = {
     loginShellInit = ''
@@ -55,7 +60,6 @@ in
   xdg.portal = {
     # Required for flatpak with window managers and for file browsing
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
-
 }

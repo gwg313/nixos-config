@@ -1,7 +1,10 @@
-{ lib, inputs, system, user, ... }:
-
 {
-
+  lib,
+  inputs,
+  system,
+  user,
+  ...
+}: {
   thinkpad = lib.nixosSystem {
     inherit system;
     specialArgs = {
@@ -22,18 +25,11 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user inputs; };
+        home-manager.extraSpecialArgs = {inherit user inputs;};
         home-manager.users.${user} = {
-          imports = [ (import ./home.nix) ] ++ [ (import ./thinkpad/home.nix) ];
-
+          imports = [(import ./home.nix)] ++ [(import ./thinkpad/home.nix)];
         };
       }
     ];
   };
-
-
-
-
-
-
 }

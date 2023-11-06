@@ -1,20 +1,27 @@
-{ config, lib, pkgs, stable, user, devenv, inputs, ... }:
-
 {
-  imports = # Home Manager Modules
-    [ (import ../modules/shell/git/home.nix) ] ++
-    [ (import ../modules/programs/wofi.nix) ] ++
-    [ (import ../modules/programs/devenv/home.nix) ] ++
-    [ (import ../modules/programs/kitty.nix) ] ++
-    [ (import ../modules/shell/tmux/home.nix) ] ++
-    [ (import ../modules/shell/ranger/home.nix) ] ++
-    [ (import ../modules/themes/home.nix) ] ++
-    [ (import ../modules/programs/mako.nix) ] ++
-    [ (import ../modules/programs/alacritty.nix) ] ++
-    [ (import ../modules/programs/zathura.nix) ] ++
-    [ (import ../modules/desktop/gtk.nix) ] ++
-    [ (import ../modules/shell/zsh/home.nix) ];
-
+  config,
+  lib,
+  pkgs,
+  stable,
+  user,
+  devenv,
+  inputs,
+  ...
+}: {
+  imports =
+    # Home Manager Modules
+    [(import ../modules/shell/git/home.nix)]
+    ++ [(import ../modules/programs/wofi.nix)]
+    ++ [(import ../modules/programs/devenv/home.nix)]
+    ++ [(import ../modules/programs/kitty.nix)]
+    ++ [(import ../modules/shell/tmux/home.nix)]
+    ++ [(import ../modules/shell/ranger/home.nix)]
+    ++ [(import ../modules/themes/home.nix)]
+    ++ [(import ../modules/programs/mako.nix)]
+    ++ [(import ../modules/programs/alacritty.nix)]
+    ++ [(import ../modules/programs/zathura.nix)]
+    ++ [(import ../modules/desktop/gtk.nix)]
+    ++ [(import ../modules/shell/zsh/home.nix)];
 
   #Add support for ./local/bin
   #home.sessionPath = [
@@ -80,8 +87,6 @@
       bandwhich
       navi
       git-crypt
-
-
 
       # Video/Audio
       feh # Image Viewer
@@ -179,7 +184,7 @@
       #steam            # Games
       #simple-scan      # Scanning
       #sshpass          # Ansible dependency
-      # 
+      #
       # Laptop
       #cbatticon        # Battery Notifications
       #blueman          # Bluetooth

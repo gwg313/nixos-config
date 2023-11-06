@@ -1,7 +1,6 @@
 #
 # System themes
 #
-
 {
   scheme = {
     doom = {
@@ -46,4 +45,3 @@
     };
   };
 }
-

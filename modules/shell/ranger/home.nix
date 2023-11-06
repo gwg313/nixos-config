@@ -1,5 +1,10 @@
-{ config, lib, pkgs, user, ... }: {
-
+{
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}: {
   home.file."ranger_devicons" = {
     source = pkgs.fetchgit {
       url = "https://github.com/alexanderjeurissen/ranger_devicons.git";

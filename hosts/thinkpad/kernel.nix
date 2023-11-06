@@ -1,6 +1,9 @@
-{ config, pkgs, stdenv, ... }:
-
 {
+  config,
+  pkgs,
+  stdenv,
+  ...
+}: {
   boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.kernelParams = [
     # Disable slab merging to prevent heap exploitation
@@ -20,5 +23,4 @@
     # Enable lockdown LSM
     "lockdown=confidentiality"
   ];
-
 }
