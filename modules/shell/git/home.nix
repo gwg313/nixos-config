@@ -13,6 +13,36 @@
       merge = {
         ff = "only";
       };
+      diff = {
+        algorithm = "patience";
+        compactionHeuristic = "true";
+        tool = "nvimdiff";
+      };
+      "difftool \"nvimdiff\"" = {
+        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"";
+      };
+      merge = {
+        tool = "nvimdiff4";
+        prompt = "false";
+      };
+      "mergetool \"nvimdiff4\"" = {
+        cmd = "nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      core = {
+        pager = "delta";
+        editor = "nvim";
+      };
+      delta = {
+        features = "side-by-side line-numbers decorations";
+        navigate = "true";
+        whitespace-error-style = "22 reverse";
+      };
+      interactive = {
+        diffFilter = "delta --color-only";
+      };
     };
   };
 
@@ -25,6 +55,7 @@
 
   home.packages = with pkgs; [
     cocogitto
+    delta
     lazygit
     gh
     pre-commit
