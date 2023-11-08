@@ -34,6 +34,8 @@
 
     packages = with pkgs; [
       inputs.neovim-config.packages.${system}.default
+      starship
+      pass
       kicad
       devbox
       nix-prefetch-git
