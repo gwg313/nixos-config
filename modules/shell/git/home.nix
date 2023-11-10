@@ -10,9 +10,6 @@
     userName = "Glen Goodwin";
     userEmail = "glen.goodwin1992@gmail.com";
     extraConfig = {
-      merge = {
-        ff = "only";
-      };
       diff = {
         algorithm = "patience";
         compactionHeuristic = "true";
