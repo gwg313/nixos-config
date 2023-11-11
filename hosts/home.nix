@@ -40,9 +40,6 @@
       devbox
       nix-prefetch-git
       libnotify
-      kubernetes-helm
-      argocd
-      k3d
       element-desktop
       nix-init
 
@@ -50,8 +47,6 @@
       nmap
       dig
       signal-desktop
-      minikube
-      kubectl
       viddy
 
       # Terminal

@@ -1,5 +1,5 @@
 [
   ./docker.nix
-  #  ./virtualbox.nix
   ./libvirt.nix
+  ./kubernetes.nix
 ]

@@ -4,9 +4,11 @@
   user,
   ...
 }: {
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = ["${user}"];
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation = {
+    docker.enable = true;
+  };
+
+  users.groups.docker.members = ["${user}"];
 
   #environment = {
   #  interactiveShellInit = ''
@@ -15,6 +17,14 @@
   #};
 
   environment.systemPackages = with pkgs; [
-    vagrant
+    argocd
+    k3d
+    k9s
+    kind
+    kubectl
+    kubectx
+    kubernetes-helm
+    minikube
+    stern
   ];
 }
