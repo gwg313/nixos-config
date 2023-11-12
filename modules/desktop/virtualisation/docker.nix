@@ -19,6 +19,7 @@
   environment.systemPackages = with pkgs; [
     docker-compose
     distrobox
-    kind
+    dive # A tool for exploring a docker image, layer contents.
+    grype # A vulnerability scanner for container images and filesystems.
   ];
 }
