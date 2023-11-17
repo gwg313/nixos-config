@@ -41,6 +41,13 @@
         diffFilter = "delta --color-only";
       };
     };
+    ignores = [
+      "__pycache__"
+      ".direnv"
+      # Node
+      "npm-debug.log"
+      "*.swp"
+    ];
   };
 
   programs.zsh = {
