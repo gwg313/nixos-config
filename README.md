@@ -31,11 +31,16 @@ Before using this NixOS flake configuration, you should have the following prere
 
 ## Usage
 
-This section should provide guidance on using and managing your NixOS configuration.
+NixOS and home-manager are called seperately,
 
-To rebuild and switch to the new configuration:
+To rebuild and switch to the new NixOS configuration:
 
 ```bash
-nixos-rebuild switch --flake .#thinkpad
+nixos-rebuild switch --flake .#candlekeep
 ```
 
+To rebuild and switch to the new home-manager configuration:
+
+```bash
+home-manager switch --flake .#gwg313@candlekeep
+```
