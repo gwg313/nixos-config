@@ -11,10 +11,10 @@
 
   home.packages = with pkgs; [
     # fonts
-    rPackages.fontawesome
     nerdfonts
-    ubuntu_font_family
     noto-fonts-cjk-sans
+    rPackages.fontawesome
+    ubuntu_font_family
     yt-dlp
   ];
 }

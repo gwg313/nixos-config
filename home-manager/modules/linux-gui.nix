@@ -13,12 +13,12 @@
     betterdiscordctl # A utility for managing BetterDiscord, enhancing features and customization in the Discord desktop client.
     gimp # GNU Image Manipulation Program, a powerful and open-source raster graphics editor for tasks like photo editing and graphic design.
     gparted # Gnome Partition Editor, a graphical partition manager for creating, resizing, and managing disk partitions.
+    kicad # An open-source electronic design automation (EDA) suite for creating schematics, PCB layouts, and 3D models.
     kodi # An open-source media center, providing a versatile platform for streaming and organizing media content.
     pavucontrol # PulseAudio Volume Control, a feature-rich GUI for controlling and configuring the PulseAudio sound system.
     schildichat-desktop-wayland # A desktop client for SchildiChat, designed to work with the Wayland display server.
     sublime-music # A modern and feature-rich music player with a clean user interface and advanced playback options.
     thunderbird # Mozilla Thunderbird, a powerful and customizable email client with integrated calendaring and chat features.
-    kicad # An open-source electronic design automation (EDA) suite for creating schematics, PCB layouts, and 3D models.
     wireshark # Open-source network protocol analyzer for real-time packet inspection and analysis.
   ];
 }
