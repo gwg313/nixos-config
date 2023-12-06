@@ -16,6 +16,9 @@
     distrobox # Lightweight utility for running Linux distributions in containers.
     dive # A tool for exploring a Docker image, allowing inspection of layer contents.
     grype # A vulnerability scanner for container images and filesystems.
+    hadolint # Dockerfile linter to analyze and enforce best practices in containerization.
     podman-compose # Podman plugin for managing multi-container applications.
+    podman-tui # Text-based user interface (TUI) for Podman, facilitating container management.
+    syft # Open-source tool for scanning and analyzing container images for software composition and vulnerabilities.
   ];
 }
