@@ -120,9 +120,10 @@
       ",XF86AudioMute, exec, ${pkgs.ponymix}/bin/ponymix, toggle"
 
       # Screen Brightness
-      ",XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -A 10"
-      ",XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -U 10"
-
+      #",XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -A 10"
+      #",XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -U 10"
+      ",XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -S \"$(${pkgs.light}/bin/light -G | ${pkgs.busybox}/bin/awk '{ print int(($1 + .72) * 1.4) }')\""
+      ",XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -S \"$(${pkgs.light}/bin/light -G | ${pkgs.busybox}/bin/awk '{ print int($1 / 1.4) }')\""
       # move focus
       "$mod, left, movefocus, l"
       "$mod, right, movefocus, r"

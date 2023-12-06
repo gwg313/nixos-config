@@ -14,6 +14,7 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
     ../../common/nixos/common.nix
+    ../../common/nixos/laptop.nix
     ../../common/networking/zerotier.nix
     ../../common/nixos/bluetooth.nix
     ../../common/gui/hyprland.nix
