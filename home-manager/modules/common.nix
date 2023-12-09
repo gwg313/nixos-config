@@ -13,6 +13,7 @@
     ./bat.nix
     ./broot.nix
     ./eza.nix
+    ./zoxide.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -26,6 +27,7 @@
       bottom # Similar to 'htop,' providing a top-like interface with additional features.
       colordiff # Tool to colorize 'diff' output, making differences between files easier to spot.
       du-dust # Modern replacement for 'du,' offering intuitive and visually appealing disk usage analysis.
+      duf # Disk Usage/Free utility with a user-friendly interface for visualizing disk space consumption and information.
       eza # Modern replacement for 'ls' with additional features and a user-friendly interface.
       fd # Faster and user-friendly alternative to 'find' for searching and locating files.
       fzf # Fuzzy finder for rapid file and directory searches.
@@ -35,7 +37,6 @@
       tealdeer # Command-line utility providing simplified and community-driven man pages.
       thefuck # Handy tool that corrects mistyped console commands.
       viddy # A modern watch command. Time machine and pager etc.
-      zoxide # Faster alternative to 'cd' for quick and efficient navigation.
 
       # Multiplexers
       tmate # Terminal multiplexer allowing multiple users to access a single session.
@@ -44,6 +45,7 @@
       hyperfine # Command-line benchmarking tool.
       mkvtoolnix # Set of tools to create, alter, and inspect Matroska files (MKV).
       p7zip # Command-line tool for handling 7z compressed files.
+      scc # Source code counter for various programming languages, providing code statistics and complexity analysis.
       tree # Displays directory structure in a tree-like format.
       unzip # Command-line tool for extracting files from ZIP archives.
       yt-dlp # Fork of youtube-dl, facilitating video downloads from various sites.
