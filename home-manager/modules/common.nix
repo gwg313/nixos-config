@@ -69,6 +69,7 @@
       # Useful Utils
       git-cliff # Tool for visualizing project commit history and generating release notes.
       grex # Tool generating regular expressions from user-provided test cases.
+      entr
 
       # Nix Tools
       alejandra # Nix code formatter.
