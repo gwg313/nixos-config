@@ -55,7 +55,7 @@
       bind-key g display-popup -h 95% -w 95% -E 'lazygit'
       bind-key t display-popup -h 95% -w 95% -E "${pkgs.htop}/bin/htop"
 
-      bind C-g display-popup -E "tat ~/gallery"
+      bind C-g display-popup -E "tat ~/Projects"
 
       bind -n M-g display-popup -E "tmux new-session -A -s scratch"
 
