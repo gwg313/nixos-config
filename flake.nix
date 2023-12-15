@@ -36,6 +36,8 @@
     };
 
     neovim-config.url = "github:gwg313/nvim-nix";
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {
