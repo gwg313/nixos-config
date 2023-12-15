@@ -34,6 +34,7 @@
       htop # Modern and interactive process viewer, an improved alternative to 'top.'
       moar # A syntax highlighting pager
       ripgrep # Faster alternative to 'grep,' recursively searching directories for a regex pattern.
+      rm-improved # Enhanced file and directory removal tool with interactive prompts, advanced options, and improved user feedback.
       tealdeer # Command-line utility providing simplified and community-driven man pages.
       thefuck # Handy tool that corrects mistyped console commands.
       viddy # A modern watch command. Time machine and pager etc.
