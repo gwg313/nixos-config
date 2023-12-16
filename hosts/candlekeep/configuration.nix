@@ -41,6 +41,9 @@
     ./hardware-configuration.nix
   ];
 
+  sops.defaultSopsFile = ../../secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
   nixpkgs = {
     # You can add overlays here
     overlays = [

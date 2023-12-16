@@ -36,6 +36,8 @@
     };
 
     neovim-config.url = "github:gwg313/nvim-nix";
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {
@@ -82,6 +84,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./hosts/candlekeep/configuration.nix
+          inputs.sops-nix.nixosModules.sops
         ];
       };
     };
