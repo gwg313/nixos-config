@@ -46,6 +46,8 @@
       hyperfine # Command-line benchmarking tool.
       mkvtoolnix # Set of tools to create, alter, and inspect Matroska files (MKV).
       p7zip # Command-line tool for handling 7z compressed files.
+      rclone # Command-line program to manage files on cloud storage with support for a wide range of providers and advanced synchronization features.
+      restic # Secure and efficient backup tool with deduplication, encryption, and flexible storage options.
       scc # Source code counter for various programming languages, providing code statistics and complexity analysis.
       tree # Displays directory structure in a tree-like format.
       unzip # Command-line tool for extracting files from ZIP archives.
