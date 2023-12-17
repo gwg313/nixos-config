@@ -39,14 +39,12 @@
 
       # Misc alieses I use often
 
-      ports = "netstat -tulanp";
+      ports = "ss -tulanp";
       rmd = "rm -rf";
       mine = "sudo chown -R $(whoami):users";
       benchmark = "hyperfine --warmup 3 ";
       c = "clear";
       listen = "lsof -P -i -n";
-      tra = "transmission-remote -a";
-      clock = "sudo ntpd -gq";
       octal = "stat -c '%a %n'";
     };
 
