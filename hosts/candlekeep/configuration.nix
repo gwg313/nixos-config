@@ -15,8 +15,9 @@
     # outputs.nixosModules.example
     ../../common/nixos/common.nix
     ../../common/nixos/laptop.nix
-    ../../common/networking/zerotier.nix
+    #../../common/networking/zerotier.nix
     ../../common/nixos/bluetooth.nix
+    ../../common/nixos/restic.nix
     ../../common/gui/hyprland.nix
     ../../common/gui/thunar.nix
     ../../common/style/stylix.nix
@@ -40,6 +41,12 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.initrd.luks.devices."luks-b13379b3-2025-4d55-a40a-c0f3ad8ec801".device = "/dev/disk/by-uuid/b13379b3-2025-4d55-a40a-c0f3ad8ec801";
 
   sops.defaultSopsFile = ../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
@@ -86,8 +93,6 @@
 
   networking.hostName = "candlekeep";
   networking.networkmanager.enable = true;
-
-  boot.loader.systemd-boot.enable = true;
 
   users.users = {
     gwg313 = {
