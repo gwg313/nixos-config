@@ -5,15 +5,16 @@
   ...
 }: {
   imports = [
-    ./git.nix
-    ./tmux/tmux.nix
-    ./zsh.nix
-    ./starship.nix
     ./atuin.nix
     ./bat.nix
     ./broot.nix
     ./eza.nix
+    ./git.nix
+    ./pass.nix
+    ./starship.nix
+    ./tmux/tmux.nix
     ./zoxide.nix
+    ./zsh.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -72,9 +73,10 @@
       pandoc # Document converter transforming files between markup formats.
 
       # Useful Utils
+      buku # Powerful command-line bookmark manager, providing a flexible and efficient way to organize, search, and access your bookmarks securely.
+      entr # Event notifier for automation and development, executing commands whenever files change in the specified directory.
       git-cliff # Tool for visualizing project commit history and generating release notes.
       grex # Tool generating regular expressions from user-provided test cases.
-      entr
 
       # Nix Tools
       alejandra # Nix code formatter.
