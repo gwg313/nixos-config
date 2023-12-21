@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     betterdiscordctl # A utility for managing BetterDiscord, enhancing features and customization in the Discord desktop client.
+    element-desktop # A feature-rich client for Matrix.org
     gimp # GNU Image Manipulation Program, a powerful and open-source raster graphics editor for tasks like photo editing and graphic design.
     gparted # Gnome Partition Editor, a graphical partition manager for creating, resizing, and managing disk partitions.
     kicad # An open-source electronic design automation (EDA) suite for creating schematics, PCB layouts, and 3D models.
