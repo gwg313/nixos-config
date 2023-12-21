@@ -5,6 +5,7 @@
     gnome.adwaita-icon-theme
     gnome.gnome-themes-extra
     firefox-wayland
+    librewolf
     discord
     qt5.qtwayland
     qt6.qmake
