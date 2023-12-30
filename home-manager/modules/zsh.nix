@@ -36,6 +36,7 @@
       ssh = "TERM=xterm ssh"; # Fixes some issues with ssh on some terminals
       wget = "wget -c";
       ping = "ping -c 5";
+      ftp = "ftp -p";
 
       # Misc alieses I use often
 
