@@ -53,11 +53,11 @@
     initrd.luks.devices."luks-b13379b3-2025-4d55-a40a-c0f3ad8ec801".device = "/dev/disk/by-uuid/b13379b3-2025-4d55-a40a-c0f3ad8ec801";
   };
 
-  sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
-  sops.secrets.restic_key = {
-    owner = config.users.users.${user}.name;
+  # sops
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
   };
 
   nixpkgs = {

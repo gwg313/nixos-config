@@ -3,6 +3,10 @@
   user,
   ...
 }: {
+  sops.secrets.restic_key = {
+    owner = config.users.users.${user}.name;
+  };
+
   services.restic.backups = {
     backups = {
       user = "${user}";
