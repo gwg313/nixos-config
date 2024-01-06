@@ -45,10 +45,13 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.luks.devices."luks-b13379b3-2025-4d55-a40a-c0f3ad8ec801".device = "/dev/disk/by-uuid/b13379b3-2025-4d55-a40a-c0f3ad8ec801";
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.luks.devices."luks-b13379b3-2025-4d55-a40a-c0f3ad8ec801".device = "/dev/disk/by-uuid/b13379b3-2025-4d55-a40a-c0f3ad8ec801";
+  };
 
   sops.defaultSopsFile = ../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
