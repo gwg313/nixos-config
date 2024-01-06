@@ -17,6 +17,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alejandra
+    sops
     just
     vim
     wget

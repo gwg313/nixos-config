@@ -35,6 +35,7 @@
     # inputs.hardware.nixosModules.common-ssd
     inputs.nix-index-database.nixosModules.nix-index
     inputs.stylix.nixosModules.stylix
+    inputs.sops-nix.nixosModules.sops
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
@@ -50,6 +51,10 @@
 
   sops.defaultSopsFile = ../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
+  sops.secrets.restic_key = {
+    owner = config.users.users.${user}.name;
+  };
 
   nixpkgs = {
     # You can add overlays here
@@ -99,7 +104,7 @@
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/cWqqTUuLswymQVh9rKdUWgMNNtZE6PwXMNUgD8/Zx gwg313"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILq54YrM3BbhBs0oDLOrc1bkg6FCCmkV4E3pWLZp0ejN gwg313@pm.m"
       ];
       extraGroups = ["wheel"];
     };
