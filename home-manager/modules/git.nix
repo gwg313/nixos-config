@@ -7,9 +7,15 @@
 }: {
   programs.git = {
     enable = true;
-    userName = "Glen Goodwin";
-    userEmail = "glen.goodwin1992@gmail.com";
+    userName = "gwg313";
+    userEmail = "gwg313@pm.me";
     extraConfig = {
+      user = {
+        signingkey = "60FF63B4826B7400";
+      };
+      commit = {
+        gpgsign = true;
+      };
       diff = {
         algorithm = "patience";
         compactionHeuristic = "true";
@@ -25,6 +31,9 @@
       "mergetool \"nvimdiff4\"" = {
         cmd = "nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
       };
+      mergetool = {
+        keepBackup = false;
+      };
       init = {
         defaultBranch = "main";
       };
@@ -39,6 +48,12 @@
       };
       interactive = {
         diffFilter = "delta --color-only";
+      };
+      push = {
+        autoSetupRemote = true;
+      };
+      pull = {
+        rebase = false;
       };
     };
     ignores = [
