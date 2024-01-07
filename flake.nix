@@ -38,6 +38,9 @@
     neovim-config.url = "github:gwg313/nvim-nix";
 
     sops-nix.url = "github:Mic92/sops-nix";
+
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -75,6 +78,39 @@
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
     homeManagerModules = import ./modules/home-manager;
+
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        default = pkgs.mkShell {
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
+          buildInputs = with pkgs; [
+            alejandra
+          ];
+        };
+
+        # Shell for bootstrapping flake-enabled nix and home-manager
+        bootstrap = pkgs.mkShell {
+          # Enable experimental features without having to specify the argument
+          NIX_CONFIG = "experimental-features = nix-command flakes";
+          nativeBuildInputs = with pkgs; [nix home-manager git];
+        };
+      }
+    );
+
+    checks = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            alejandra.enable = true;
+          };
+        };
+      }
+    );
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
