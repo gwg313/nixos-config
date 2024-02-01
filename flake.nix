@@ -117,6 +117,16 @@
       };
     };
 
+    nixosConfigurations = {
+      grymforge = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit user inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts/grymforge/configuration.nix
+        ];
+      };
+    };
+
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
@@ -126,6 +136,18 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/machines/candlekeep.nix
+          inputs.stylix.homeManagerModules.stylix
+        ];
+      };
+    };
+
+    homeConfigurations = {
+      "gwg313@grymforge" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home-manager/machines/grymforge.nix
           inputs.stylix.homeManagerModules.stylix
         ];
       };
