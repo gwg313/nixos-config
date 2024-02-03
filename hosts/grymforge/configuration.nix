@@ -18,6 +18,7 @@
     ../../common/nixos/bluetooth.nix
     ../../common/nixos/restic.nix
     ../../common/nixos/ssh.nix
+    ../../common/nixos/ssh_client.nix
     ../../common/gui/hyprland.nix
     ../../common/gui/thunar.nix
     ../../common/style/stylix.nix
