@@ -25,8 +25,10 @@
   services = {
     xserver = {
       enable = true;
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        variant = "";
+        layout = "us";
+      };
       excludePackages = [pkgs.xterm];
       #      videoDrivers = ["amdgpu"];
       libinput = {
