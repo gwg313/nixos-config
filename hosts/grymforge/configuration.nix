@@ -25,10 +25,10 @@
     ../../common/virtualization/podman.nix
     ../../common/virtualization/kubernetes.nix
     ../../common/virtualization/libvirt.nix
+    ../../common/nixos/sysctl/default.nix
 
     ./auditd.nix
     ./kernel.nix
-    ./sysctl.nix
     ./earlyoom.nix
 
     # Or modules from other flakes (such as nixos-hardware):

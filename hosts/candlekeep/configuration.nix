@@ -15,7 +15,7 @@
     # outputs.nixosModules.example
     ../../common/nixos/common.nix
     ../../common/nixos/laptop.nix
-    #../../common/networking/zerotier.nix
+    ../../common/networking/zerotier.nix
     ../../common/nixos/bluetooth.nix
     ../../common/nixos/restic.nix
     ../../common/nixos/ssh.nix
@@ -26,10 +26,10 @@
     ../../common/virtualization/podman.nix
     ../../common/virtualization/kubernetes.nix
     ../../common/virtualization/libvirt.nix
+    ../../common/nixos/sysctl/default.nix
 
     ./auditd.nix
     ./kernel.nix
-    ./sysctl.nix
     ./earlyoom.nix
 
     # Or modules from other flakes (such as nixos-hardware):
