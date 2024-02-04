@@ -20,6 +20,7 @@
     ../../common/nixos/restic.nix
     ../../common/nixos/ssh.nix
     ../../common/nixos/ssh_client.nix
+    ../../common/nixos/ssh_guard.nix
     ../../common/gui/hyprland.nix
     ../../common/gui/thunar.nix
     ../../common/style/stylix.nix
@@ -30,6 +31,7 @@
 
     ./auditd.nix
     ./kernel.nix
+    ./sysctl.nix
     ./earlyoom.nix
 
     # Or modules from other flakes (such as nixos-hardware):
