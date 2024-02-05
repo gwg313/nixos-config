@@ -24,6 +24,7 @@
     ../modules/linux-gui.nix
     ../modules/devenv.nix
     ../modules/gh-dash.nix
+    ../modules/ssh.nix
   ];
 
   nixpkgs = {
