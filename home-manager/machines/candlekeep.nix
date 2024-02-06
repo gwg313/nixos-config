@@ -24,6 +24,9 @@
     ../modules/linux-gui.nix
     ../modules/devenv.nix
     ../modules/ssh.nix
+    ../modules/gh-dash.nix
+
+    ../modules/obsidian.nix
   ];
 
   nixpkgs = {
@@ -38,6 +41,11 @@
       # neovim-nightly-overlay.overlays.default
       (final: prev: {
         neovim = inputs.neovim-config.packages."x86_64-linux".default;
+      })
+
+      # obsidian electron build issue
+      (final: prev: {
+        obsidian-wayland = prev.obsidian.override {electron = final.electron_24;};
       })
       # Or define it inline, for example:
       # (final: prev: {
