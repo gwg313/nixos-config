@@ -155,6 +155,7 @@
   home.packages = [
     pkgs.fzf
     pkgs.gitmux
+    pkgs.sesh
   ];
 
   home.file.".config/tmux/gitmux.yml".source = ./gitmux.yml;
