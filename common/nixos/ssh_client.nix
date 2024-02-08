@@ -25,8 +25,6 @@
       "hmac-sha2-512-etm@openssh.com"
       "umac-128-etm@openssh.com"
     ];
-    # short moduli should be deactivated before enabling the use of diffie-hellman-group-exchange-sha256
-    # see this link for more details: https://github.com/k4yt3x/ssh_config#deactivating-short-diffie-hellman-moduli
     kexAlgorithms = [
       "curve25519-sha256"
       "curve25519-sha256@libssh.org"
