@@ -2,6 +2,19 @@
   programs.gh-dash = {
     enable = true;
     settings = {
+      defaults = {
+        prsLimit = 20;
+        issuesLimit = 20;
+        layout = {
+          prs = {
+            repo = {
+              grow = true;
+              width = 10;
+              hidden = false;
+            };
+          };
+        };
+      };
       prSections = [
         {
           title = "My Pull Requests";
@@ -10,12 +23,10 @@
         {
           title = "Needs My Review";
           filters = "is:open review-requested:@me";
-          limit = 20; # Limits How many are fetched
         }
         {
           title = "Nixvim";
           filters = "is:open repo:nix-community/nixvim";
-          limit = 20; # Limits How many are fetched
         }
       ];
       issuesSections = [
@@ -32,11 +43,15 @@
           filters = "is:open -author:@me";
         }
       ];
+      repoPaths = {
+        "NixOS/nixpkgs" = "~/repos/nix/nixpkgs";
+        "nix-community/*" = "~/repos/nix-community/*";
+      };
       keybindings = {
         prs = [
           {
             key = "C";
-            command = "tmux";
+            command = "tmux split-window -h -c {{.RepoPath}} 'gh pr checkout {{.PrNumber}} && nvim -c \":Octo pr edit {{.PrNumber}}\"'";
           }
         ];
       };
