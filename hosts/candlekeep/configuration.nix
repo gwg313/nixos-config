@@ -33,6 +33,7 @@
     ./kernel.nix
     ./sysctl.nix
     ./earlyoom.nix
+    ./syncthing.nix
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
