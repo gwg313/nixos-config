@@ -28,6 +28,7 @@
     ../../common/virtualization/libvirt.nix
     ../../common/nixos/sysctl/default.nix
 
+    ./syncthing.nix
     ./auditd.nix
     ./kernel.nix
     ./sysctl.nix
