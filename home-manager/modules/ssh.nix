@@ -6,6 +6,7 @@
     matchBlocks = {
       "router" = {
         hostname = "router.local.gwg313.xyz";
+        user = "glen";
         identityFile = "/home/gwg313/.ssh/home/id_ed25519";
       };
       "github.com" = {
