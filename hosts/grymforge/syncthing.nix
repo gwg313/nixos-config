@@ -17,13 +17,13 @@
 
     settings = {
       devices = {
-        "grymforge" = {id = "N2TYFZ4-ODIIHIZ-UP27V4V-NYMAZNI-SIATS5S-5NTM6JX-A67HCZ5-ZB4TVQJ";};
+        "candlekeep" = {id = "762A3TK-Z3ZX6DG-V4VASMJ-H6DJHE5-PBD6YZQ-MPILUWT-E7EY4O7-4EAPHAX";};
       };
 
       folders = {
         "repos" = {
           path = "/home/gwg313/repos";
-          devices = ["grymforge"];
+          devices = ["candlekeep"];
           versioning = {
             type = "staggered";
             params = {
@@ -34,7 +34,7 @@
         };
         "documents" = {
           path = "/home/gwg313/Documents";
-          devices = ["grymforge"];
+          devices = ["candlekeep"];
           versioning = {
             type = "staggered";
             params = {
