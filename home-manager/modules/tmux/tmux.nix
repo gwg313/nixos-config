@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  user,
   ...
 }: {
   stylix.targets.tmux.enable = false;
@@ -156,7 +155,7 @@
 
   programs.zsh = {
     shellAliases = {
-      tx = "tmux new -s default";
+      tx = "sesh connect /home/${config.home.username}";
       ta = "tmux attach -t";
       tad = "tmux attach -d -t";
       ts = "tmux new-session -s";
