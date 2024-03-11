@@ -25,6 +25,7 @@
     ../modules/devenv.nix
     ../modules/gh-dash.nix
     ../modules/ssh.nix
+    ../modules/obsidian.nix
   ];
 
   nixpkgs = {
@@ -40,6 +41,12 @@
       (final: prev: {
         neovim = inputs.neovim-config.packages."x86_64-linux".default;
       })
+
+      # obsidian electron build issue
+      (final: prev: {
+        obsidian-wayland = prev.obsidian.override {electron = final.electron_24;};
+      })
+
       # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
