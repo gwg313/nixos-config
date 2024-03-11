@@ -21,5 +21,6 @@
     thunderbird # Mozilla Thunderbird, a powerful and customizable email client with integrated calendaring and chat features.
     wireshark # Open-source network protocol analyzer for real-time packet inspection and analysis.
     nicotine-plus
+    anki
   ];
 }
