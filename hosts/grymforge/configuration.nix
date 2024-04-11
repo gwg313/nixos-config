@@ -21,6 +21,7 @@
     ../../common/nixos/ssh_client.nix
     ../../common/nixos/ssh_guard.nix
     ../../common/gui/hyprland.nix
+    ../../common/gui/steam.nix
     ../../common/gui/thunar.nix
     ../../common/style/stylix.nix
     ../../common/virtualization/podman.nix
