@@ -10,7 +10,7 @@ in {
       layer = "bottom";
       position = "top";
       height = 24;
-      modules-left = ["hyprland/workspaces" "sway/mode" "wlr/taskbar"];
+      modules-left = ["hyprland/workspaces" "sway/mode"];
       modules-center = ["hyprland/window" "gamemode"];
       modules-right = ["network" "pulseaudio" "cpu" "custom/cpu_freq" "temperature" "memory" "battery" "tray" "clock"];
 
