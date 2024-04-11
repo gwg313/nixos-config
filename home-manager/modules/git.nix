@@ -78,5 +78,7 @@
     lazygit
     gh
     pre-commit
+    graphite-cli
+    tig
   ];
 }
