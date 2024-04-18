@@ -34,12 +34,6 @@
       };
     };
 
-    device.at-translated-set-2-keyboard = {
-      kb_layout = "us";
-      kb_options = "caps:ctrl_modifier";
-      numlock_by_default = 1;
-    };
-
     general = {
       gaps_in = 5;
       gaps_out = 16;

@@ -84,6 +84,9 @@
       nix-direnv # Integration of direnv with the Nix package manager.
       nix-init # Simplifies the process of creating Nix projects.
       nix-prefetch-github # Tool for fetching the latest version and hash of a GitHub repository.
+      nh
+      nix-output-monitor
+      nvd
     ]
     ++ lib.optionals stdenv.isDarwin [
       coreutils # Essential GNU core utilities, including `dd` with the `--status=progress` option for more informative progress reporting.
