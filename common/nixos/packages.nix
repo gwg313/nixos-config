@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   inputs,
   outputs,
   ...
@@ -23,5 +24,11 @@
     wget
     home-manager
     git
+    nh
+    nix-output-monitor
+    nvd
   ];
+  environment.sessionVariables = {
+    FLAKE = "/home/${user}/repos/nixos-config";
+  };
 }
