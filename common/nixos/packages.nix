@@ -27,6 +27,7 @@
     nh
     nix-output-monitor
     nvd
+    inputs.superfile.packages.${system}.default
   ];
   environment.sessionVariables = {
     FLAKE = "/home/${user}/repos/nixos-config";

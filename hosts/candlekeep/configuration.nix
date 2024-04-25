@@ -15,7 +15,7 @@
     # outputs.nixosModules.example
     ../../common/nixos/common.nix
     ../../common/nixos/laptop.nix
-    ../../common/networking/zerotier.nix
+    ../../common/networking/default.nix
     ../../common/nixos/bluetooth.nix
     ../../common/nixos/restic.nix
     ../../common/nixos/ssh.nix
@@ -24,9 +24,7 @@
     ../../common/gui/hyprland.nix
     ../../common/gui/thunar.nix
     ../../common/style/stylix.nix
-    ../../common/virtualization/podman.nix
-    ../../common/virtualization/kubernetes.nix
-    ../../common/virtualization/libvirt.nix
+    ../../common/virtualization/default.nix
     ../../common/nixos/sysctl/default.nix
 
     ./auditd.nix

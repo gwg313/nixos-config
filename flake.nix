@@ -39,6 +39,10 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
+    superfile = {
+      url = "github:MHNightCat/superfile";
+    };
+
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
