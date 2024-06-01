@@ -4,6 +4,7 @@
   pkgs,
   inputs,
   outputs,
+  user,
   ...
 }: {
   imports = [
@@ -19,6 +20,8 @@
 
   nix.settings.auto-optimise-store = true;
   nix.optimise.automatic = true;
+
+  nix.settings.trusted-users = ["${user}"];
 
   # Disable so comma can be installed
   programs.command-not-found.enable = false;

@@ -18,9 +18,7 @@
     ../../common/networking/default.nix
     ../../common/nixos/bluetooth.nix
     ../../common/nixos/restic.nix
-    ../../common/nixos/ssh.nix
-    ../../common/nixos/ssh_client.nix
-    ../../common/nixos/ssh_guard.nix
+    ../../common/nixos/ssh/default.nix
     ../../common/gui/hyprland.nix
     ../../common/gui/default.nix
     ../../common/style/stylix.nix
@@ -45,6 +43,9 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
+
+  ssh.enable = true;
+  ssh_guard.enable = true;
 
   # Bootloader.
   boot = {

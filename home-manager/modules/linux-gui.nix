@@ -14,7 +14,7 @@
     element-desktop # A feature-rich client for Matrix.org
     gimp # GNU Image Manipulation Program, a powerful and open-source raster graphics editor for tasks like photo editing and graphic design.
     gparted # Gnome Partition Editor, a graphical partition manager for creating, resizing, and managing disk partitions.
-    # kicad # An open-source electronic design automation (EDA) suite for creating schematics, PCB layouts, and 3D models.
+    kicad # An open-source electronic design automation (EDA) suite for creating schematics, PCB layouts, and 3D models.
     kodi # An open-source media center, providing a versatile platform for streaming and organizing media content.
     pavucontrol # PulseAudio Volume Control, a feature-rich GUI for controlling and configuring the PulseAudio sound system.
     #sublime-music # A modern and feature-rich music player with a clean user interface and advanced playback options.

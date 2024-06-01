@@ -1,37 +1,45 @@
-{...}: {
-  programs.ssh = {
-    # disable unnecessary forwardings
-    forwardX11 = false;
+{
+  config,
+  lib,
+  ...
+}: {
+  options = {
+    ssh_client.enable = lib.mkEnableOption "enable ssh client settings";
+  };
+  config = lib.mkIf config.ssh_client.enable {
+    programs.ssh = {
+      # disable unnecessary forwardings
+      forwardX11 = false;
 
-    # explicitly define cryptography algorithms to avoid the use of weak algorithms
-    # AES CTR modes have been removed to mitigate the Terrapin attack
-    # https://terrapin-attack.com/
-    ciphers = [
-      "aes256-gcm@openssh.com"
-      "aes128-gcm@openssh.com"
-    ];
-    hostKeyAlgorithms = [
-      "ssh-ed25519"
-      "ssh-ed25519-cert-v01@openssh.com"
-      "sk-ssh-ed25519@openssh.com"
-      "sk-ssh-ed25519-cert-v01@openssh.com"
-      "rsa-sha2-256"
-      "rsa-sha2-256-cert-v01@openssh.com"
-      "rsa-sha2-512"
-      "rsa-sha2-512-cert-v01@openssh.com"
-    ];
-    macs = [
-      "hmac-sha2-256-etm@openssh.com"
-      "hmac-sha2-512-etm@openssh.com"
-      "umac-128-etm@openssh.com"
-    ];
-    kexAlgorithms = [
-      "curve25519-sha256"
-      "curve25519-sha256@libssh.org"
-      "diffie-hellman-group16-sha512"
-      "diffie-hellman-group18-sha512"
-    ];
-    extraConfig = "
+      # explicitly define cryptography algorithms to avoid the use of weak algorithms
+      # AES CTR modes have been removed to mitigate the Terrapin attack
+      # https://terrapin-attack.com/
+      ciphers = [
+        "aes256-gcm@openssh.com"
+        "aes128-gcm@openssh.com"
+      ];
+      hostKeyAlgorithms = [
+        "ssh-ed25519"
+        "ssh-ed25519-cert-v01@openssh.com"
+        "sk-ssh-ed25519@openssh.com"
+        "sk-ssh-ed25519-cert-v01@openssh.com"
+        "rsa-sha2-256"
+        "rsa-sha2-256-cert-v01@openssh.com"
+        "rsa-sha2-512"
+        "rsa-sha2-512-cert-v01@openssh.com"
+      ];
+      macs = [
+        "hmac-sha2-256-etm@openssh.com"
+        "hmac-sha2-512-etm@openssh.com"
+        "umac-128-etm@openssh.com"
+      ];
+      kexAlgorithms = [
+        "curve25519-sha256"
+        "curve25519-sha256@libssh.org"
+        "diffie-hellman-group16-sha512"
+        "diffie-hellman-group18-sha512"
+      ];
+      extraConfig = "
       # disable unnecessary forwardings
       ForwardAgent no
       ForwardX11Trusted no
@@ -72,5 +80,6 @@
       # display an ASCII art of the server's host key
       VisualHostKey yes
     ";
+    };
   };
 }
