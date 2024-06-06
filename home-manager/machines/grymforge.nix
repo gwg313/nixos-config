@@ -22,7 +22,7 @@
     ../modules/hyprland.nix
     ../modules/common-gui.nix
     ../modules/linux-gui.nix
-    ../modules/devenv.nix
+    # ../modules/devenv.nix
     ../modules/gh-dash.nix
     ../modules/ssh.nix
     ../modules/obsidian.nix

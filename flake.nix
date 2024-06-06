@@ -20,7 +20,9 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
       # Don't follow nixpkgs or cache will miss
       # inputs.nixpkgs.follows = "nixpkgs";
     };
