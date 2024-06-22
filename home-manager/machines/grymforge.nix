@@ -22,7 +22,7 @@
     ../modules/hyprland.nix
     ../modules/common-gui.nix
     ../modules/linux-gui.nix
-    # ../modules/devenv.nix
+    ../modules/devenv.nix
     ../modules/gh-dash.nix
     ../modules/ssh.nix
     ../modules/obsidian.nix
@@ -72,6 +72,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-storm.yaml";
     image = ./wallpaper.jpg;
     autoEnable = true;
+    enable = true;
 
     opacity.terminal = 1.0;
     fonts.sizes.terminal = 20;

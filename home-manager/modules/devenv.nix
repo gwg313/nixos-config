@@ -7,7 +7,8 @@
 }: {
   home.packages = with pkgs; [
     cachix
-    inputs.devenv.packages.${system}.devenv
+    # inputs.devenv.packages.${system}.devenv
+    devenv
   ];
 
   programs.direnv.enable = true;
