@@ -18,9 +18,9 @@
     ../../common/networking/default.nix
     ../../common/nixos/bluetooth.nix
     ../../common/nixos/restic.nix
-    ../../common/nixos/ssh.nix
-    ../../common/nixos/ssh_client.nix
-    ../../common/nixos/ssh_guard.nix
+    ../../common/nixos/ssh/ssh.nix
+    ../../common/nixos/ssh/ssh_client.nix
+    ../../common/nixos/ssh/ssh_guard.nix
     ../../common/gui/hyprland.nix
     ../../common/gui/default.nix
     ../../common/style/stylix.nix
