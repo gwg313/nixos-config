@@ -43,7 +43,7 @@
     };
 
     master = {
-      new_is_master = false;
+      # new_is_master = false;
       smart_resizing = false;
     };
 
