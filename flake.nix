@@ -36,6 +36,7 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ags.url = "github:Aylur/ags";
 
     neovim-config.url = "github:gwg313/nvim-nix";
 

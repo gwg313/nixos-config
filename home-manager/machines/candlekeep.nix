@@ -15,6 +15,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
+    inputs.ags.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -25,8 +26,7 @@
     ../modules/devenv.nix
     ../modules/ssh.nix
     ../modules/gh-dash.nix
-
-    ../modules/obsidian.nix
+    ../modules/ags.nix
   ];
 
   nixpkgs = {
@@ -43,10 +43,6 @@
         neovim = inputs.neovim-config.packages."x86_64-linux".default;
       })
 
-      # obsidian electron build issue
-      (final: prev: {
-        obsidian-wayland = prev.obsidian.override {electron = final.electron_24;};
-      })
       # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
