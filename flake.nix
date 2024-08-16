@@ -38,12 +38,16 @@
     };
     ags.url = "github:Aylur/ags";
 
-    neovim-config.url = "github:gwg313/nvim-nix";
+    # neovim-config.url = "github:gwg313/nvim-nix";
 
     sops-nix.url = "github:Mic92/sops-nix";
 
     superfile = {
       url = "github:MHNightCat/superfile";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
     };
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";

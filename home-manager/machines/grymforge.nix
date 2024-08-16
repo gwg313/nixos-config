@@ -25,6 +25,8 @@
     ../modules/devenv.nix
     ../modules/gh-dash.nix
     ../modules/ssh.nix
+    ../modules/neovim/default.nix
+    ../modules/yazi.nix
   ];
 
   nixpkgs = {
@@ -37,9 +39,9 @@
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      (final: prev: {
-        neovim = inputs.neovim-config.packages."x86_64-linux".default;
-      })
+      # (final: prev: {
+      #   neovim = inputs.neovim-config.packages."x86_64-linux".default;
+      # })
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -63,10 +65,12 @@
   };
 
   stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-storm.yaml";
-    image = ./wallpaper.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    image = ../../wallpapers/nix-black-4k.png;
+    #    polarity = "dark";
     autoEnable = true;
     enable = true;
+    targets.nixvim.enable = false;
 
     opacity.terminal = 1.0;
     fonts.sizes.terminal = 20;
@@ -101,9 +105,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [
-    openvpn
-  ];
+  home.packages = with pkgs; [openvpn];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

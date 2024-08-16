@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-storm.yaml";
-    image = ./wallpaper.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    #    image = ./wallpaper.jpg;
+    image = ../../wallpapers/nix-black-4k.png;
+    #polarity = "dark";
     autoEnable = true;
     enable = true;
 

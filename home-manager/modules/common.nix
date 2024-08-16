@@ -21,7 +21,7 @@
   home.packages = with pkgs;
     [
       # Editors
-      neovim # Improved version of vim, often used with overlays.
+      #     neovim # Improved version of vim, often used with overlays.
       vim # Highly configurable text editor popular for efficiency and extensibility.
 
       # Builtin Replacements
@@ -53,6 +53,9 @@
       tree # Displays directory structure in a tree-like format.
       unzip # Command-line tool for extracting files from ZIP archives.
       yt-dlp # Fork of youtube-dl, facilitating video downloads from various sites.
+      age
+      portal
+      atac
 
       # TUI Apps
       #ncdu_2
@@ -77,6 +80,7 @@
       entr # Event notifier for automation and development, executing commands whenever files change in the specified directory.
       git-cliff # Tool for visualizing project commit history and generating release notes.
       grex # Tool generating regular expressions from user-provided test cases.
+      sshs
 
       # Nix Tools
       alejandra # Nix code formatter.
