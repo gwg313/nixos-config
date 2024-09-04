@@ -3,9 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./waybar.nix
-  ];
+  imports = [./waybar.nix];
 
   services.mako = {
     enable = true;
@@ -163,9 +161,8 @@
     ];
 
     monitor = [",preferred,auto,1"];
-    exec = [
-      "${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill"
-    ];
+    # monitor = [ "HDMI-A-1,1920x1080@144,auto,1" ];
+    exec = ["${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill"];
     exec-once = [
       # Enables clipboard sync
       "${pkgs.wl-clipboard}/bin/wl-paste -p | ${pkgs.wl-clipboard}/bin/wl-copy"

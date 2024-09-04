@@ -23,5 +23,6 @@
     nicotine-plus
     anki
     obsidian
+    vlc
   ];
 }

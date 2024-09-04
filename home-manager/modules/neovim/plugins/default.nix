@@ -6,6 +6,8 @@ _: {
     ./catppuccin.nix
     ./comment.nix
     ./conform.nix
+    ./clangd-extensions.nix
+    ./cmp.nix
     ./diffview.nix
     ./flash.nix
     ./git-conflict.nix
@@ -14,6 +16,7 @@ _: {
     ./illuminate.nix
     ./lightbulb.nix
     ./lualine.nix
+    ./lean.nix
     ./lsp.nix
     ./mini-bufremove.nix
     ./navic.nix
@@ -22,12 +25,14 @@ _: {
     ./notify.nix
     ./precognition.nix
     ./spectre.nix
+    ./refactoring.nix
     ./telescope.nix
     ./todo-comments.nix
     ./toggleterm.nix
     ./treesitter.nix
     ./trouble.nix
     ./which-key.nix
+    ./undotree.nix
     ./yazi.nix
   ];
 }

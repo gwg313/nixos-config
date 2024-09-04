@@ -70,6 +70,10 @@
               };
             };
           };
+
+          pyright.enable = true;
+          hls.enable = true;
+          leanls.enable = true;
         };
       };
       which-key.settings.spec = [
