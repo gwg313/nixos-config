@@ -5,7 +5,6 @@
   outputs,
   lib,
   config,
-  pkgs,
   user,
   ...
 }: {
@@ -14,21 +13,14 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
     ../../common/nixos/common.nix
-    ../../common/nixos/laptop.nix
-    ../../common/networking/default.nix
-    ../../common/nixos/bluetooth.nix
-    ../../common/nixos/restic.nix
-    ../../common/nixos/ssh/ssh.nix
-    ../../common/gui/steam.nix
-    ../../common/nixos/ssh/ssh_client.nix
-    ../../common/nixos/ssh/ssh_guard.nix
     ../../common/gui/hyprland.nix
-    ../../common/gui/default.nix
     ../../common/style/stylix.nix
-    ../../common/virtualization/default.nix
-    ../../common/nixos/sysctl/default.nix
+    ../../common/nixos/sysctl
 
     ../../common/networking
+    ../../common/nixos
+    ../../common/gui
+    ../../common/virtualization
 
     ./auditd.nix
     ./kernel.nix
@@ -48,6 +40,11 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
+
+  laptop.enable = true;
+  nfs.enable = true;
+  ssh.enable = true;
+  ssh_guard.enable = true;
 
   # Bootloader.
   boot = {

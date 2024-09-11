@@ -1,5 +1,9 @@
 {lib, ...}: {
-  imports = [./thunar.nix];
+  imports = [
+    ./thunar.nix
+    ./steam.nix
+  ];
 
   thunar.enable = lib.mkDefault true;
+  steam.enable = lib.mkDefault false;
 }

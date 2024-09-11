@@ -1,21 +1,33 @@
 {
   config,
+  lib,
   user,
   ...
 }: {
-  sops.secrets.restic_key = {
-    owner = config.users.users.${user}.name;
+  options = {
+    restic.enable = lib.mkEnableOption "Enables Restic";
   };
 
-  services.restic.backups = {
-    backups = {
-      user = "${user}";
-      repository = "/backups";
-      initialize = true;
-      passwordFile = "${config.sops.secrets.restic_key.path}";
-      paths = ["/home/${user}/repos" "/home/${user}/Documents" "/home/${user}/.local/share/password-store" "/home/${user}/.local/share/buku"];
-      timerConfig = {
-        onCalendar = "saturday 23:00";
+  config = lib.mkIf config.nfs.enable {
+    sops.secrets.restic_key = {
+      owner = config.users.users.${user}.name;
+    };
+
+    services.restic.backups = {
+      backups = {
+        user = "${user}";
+        repository = "/backups";
+        initialize = true;
+        passwordFile = "${config.sops.secrets.restic_key.path}";
+        paths = [
+          "/home/${user}/repos"
+          "/home/${user}/Documents"
+          "/home/${user}/.local/share/password-store"
+          "/home/${user}/.local/share/buku"
+        ];
+        timerConfig = {
+          onCalendar = "saturday 23:00";
+        };
       };
     };
   };

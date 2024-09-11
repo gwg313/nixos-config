@@ -1,8 +1,20 @@
-{...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   imports = [./bluetooth.nix];
-  # enable's backlight switching
-  programs.light.enable = true;
+  options = {
+    laptop.enable = lib.mkEnableOption "Enables Laptop options";
+  };
 
-  # use TLP for power management
-  services.tlp.enable = true;
+  config = lib.mkIf config.laptop.enable {
+    # enable's backlight switching
+    programs.light.enable = true;
+
+    # use TLP for power management
+    services.tlp.enable = true;
+
+    bluetooth.enable = true;
+  };
 }
