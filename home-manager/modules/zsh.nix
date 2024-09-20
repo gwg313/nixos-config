@@ -61,7 +61,10 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["git"];
+      plugins = [
+        "git"
+        "copyfile"
+      ];
       theme = "robbyrussell";
     };
 
@@ -69,7 +72,6 @@
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
-    initExtra = ''
-    '';
+    initExtra = '''';
   };
 }

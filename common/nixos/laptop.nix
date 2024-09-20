@@ -3,7 +3,10 @@
   lib,
   ...
 }: {
-  imports = [./bluetooth.nix];
+  imports = [
+    ./bluetooth.nix
+    ../networking/wireless.nix
+  ];
   options = {
     laptop.enable = lib.mkEnableOption "Enables Laptop options";
   };
@@ -16,5 +19,6 @@
     services.tlp.enable = true;
 
     bluetooth.enable = true;
+    wireless.enable = true;
   };
 }

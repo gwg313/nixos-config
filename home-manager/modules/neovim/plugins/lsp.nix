@@ -74,6 +74,8 @@
           pyright.enable = true;
           hls.enable = true;
           leanls.enable = true;
+          texlab.enable = true;
+          html.enable = true;
         };
       };
       which-key.settings.spec = [

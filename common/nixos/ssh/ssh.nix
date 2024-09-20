@@ -58,7 +58,17 @@
         PermitRootLogin = "no";
 
         # nix enables pam by default
-        #UsePam = true;
+        # UsePAM = false;
+
+        # challenge-response authentication backend it not configured by default
+        # therefore, it is set to "no" by default to avoid the use of an unconfigured backend
+        ChallengeResponseAuthentication = false;
+
+        # set maximum authentication retries to prevent brute force attacks
+        MaxAuthTries = 3;
+
+        # disallow connecting using empty passwords
+        PermitEmptyPasswords = false;
 
         ########## Cryptography ##########
 
@@ -66,9 +76,28 @@
         # AES CTR modes have been removed to mitigate the Terrapin attack
         #   https://terrapin-attack.com/
 
-        Ciphers = ["aes256-gcm@openssh.com" "aes128-gcm@openssh.com"];
-        Macs = ["hmac-sha2-256-etm@openssh.com" "hmac-sha2-512-etm@openssh.com" "umac-128-etm@openssh.com"];
-        KexAlgorithms = ["curve25519-sha256" "curve25519-sha256@libssh.org" "diffie-hellman-group16-sha512" "diffie-hellman-group18-sha512"];
+        Ciphers = [
+          "aes256-gcm@openssh.com"
+          "aes128-gcm@openssh.com"
+        ];
+        Macs = [
+          "hmac-sha2-256-etm@openssh.com"
+          "hmac-sha2-512-etm@openssh.com"
+          "umac-128-etm@openssh.com"
+        ];
+        KexAlgorithms = [
+          "sntrup761x25519-sha512@openssh.com"
+          "curve25519-sha256"
+          "curve25519-sha256@libssh.org"
+          "diffie-hellman-group16-sha512"
+          "diffie-hellman-group18-sha512"
+        ];
+
+        # hostKeyAlgorithms = [
+        #   "rsa-sha2-512"
+        #   "rsa-sha2-256"
+        #   "ssh-ed25519"
+        # ];
 
         ########## Connection Preferences ##########
 
@@ -97,7 +126,26 @@
 
         # allow a maximum of two multiplexed sessions over a single TCP connection
         MaxSessions = 2;
+
+        # let ClientAliveInterval handle keepalive
+        TCPKeepAlive = false;
+
+        # disable reverse DNS lookups
+        # UseDNS = false;
       };
+      extraConfig = ''
+        ########## Features ##########
+
+        # accept locale-related environment variables
+        AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+        AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+        AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+        AcceptEnv XMODIFIERS
+
+        ########## Connection Preferences ##########
+        # disable reverse DNS lookups
+        UseDNS no
+      '';
     };
   };
 }

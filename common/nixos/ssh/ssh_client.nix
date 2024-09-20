@@ -34,6 +34,7 @@
         "umac-128-etm@openssh.com"
       ];
       kexAlgorithms = [
+        "sntrup761x25519-sha512@openssh.com"
         "curve25519-sha256"
         "curve25519-sha256@libssh.org"
         "diffie-hellman-group16-sha512"

@@ -6,6 +6,7 @@
   lib,
   config,
   user,
+  pkgs,
   ...
 }: {
   # You can import other NixOS modules here
@@ -104,7 +105,7 @@
     config.nix.registry;
 
   networking.hostName = "candlekeep";
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
 
   users.users = {
     gwg313 = {

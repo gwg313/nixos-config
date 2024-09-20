@@ -40,7 +40,7 @@
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
       cmp_luasnip.enable = true;
-      cmp-path.enable = true;
+      # cmp-path.enable = true;
       cmp-latex-symbols.enable = true;
       cmp-buffer.enable = true;
       cmp = {
@@ -62,7 +62,7 @@
 
             {name = "buffer";}
 
-            {name = "path";}
+            # { name = "path"; }
           ];
 
           mapping = {

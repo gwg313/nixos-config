@@ -34,5 +34,6 @@ _: {
     ./which-key.nix
     ./undotree.nix
     ./yazi.nix
+    ./vimtex.nix
   ];
 }
