@@ -14,19 +14,15 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
     ../../common/nixos/common.nix
-    ../../common/nixos/bluetooth.nix
     ../../common/nixos/restic.nix
-    ../../common/nixos/ssh/default.nix
     ../../common/gui/hyprland.nix
     ../../common/gui/steam.nix
     ../../common/gui/thunar.nix
     ../../common/style/stylix.nix
-    ../../common/virtualization/podman.nix
-    ../../common/virtualization/kubernetes.nix
-    ../../common/virtualization/libvirt.nix
-    ../../common/nixos/sysctl/default.nix
+    ../../common/nixos/sysctl
 
     ../../common/networking
+    ../../common/virtualization
 
     ./syncthing.nix
     ./auditd.nix
@@ -49,6 +45,7 @@
 
   ssh.enable = true;
   ssh_guard.enable = true;
+  nfs.enable = true;
 
   # Bootloader.
   boot = {

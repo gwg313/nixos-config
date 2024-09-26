@@ -76,6 +76,32 @@
           leanls.enable = true;
           texlab.enable = true;
           html.enable = true;
+
+          cmake = {
+            enable = true;
+            filetypes = ["cmake"];
+          };
+
+          # ccls = {
+          #   enable = true;
+          #   filetypes = [
+          #     "c"
+          #     "cpp"
+          #     "objc"
+          #     "objcpp"
+          #   ];
+          #
+          #   initOptions.compilationDatabaseDirectory = "build";
+          # };
+          clangd = {
+            enable = true;
+            filetypes = [
+              "c"
+              "cpp"
+              "objc"
+              "objcpp"
+            ];
+          };
         };
       };
       which-key.settings.spec = [

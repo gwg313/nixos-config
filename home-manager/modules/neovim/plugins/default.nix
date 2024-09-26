@@ -16,9 +16,12 @@ _: {
     ./illuminate.nix
     ./lightbulb.nix
     ./lualine.nix
+    ./luasnip.nix
     ./lean.nix
     ./lsp.nix
     ./mini-bufremove.nix
+    ./mini-surround.nix
+    ./mini-indentscope.nix
     ./navic.nix
     ./nix.nix
     ./noice.nix
