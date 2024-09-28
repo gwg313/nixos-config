@@ -8,12 +8,14 @@ _: {
     ./conform.nix
     ./clangd-extensions.nix
     ./cmp.nix
+    ./debugprint.nix
     ./diffview.nix
     ./flash.nix
     ./git-conflict.nix
     ./gitsigns.nix
     ./harpoon.nix
     ./illuminate.nix
+    ./indent-blankline.nix
     ./lightbulb.nix
     ./lualine.nix
     ./luasnip.nix
@@ -37,6 +39,7 @@ _: {
     ./which-key.nix
     ./undotree.nix
     ./yazi.nix
+    ./yanky.nix
     ./vimtex.nix
   ];
 }
