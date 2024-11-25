@@ -23,6 +23,8 @@
 
     ../../common/networking
     ../../common/virtualization
+    ../../common/nixos
+    ../../common/gui
 
     ./syncthing.nix
     ./auditd.nix
@@ -46,6 +48,7 @@
   ssh.enable = true;
   ssh_guard.enable = true;
   nfs.enable = true;
+  steam.enable = true;
 
   # Bootloader.
   boot = {

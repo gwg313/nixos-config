@@ -3,7 +3,7 @@
     plugins.vimtex = {
       enable = true;
       settings = {
-        compiler_method = "latexrun";
+        compiler_method = "pdflatex";
         toc_config = {
           split_pos = "vert topleft";
           split_width = 40;

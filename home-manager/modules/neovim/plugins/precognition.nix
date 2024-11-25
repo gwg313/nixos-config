@@ -5,7 +5,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>uP";
+        key = "<leader>vp";
         action.__raw = ''
           function()
             if require("precognition").toggle() then

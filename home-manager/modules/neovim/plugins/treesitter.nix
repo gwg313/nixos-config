@@ -7,7 +7,12 @@
 
         settings = {
           indent.enable = true;
-          highlight.enable = true;
+          highlight = {
+            enable = true;
+            disable = [
+              "latex"
+            ];
+          };
           incremental_selection.enable = true;
         };
       };

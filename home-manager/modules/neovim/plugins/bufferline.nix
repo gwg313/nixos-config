@@ -3,10 +3,10 @@
     plugins.bufferline = let
       mouse = {
         right =
-          # lua
+          # Lua
           "'vertical sbuffer %d'";
         close =
-          # lua
+          # Lua
           ''
             function(bufnum)
               require("mini.bufremove").delete(bufnum)
@@ -25,7 +25,7 @@
           close_icon = "";
           diagnostics = "nvim_lsp";
           diagnostics_indicator =
-            # lua
+            # Lua
             ''
               function(count, level, diagnostics_dict, context)
                 local s = ""
@@ -57,13 +57,11 @@
                 };
                 priority = 2;
                 # icon = "";
-                matcher.__raw =
-                  # lua
-                  ''
-                    function(buf)
-                      return buf.name:match('%test') or buf.name:match('%.spec')
-                    end
-                  '';
+                matcher.__raw = ''
+                  function(buf)
+                    return buf.name:match('%test') or buf.name:match('%.spec')
+                  end
+                '';
               }
               {
                 name = "Docs";
@@ -73,13 +71,11 @@
                   sp = "#494d64";
                 };
                 auto_close = false;
-                matcher.__raw =
-                  # lua
-                  ''
-                    function(buf)
-                      return buf.name:match('%.md') or buf.name:match('%.txt')
-                    end
-                  '';
+                matcher.__raw = ''
+                  function(buf)
+                    return buf.name:match('%.md') or buf.name:match('%.txt')
+                  end
+                '';
               }
             ];
           };
@@ -94,13 +90,11 @@
           max_prefix_length = 15;
           modified_icon = "●";
 
-          numbers.__raw =
-            # lua
-            ''
-              function(opts)
-                return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
-              end
-            '';
+          numbers.__raw = ''
+            function(opts)
+              return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
+            end
+          '';
 
           persist_buffer_sort = true;
           right_mouse_command.__raw = mouse.right;
@@ -122,61 +116,6 @@
             }
           ];
         };
-
-        # NOTE: fixes colorscheme with transparent_background
-        # and better contrast selected tabs
-        highlights = let
-          commonBgColor = "#363a4f";
-          commonFgColor = "#1e2030";
-
-          commonSelectedAttrs = {
-            bg = commonBgColor;
-          };
-
-          # Define a set with common selected attributes
-          selectedAttrsSet = builtins.listToAttrs (
-            map
-            (name: {
-              inherit name;
-              value = commonSelectedAttrs;
-            })
-            [
-              # "separator_selected" # Handled uniquely
-              "buffer_selected"
-              "tab_selected"
-              "numbers_selected"
-              "close_button_selected"
-              "duplicate_selected"
-              "modified_selected"
-              "info_selected"
-              "warning_selected"
-              "error_selected"
-              "hint_selected"
-              "diagnostic_selected"
-              "info_diagnostic_selected"
-              "warning_diagnostic_selected"
-              "error_diagnostic_selected"
-              "hint_diagnostic_selected"
-            ]
-          );
-        in
-          # Merge the common selected attributes with the unique attributes
-          selectedAttrsSet
-          // {
-            fill = {
-              bg = commonFgColor;
-            };
-            separator = {
-              fg = commonFgColor;
-            };
-            separator_visible = {
-              fg = commonFgColor;
-            };
-            separator_selected = {
-              bg = commonBgColor;
-              fg = commonFgColor;
-            };
-          };
       };
     };
 
@@ -184,46 +123,41 @@
       {
         mode = "n";
         key = "<leader>bP";
-        action = ":BufferLineTogglePin<cr>";
+        action = "<cmd>BufferLineTogglePin<cr>";
         options = {
           desc = "Pin buffer toggle";
-          silent = true;
         };
       }
       {
         mode = "n";
         key = "<leader>bp";
-        action = ":BufferLinePick<cr>";
+        action = "<cmd>BufferLinePick<cr>";
         options = {
           desc = "Pick Buffer";
-          silent = true;
         };
       }
       {
         mode = "n";
         key = "<leader>bsd";
-        action = ":BufferLineSortByDirectory<cr>";
+        action = "<cmd>BufferLineSortByDirectory<cr>";
         options = {
           desc = "Sort By Directory";
-          silent = true;
         };
       }
       {
         mode = "n";
         key = "<leader>bse";
-        action = ":BufferLineSortByExtension<cr>";
+        action = "<cmd>BufferLineSortByExtension<cr>";
         options = {
           desc = "Sort By Extension";
-          silent = true;
         };
       }
       {
         mode = "n";
         key = "<leader>bsr";
-        action = ":BufferLineSortByRelativeDirectory<cr>";
+        action = "<cmd>BufferLineSortByRelativeDirectory<cr>";
         options = {
           desc = "Sort By Relative Directory";
-          silent = true;
         };
       }
     ];

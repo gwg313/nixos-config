@@ -1,8 +1,12 @@
 local helpers = require("personal.luasnip-helper-funcs")
 local get_visual = helpers.get_visual
-
+local ls = require("luasnip")
+local sn = ls.snippet_node
+local t = ls.text_node
+local r = ls.restore_node
 -- Math context detection
 local tex = {}
+-- local function in_mathzone() return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 1 end
 tex.in_mathzone = function()
 	return vim.fn["vimtex#syntax#in_mathzone"]() == 1
 end
@@ -10,8 +14,31 @@ tex.in_text = function()
 	return not tex.in_mathzone()
 end
 
+tex.generate_matrix = function(args, snip)
+	local rows = tonumber(snip.captures[2])
+	local cols = tonumber(snip.captures[3])
+	local nodes = {}
+	local ins_indx = 1
+	for j = 1, rows do
+		table.insert(nodes, r(ins_indx, tostring(j) .. "x1", i(1)))
+		ins_indx = ins_indx + 1
+		for k = 2, cols do
+			table.insert(nodes, t(" & "))
+			table.insert(nodes, r(ins_indx, tostring(j) .. "x" .. tostring(k), i(1)))
+			ins_indx = ins_indx + 1
+		end
+		table.insert(nodes, t({ "\\\\", "" }))
+	end
+	-- fix last node.
+	nodes[#nodes] = t("\\\\")
+	return sn(nil, nodes)
+end
+
 -- Return snippet tables
 return {
+	s({ trig = "vton", snippetType = "autosnippet" }, {
+		t("\\vec{v}_1, \\cdots, \\vec{v}_n"),
+	}),
 	-- SUPERSCRIPT
 	s(
 		{ trig = "([%w%)%]%}])'", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
@@ -397,6 +424,15 @@ return {
 		}),
 		{ condition = tex.in_mathzone }
 	),
+
+	-- 	{ trig = "([^%a])lim", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+	-- 	fmta("<>\\lim_{<>}", {
+	-- 		f(function(_, snip)
+	-- 			return snip.captures[1]
+	-- 		end),
+	-- 	}),
+	-- 	{ condition = tex.in_mathzone }
+	-- ),
 	--
 	-- BEGIN STATIC SNIPPETS
 	--
@@ -489,4 +525,36 @@ return {
 	s({ trig = "xx", snippetType = "autosnippet" }, {
 		t("\\times "),
 	}),
+	s(
+		{
+			trig = "([bBpvV])mat(%d+)x(%d+)([ar])",
+			name = "[bBpvV]matrix",
+			dscr = "matrices",
+			regTrig = true,
+			hidden = true,
+		},
+		fmta(
+			[[
+    \begin{<>}<>
+    <>
+    \end{<>}]],
+			{
+				f(function(_, snip)
+					return snip.captures[1] .. "matrix"
+				end),
+				f(function(_, snip)
+					if snip.captures[4] == "a" then
+						out = string.rep("c", tonumber(snip.captures[3]) - 1)
+						return "[" .. out .. "|c]"
+					end
+					return ""
+				end),
+				d(1, tex.generate_matrix),
+				f(function(_, snip)
+					return snip.captures[1] .. "matrix"
+				end),
+			}
+		),
+		{ condition = tex.in_math, show_condition = tex.in_math }
+	),
 }

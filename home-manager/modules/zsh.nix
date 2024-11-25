@@ -10,6 +10,7 @@
     shellAliases = {
       update = "sudo nixos-rebuild switch";
       clean = "nix-collect-garbage -d";
+      repair = "nix-store --repair --verify --check-contents";
       reload = "source ~/.zshrc";
 
       "." = "cd ../";

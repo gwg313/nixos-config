@@ -65,8 +65,9 @@
   };
 
   stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    image = ../../wallpapers/nix-black-4k.png;
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    image = ../../wallpapers/nixos-wallpaper-catppuccin-latte.png;
     #    polarity = "dark";
     autoEnable = true;
     enable = true;

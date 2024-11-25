@@ -15,7 +15,7 @@
       fromLua = [{paths = [../snippets];}];
     };
     extraFiles = {
-      "personal/luasnip-helper-funcs.lua".text = ''
+      "lua/personal/luasnip-helper-funcs.lua".text = ''
         local M = {}
 
         local ls = require("luasnip")

@@ -12,19 +12,19 @@
     networking.wireless.enable = true;
     environment.systemPackages = with pkgs; [wpa_supplicant_gui];
     networking.wireless.userControlled.enable = true;
-    networking.wireless.environmentFile = config.sops.secrets."wireless.env".path;
+    networking.wireless.secretsFile = config.sops.secrets."wireless.env".path;
     networking.wireless.networks = {
-      "@home_uuid@" = {
-        psk = "@home_psk@";
+      "Tycho Station" = {
+        pskRaw = "ext:home_psk";
         priority = 99;
       };
-      "@school_uuid@" = {
+      "CU-Wireless" = {
         auth = ''
           key_mgmt=WPA-EAP
           eap=PEAP
           phase2="auth=MSCHAPV2"
-          identity="@school_identity@"
-          password="@school_password@"
+          identity="glengoodwin"
+          password=ext:school_password
         '';
         priority = 89;
       };
@@ -34,8 +34,8 @@
           key_mgmt=WPA-EAP
           eap=PEAP
           phase2="auth=MSCHAPV2"
-          identity="@eduroam_identity@"
-          password="@school_password@"
+          identity="ext:eduroam_identity"
+          password="ext:school_password"
         '';
         priority = 79;
       };

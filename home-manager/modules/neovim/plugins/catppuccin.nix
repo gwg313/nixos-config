@@ -8,7 +8,8 @@ _: {
           percentage = 0.25;
         };
 
-        flavour = "macchiato";
+        # flavour = "macchiato";
+        flavour = "latte";
 
         integrations = {
           aerial = true;
