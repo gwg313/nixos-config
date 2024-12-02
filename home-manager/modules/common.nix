@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./atuin.nix
     ./bat.nix
@@ -18,7 +19,8 @@
   ];
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       # Editors
       #     neovim # Improved version of vim, often used with overlays.
@@ -56,6 +58,7 @@
       age
       portal
       atac
+      dblab
 
       # TUI Apps
       #ncdu_2

@@ -2,7 +2,8 @@
   config,
   user,
   ...
-}: {
+}:
+{
   services.syncthing = {
     enable = true;
     dataDir = "/home/gwg313";
@@ -17,13 +18,15 @@
 
     settings = {
       devices = {
-        "grymforge" = {id = "N2TYFZ4-ODIIHIZ-UP27V4V-NYMAZNI-SIATS5S-5NTM6JX-A67HCZ5-ZB4TVQJ";};
+        "grymforge" = {
+          id = "N2TYFZ4-ODIIHIZ-UP27V4V-NYMAZNI-SIATS5S-5NTM6JX-A67HCZ5-ZB4TVQJ";
+        };
       };
 
       folders = {
         "repos" = {
           path = "/home/gwg313/repos";
-          devices = ["grymforge"];
+          devices = [ "grymforge" ];
           versioning = {
             type = "staggered";
             params = {
@@ -34,7 +37,7 @@
         };
         "documents" = {
           path = "/home/gwg313/Documents";
-          devices = ["grymforge"];
+          devices = [ "grymforge" ];
           versioning = {
             type = "staggered";
             params = {
@@ -45,7 +48,7 @@
         };
         "obsidian" = {
           path = "/home/gwg313/vault";
-          devices = ["grymforge"];
+          devices = [ "grymforge" ];
           versioning = {
             type = "staggered";
             params = {

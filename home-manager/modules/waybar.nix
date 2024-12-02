@@ -1,8 +1,10 @@
 # A highly customizable status bar for Sway and other Wayland-based compositors.
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   networkInterface.eth = "wlp3s0";
   hwmon = "/sys/class/hwmon/hwmon0/temp1_input";
-in {
+in
+{
   programs.waybar.enable = true;
 
   programs.waybar.settings = {
@@ -10,9 +12,25 @@ in {
       layer = "bottom";
       position = "top";
       height = 24;
-      modules-left = ["hyprland/workspaces" "sway/mode"];
-      modules-center = ["hyprland/window" "gamemode"];
-      modules-right = ["network" "pulseaudio" "cpu" "custom/cpu_freq" "temperature" "memory" "battery" "tray" "clock"];
+      modules-left = [
+        "hyprland/workspaces"
+        "sway/mode"
+      ];
+      modules-center = [
+        "hyprland/window"
+        "gamemode"
+      ];
+      modules-right = [
+        "network"
+        "pulseaudio"
+        "cpu"
+        "custom/cpu_freq"
+        "temperature"
+        "memory"
+        "battery"
+        "tray"
+        "clock"
+      ];
 
       "hyprland/workspaces".sort-by-number = true;
 
@@ -34,16 +52,14 @@ in {
       "custom/cpu_freq" = {
         format = "{}MHz ";
         interval = 5;
-        exec =
-          pkgs.writeShellScript "cpuFreq"
-          ''
-            ${pkgs.busybox}/bin/cat /proc/cpuinfo | \
-            ${pkgs.busybox}/bin/grep MHz | \
-            ${pkgs.busybox}/bin/cut -c 12-15 | \
-            ${pkgs.busybox}/bin/tr '\n' ' ' | \
-            ${pkgs.busybox}/bin/awk '{s+=$1}END{print "",s/NR}' RS=" " | \
-            ${pkgs.busybox}/bin/cut -c 2-5
-          '';
+        exec = pkgs.writeShellScript "cpuFreq" ''
+          ${pkgs.busybox}/bin/cat /proc/cpuinfo | \
+          ${pkgs.busybox}/bin/grep MHz | \
+          ${pkgs.busybox}/bin/cut -c 12-15 | \
+          ${pkgs.busybox}/bin/tr '\n' ' ' | \
+          ${pkgs.busybox}/bin/awk '{s+=$1}END{print "",s/NR}' RS=" " | \
+          ${pkgs.busybox}/bin/cut -c 2-5
+        '';
       };
 
       "battery" = {
@@ -55,7 +71,13 @@ in {
         };
         "format" = "{capacity}% {icon} ";
         "format-full" = "";
-        "format-icons" = ["" "" "" "" ""];
+        "format-icons" = [
+          ""
+          ""
+          ""
+          ""
+          ""
+        ];
       };
 
       "memory"."format" = "{used:0.1f}G/{total:0.1f}G  ";
@@ -81,7 +103,10 @@ in {
           "phone" = "";
           "portable" = "";
           "car" = "";
-          "default" = ["" ""];
+          "default" = [
+            ""
+            ""
+          ];
         };
         "on-click" = "pavucontrol";
       };

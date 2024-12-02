@@ -3,11 +3,15 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.programs.discord;
 
   discordPatcherBin = pkgs.writers.writePython3Bin "discord-krisp-patcher" {
-    libraries = with pkgs.python3Packages; [pyelftools capstone];
+    libraries = with pkgs.python3Packages; [
+      pyelftools
+      capstone
+    ];
     flakeIgnore = [
       "E265" # from nix-shell shebang
       "E501" # line too long (82 > 79 characters)
@@ -27,19 +31,16 @@
     # link fix
     nss = pkgs.nss_latest;
   };
-in {
+in
+{
   options.programs.discord = {
     enable = lib.mkEnableOption "Discord";
     wrapDiscord = lib.mkEnableOption "wrap the Discord binary with a patching each time";
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages =
-      [discordPatcherBin]
-      ++ (
-        if cfg.wrapDiscord
-        then [wrapDiscordBinary]
-        else [pkgs.discord]
-      );
+    home.packages = [
+      discordPatcherBin
+    ] ++ (if cfg.wrapDiscord then [ wrapDiscordBinary ] else [ pkgs.discord ]);
   };
 }

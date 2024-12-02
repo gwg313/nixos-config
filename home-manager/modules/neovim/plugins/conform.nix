@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.nixvim = {
     extraConfigLuaPre =
       # lua
@@ -10,22 +11,22 @@
         local slow_format_filetypes = {}
 
         vim.api.nvim_create_user_command("FormatDisable", function(args)
-           if args.bang then
+          if args.bang then
             -- FormatDisable! will disable formatting just for this buffer
             vim.b.disable_autoformat = true
           else
             vim.g.disable_autoformat = true
           end
         end, {
-          desc = "Disable autoformat-on-save",
-          bang = true,
-        })
+            desc = "Disable autoformat-on-save",
+            bang = true,
+          })
         vim.api.nvim_create_user_command("FormatEnable", function()
           vim.b.disable_autoformat = false
           vim.g.disable_autoformat = false
         end, {
-          desc = "Re-enable autoformat-on-save",
-        })
+            desc = "Re-enable autoformat-on-save",
+          })
         vim.api.nvim_create_user_command("FormatToggle", function(args)
           if args.bang then
             -- Toggle formatting for current buffer
@@ -35,9 +36,9 @@
             vim.g.disable_autoformat = not vim.g.disable_autoformat
           end
         end, {
-          desc = "Toggle autoformat-on-save",
-          bang = true,
-        })
+            desc = "Toggle autoformat-on-save",
+            bang = true,
+          })
       '';
 
     plugins = {
@@ -63,7 +64,7 @@
                 end
 
                 return { timeout_ms = 200, lsp_fallback = true }, on_format
-               end
+              end
             '';
 
           format_after_save =
@@ -97,40 +98,40 @@
             "shellharden"
             "shfmt"
           ];
-          bicep = ["bicep"];
-          c = ["clang_format"];
-          cmake = ["cmake-format"];
-          cpp = ["clang_format"];
-          cs = ["csharpier"];
-          css = ["stylelint"];
-          fish = ["fish_indent"];
-          fsharp = ["fantomas"];
-          go = ["gofmt"];
-          haskell = ["ormolu"];
+          bicep = [ "bicep" ];
+          c = [ "clang_format" ];
+          cmake = [ "cmake-format" ];
+          cpp = [ "clang_format" ];
+          cs = [ "csharpier" ];
+          css = [ "stylelint" ];
+          fish = [ "fish_indent" ];
+          fsharp = [ "fantomas" ];
+          go = [ "gofmt" ];
+          haskell = [ "ormolu" ];
           javascript = [
             [
               "prettierd"
               "prettier"
             ]
           ];
-          json = ["jq"];
-          lua = ["stylua"];
-          markdown = ["deno_fmt"];
-          nix = ["nixfmt"];
+          json = [ "jq" ];
+          lua = [ "stylua" ];
+          markdown = [ "deno_fmt" ];
+          nix = [ "nixfmt" ];
           python = [
             "isort"
             "black"
           ];
-          rust = ["rustfmt"];
+          rust = [ "rustfmt" ];
           sh = [
             "shellcheck"
             "shellharden"
             "shfmt"
           ];
-          sql = ["sqlfluff"];
-          swift = ["swift_format"];
-          terraform = ["terraform_fmt"];
-          toml = ["taplo"];
+          sql = [ "sqlfluff" ];
+          swift = [ "swift_format" ];
+          terraform = [ "terraform_fmt" ];
+          toml = [ "taplo" ];
           typescript = [
             [
               "prettierd"
@@ -141,8 +142,8 @@
             "xmlformat"
             "xmllint"
           ];
-          yaml = ["yamlfmt"];
-          zig = ["zigfmt"];
+          yaml = [ "yamlfmt" ];
+          zig = [ "zigfmt" ];
           "_" = [
             "squeeze_blanks"
             "trim_whitespace"

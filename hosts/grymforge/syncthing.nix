@@ -2,7 +2,8 @@
   config,
   user,
   ...
-}: {
+}:
+{
   services.syncthing = {
     enable = true;
     dataDir = "/home/gwg313";
@@ -17,13 +18,15 @@
 
     settings = {
       devices = {
-        "candlekeep" = {id = "762A3TK-Z3ZX6DG-V4VASMJ-H6DJHE5-PBD6YZQ-MPILUWT-E7EY4O7-4EAPHAX";};
+        "candlekeep" = {
+          id = "762A3TK-Z3ZX6DG-V4VASMJ-H6DJHE5-PBD6YZQ-MPILUWT-E7EY4O7-4EAPHAX";
+        };
       };
 
       folders = {
         "repos" = {
           path = "/home/gwg313/repos";
-          devices = ["candlekeep"];
+          devices = [ "candlekeep" ];
           versioning = {
             type = "staggered";
             params = {
@@ -34,7 +37,7 @@
         };
         "documents" = {
           path = "/home/gwg313/Documents";
-          devices = ["candlekeep"];
+          devices = [ "candlekeep" ];
           versioning = {
             type = "staggered";
             params = {
@@ -45,7 +48,7 @@
         };
         "obsidian" = {
           path = "/home/gwg313/vault";
-          devices = ["candlekeep"];
+          devices = [ "candlekeep" ];
           versioning = {
             type = "staggered";
             params = {

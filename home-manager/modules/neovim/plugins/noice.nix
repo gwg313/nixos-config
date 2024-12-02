@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     plugins.noice = {
       enable = true;
@@ -51,7 +52,7 @@
             pattern = "^:%s*he?l?p?%s+";
             icon = "󰋖";
           };
-          input = {};
+          input = { };
         };
       };
 
@@ -105,9 +106,9 @@
                 local servers = { 'jdtls' }
 
                 for index, value in ipairs(servers) do
-                    if value == client then
-                        return true
-                    end
+                  if value == client then
+                    return true
+                  end
                 end
               end
             '';

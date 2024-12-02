@@ -1,12 +1,25 @@
 # A fast, GPU-accelerated terminal emulator.
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}:
+{
   programs.alacritty = {
     enable = true;
     settings = {
       env = {
         TERM = "xterm-256color";
       };
+      font = {
+        normal = {
+          family = lib.mkForce "Monaspace Krypton";
+        };
+      };
     };
   };
-  home.packages = with pkgs; [ueberzugpp];
+  home.packages = with pkgs; [
+    ueberzugpp
+    monaspace
+  ];
 }

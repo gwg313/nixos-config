@@ -1,9 +1,9 @@
-import sys
 import shutil
+import sys
 
-from elftools.elf.elffile import ELFFile
 from capstone import *
 from capstone.x86 import *
+from elftools.elf.elffile import ELFFile
 
 if len(sys.argv) < 2:
     print(f"Usage: {sys.argv[0]} [path to discord_krisp.node]")
@@ -13,14 +13,18 @@ if len(sys.argv) < 2:
 executable = sys.argv[1]
 
 elf = ELFFile(open(executable, "rb"))
-symtab = elf.get_section_by_name('.symtab')
+symtab = elf.get_section_by_name(".symtab")
 
-krisp_initialize_address = symtab.get_symbol_by_name("_ZN7discord15KrispInitializeEv")[0].entry.st_value
-isSignedByDiscord_address = symtab.get_symbol_by_name("_ZN7discord4util17IsSignedByDiscordERKNSt2Cr12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE")[0].entry.st_value
+krisp_initialize_address = symtab.get_symbol_by_name("_ZN7discord15KrispInitializeEv")[
+    0
+].entry.st_value
+isSignedByDiscord_address = symtab.get_symbol_by_name(
+    "_ZN7discord4util17IsSignedByDiscordERKNSt2Cr12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE"
+)[0].entry.st_value
 
-text = elf.get_section_by_name('.text')
-text_start = text['sh_addr']
-text_start_file = text['sh_offset']
+text = elf.get_section_by_name(".text")
+text_start = text["sh_addr"]
+text_start_file = text["sh_offset"]
 # This seems to always be zero (.text starts at the right offset in the file). Do it just in case?
 address_to_file = text_start_file - text_start
 
@@ -72,9 +76,9 @@ if je_location:
     print(f"Found patch location: 0x{je_location:x}")
 
     shutil.copyfile(executable, executable + ".orig")
-    f = open(executable, 'rb+')
+    f = open(executable, "rb+")
     f.seek(je_location - address_to_file)
-    f.write(b'\x66\x90')  # Two byte NOP
+    f.write(b"\x66\x90")  # Two byte NOP
     f.close()
 else:
     if found_already_patched:

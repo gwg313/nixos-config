@@ -1,11 +1,12 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     plugins = {
       mini = {
         enable = true;
 
         modules = {
-          bufremove = {};
+          bufremove = { };
         };
       };
     };
@@ -44,7 +45,7 @@
 
               local get_listed_bufs = function()
                 return vim.tbl_filter(function(bufnr)
-                 return vim.api.nvim_buf_get_option(bufnr, "buflisted")
+                  return vim.api.nvim_buf_get_option(bufnr, "buflisted")
                 end, vim.api.nvim_list_bufs())
               end
 

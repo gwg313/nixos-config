@@ -6,7 +6,8 @@
   outputs,
   user,
   ...
-}: {
+}:
+{
   imports = [
     ./packages.nix
     ./users.nix
@@ -16,12 +17,15 @@
   #
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.settings.auto-optimise-store = true;
   nix.optimise.automatic = true;
 
-  nix.settings.trusted-users = ["${user}"];
+  nix.settings.trusted-users = [ "${user}" ];
 
   # Disable so comma can be installed
   programs.command-not-found.enable = false;

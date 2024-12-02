@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     ssh_client.enable = lib.mkEnableOption "enable ssh client settings";
   };
@@ -80,7 +81,7 @@
 
       # display an ASCII art of the server's host key
       VisualHostKey yes
-    ";
+        ";
     };
   };
 }

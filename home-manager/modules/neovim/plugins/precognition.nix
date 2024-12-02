@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
-    extraPlugins = [pkgs.vimPlugins.precognition-nvim];
+    extraPlugins = [ pkgs.vimPlugins.precognition-nvim ];
 
     keymaps = [
       {
@@ -9,9 +10,9 @@
         action.__raw = ''
           function()
             if require("precognition").toggle() then
-                vim.notify("precognition on")
+              vim.notify("precognition on")
             else
-                vim.notify("precognition off")
+              vim.notify("precognition off")
             end
           end
         '';
