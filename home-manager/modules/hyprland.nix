@@ -55,7 +55,7 @@
       active_opacity = 0.93;
       inactive_opacity = 0.93;
       fullscreen_opacity = 1;
-      drop_shadow = false;
+      # drop_shadow = false;
     };
     animations = {
       enabled = true;

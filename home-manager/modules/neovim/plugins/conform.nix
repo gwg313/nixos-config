@@ -105,6 +105,7 @@
           css = ["stylelint"];
           fish = ["fish_indent"];
           fsharp = ["fantomas"];
+          go = ["gofmt"];
           haskell = ["ormolu"];
           javascript = [
             [

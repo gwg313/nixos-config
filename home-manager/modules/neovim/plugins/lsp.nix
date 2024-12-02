@@ -73,6 +73,8 @@
 
           pyright.enable = true;
           hls.enable = true;
+          gopls.enable = true;
+          hls.installGhc = true;
           leanls.enable = true;
           texlab.enable = true;
           html.enable = true;
