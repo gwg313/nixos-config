@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   boot.kernel.sysctl = {
     # enable ExecShield protection
     # 2 enables ExecShield by default unless applications bits are set to disabled
@@ -29,6 +30,7 @@
     #   - 1: only a parent process can be debugged
     #   - 2: only admins can use ptrace (CAP_SYS_PTRACE capability required)
     #   - 3: disables ptrace completely, reboot is required to re-enable ptrace
+    # If you need ptrace to work, then avoid non-ancestor ptrace access to running processes and their credentials, and use value "1".
     "kernel.yama.ptrace_scope" = 3;
 
     # restrict kernel logs to root only

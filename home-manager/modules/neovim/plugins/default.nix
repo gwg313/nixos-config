@@ -31,11 +31,13 @@ _: {
     ./mini-indentscope.nix
     ./glow.nix
     ./navic.nix
+    ./neoscroll.nix
     ./nix.nix
     ./noice.nix
     ./notify.nix
     ./precognition.nix
     ./spectre.nix
+    ./snacks.nix
     ./refactoring.nix
     ./render-markdown.nix
     ./telescope.nix
@@ -48,5 +50,6 @@ _: {
     ./yazi.nix
     ./yanky.nix
     ./vimtex.nix
+    ./zenmode.nix
   ];
 }

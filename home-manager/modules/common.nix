@@ -59,6 +59,7 @@
       portal
       atac
       dblab
+      gobang
 
       # TUI Apps
       #ncdu_2

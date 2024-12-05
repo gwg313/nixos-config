@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   options = {
     kubernetes.enable = lib.mkEnableOption "Enables Kubernetes and tooling";
   };
