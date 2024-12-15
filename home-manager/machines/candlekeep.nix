@@ -7,7 +7,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -18,6 +19,7 @@
     inputs.ags.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
+    ./candlekeep/variables.nix
     # ./nvim.nix
     ../modules/common.nix
     ../modules/hyprland.nix
@@ -29,6 +31,12 @@
     ../modules/ags.nix
     ../modules/neovim
     ../modules/yazi.nix
+    ../modules/hyprpanel.nix
+    ../modules/hyprlock.nix
+    ../modules/hypridle.nix
+    # ../modules/hyprspace.nix
+    ../modules/qutebrowser.nix
+    ../scripts/default.nix
   ];
 
   nixpkgs = {
@@ -41,7 +49,7 @@
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      (final: prev: {neovim = inputs.neovim-config.packages."x86_64-linux".default;})
+      (final: prev: { neovim = inputs.neovim-config.packages."x86_64-linux".default; })
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -49,6 +57,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+      inputs.hyprpanel.overlay
     ];
     # Configure your nixpkgs instance
     config = {
@@ -66,7 +75,7 @@
 
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    image = ../../wallpapers/nixos-wallpaper-catppuccin-latte.png;
+    image = ../../wallpapers/forrest.png;
     autoEnable = true;
     enable = true;
 
@@ -103,7 +112,11 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [openvpn];
+  home.packages = with pkgs; [
+    openvpn
+    hyprpanel
+    nerd-fonts.overpass
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

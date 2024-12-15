@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./common.nix
     ./dbus.nix
@@ -29,7 +30,7 @@
         variant = "";
         layout = "us";
       };
-      excludePackages = [pkgs.xterm];
+      excludePackages = [ pkgs.xterm ];
       #      videoDrivers = ["amdgpu"];
       libinput = {
         enable = true;
@@ -51,15 +52,16 @@
   programs = {
     hyprland = {
       enable = true;
+      withUWSM = true; # recommended for most users
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland = {
         enable = true;
       };
     };
     waybar = {
-      enable = true;
+      enable = false;
       package = pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       });
     };
     thunar = {

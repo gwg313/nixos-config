@@ -10,6 +10,11 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+    };
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

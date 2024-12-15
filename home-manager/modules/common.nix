@@ -16,6 +16,7 @@
     ./tmux/tmux.nix
     ./zoxide.nix
     ./zsh.nix
+    ./nushell.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -60,6 +61,7 @@
       atac
       dblab
       gobang
+      lazyjournal
 
       # TUI Apps
       #ncdu_2

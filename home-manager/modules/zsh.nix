@@ -4,7 +4,8 @@
   pkgs,
   user,
   ...
-}: {
+}:
+{
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -53,10 +54,10 @@
     zplug = {
       enable = true;
       plugins = [
-        {name = "zsh-users/zsh-autosuggestions";}
-        {name = "zsh-users/zsh-completions";}
-        {name = "zsh-users/zsh-syntax-highlighting";}
-        {name = "MichaelAquilina/zsh-you-should-use";}
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "zsh-users/zsh-completions"; }
+        { name = "zsh-users/zsh-syntax-highlighting"; }
+        { name = "MichaelAquilina/zsh-you-should-use"; }
       ];
     };
 
@@ -75,6 +76,11 @@
     };
     initExtra = ''
       eval $(thefuck --alias)
+      fastfetch
     '';
   };
+
+  home.packages = with pkgs; [
+    fastfetch
+  ];
 }

@@ -1,8 +1,10 @@
 # A customizable prompt for shells.
-{...}: {
+{ ... }:
+{
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    enableNushellIntegration = true;
     settings = {
       add_newline = true;
       character = {

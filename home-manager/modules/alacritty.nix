@@ -13,7 +13,8 @@
       };
       font = {
         normal = {
-          family = lib.mkForce "Monaspace Krypton";
+          # family = lib.mkForce "Monaspace Krypton";
+          family = lib.mkForce "Comic Code";
         };
       };
     };

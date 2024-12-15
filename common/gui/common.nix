@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services.printing.enable = true;
 
   environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme
-    gnome.gnome-themes-extra
+    adwaita-icon-theme
+    gnome-themes-extra
     firefox-wayland
     librewolf
     discord

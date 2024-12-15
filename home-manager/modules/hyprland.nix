@@ -2,16 +2,17 @@
   config,
   pkgs,
   ...
-}: {
-  imports = [./waybar.nix];
+}:
+{
+  imports = [ ./waybar.nix ];
 
-  services.mako = {
-    enable = true;
-    defaultTimeout = 4000;
-    borderRadius = 5;
-    borderSize = 2;
-    layer = "overlay";
-  };
+  # services.mako = {
+  #   enable = true;
+  #   defaultTimeout = 4000;
+  #   borderRadius = 5;
+  #   borderSize = 2;
+  #   layer = "overlay";
+  # };
 
   wayland.windowManager.hyprland.enable = true;
 
@@ -96,13 +97,17 @@
 
     bind = [
       # general binds
-      "$mod, RETURN, exec, ${pkgs.alacritty}/bin/alacritty"
+      ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
+      # "$mod, RETURN, exec, ${pkgs.alacritty}/bin/alacritty"
+      "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
+      "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
       "$mod, Q, killactive"
       "SUPER_SHIFT, Q, exec, ${pkgs.wlogout}/bin/wlogout"
       "$mod, SPACE, exec, pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel" # pkill or allows for toggle
       "SUPER_SHIFT, SPACE, togglefloating"
-      "$mod, F, fullscreen"
-      "$mod, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -f"
+      # "$mod, F, fullscreen"
+      "$mod,F, exec, hyprfocus-toggle" # Toggle HyprFocus
+      "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
       "$mod, B, exec, ${pkgs.grim}/bin/grim \"desktop-$(${pkgs.busybox}/bin/date +\"%Y%m%d%H%m\").png"
       "SUPER_SHIFT, B, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard}/bin/wl-copy" # Screenshot selection directly to clipboard
 
@@ -114,8 +119,10 @@
       # Screen Brightness
       #",XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -A 10"
       #",XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -U 10"
-      ",XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -S \"$(${pkgs.light}/bin/light -G | ${pkgs.busybox}/bin/awk '{ print int(($1 + .72) * 1.4) }')\""
-      ",XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -S \"$(${pkgs.light}/bin/light -G | ${pkgs.busybox}/bin/awk '{ print int($1 / 1.4) }')\""
+      # ",XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -S \"$(${pkgs.light}/bin/light -G | ${pkgs.busybox}/bin/awk '{ print int(($1 + .72) * 1.4) }')\""
+      # ",XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -S \"$(${pkgs.light}/bin/light -G | ${pkgs.busybox}/bin/awk '{ print int($1 / 1.4) }')\""
+      ",XF86MonBrightnessUp, exec, brightness-up" # Brightness Up
+      ",XF86MonBrightnessDown, exec, brightness-down" # Brightness Down
       # move focus
       "$mod, left, movefocus, l"
       "$mod, right, movefocus, r"
@@ -160,9 +167,9 @@
       "$mod_ALT, mouse:272, resizewindow"
     ];
 
-    monitor = [",preferred,auto,1"];
+    monitor = [ ",preferred,auto,1" ];
     # monitor = [ "HDMI-A-1,1920x1080@144,auto,1" ];
-    exec = ["${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill"];
+    exec = [ "${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill" ];
     exec-once = [
       # Enables clipboard sync
       "${pkgs.wl-clipboard}/bin/wl-paste -p | ${pkgs.wl-clipboard}/bin/wl-copy"
@@ -189,35 +196,5 @@
     # will reset the submap, meaning end the current one and return to the global one
     submap=reset
   '';
-  services.swayidle = {
-    enable = true;
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock -f";
-      }
-      {
-        event = "lock";
-        command = "lock";
-      }
-    ];
-    timeouts = [
-      {
-        timeout = 1800;
-        command = "${pkgs.swaylock}/bin/swaylock -f";
-      }
-    ];
-    systemdTarget = "xdg-desktop-portal-hyprland.service";
-  };
 
-  programs.swaylock = {
-    enable = true;
-    settings = {
-      font-size = "24";
-      indicator-idle-visible = false;
-      indicator-radius = 100;
-      indicator-thickness = 20;
-      show-failed-attempts = true;
-    };
-  };
 }

@@ -1,7 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./alacritty.nix
     ./fuzzel.nix
+    ./kitty.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -11,7 +13,7 @@
 
   home.packages = with pkgs; [
     # fonts
-    nerdfonts
+    nerd-fonts.monaspace
     noto-fonts-cjk-sans
     rPackages.fontawesome
     ubuntu_font_family

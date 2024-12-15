@@ -1,11 +1,13 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   imports = [
     ./zerotier.nix
     ./firewall.nix
-    ./wireless.nix
+    # ./wireless.nix
+    ./networkmanager.nix
   ];
 
   zerotier.enable = lib.mkDefault true;
   firewall.enable = lib.mkDefault true;
-  wireless.enable = lib.mkDefault false;
+  # wireless.enable = lib.mkDefault false;
 }

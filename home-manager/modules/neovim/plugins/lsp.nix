@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.nixvim = {
     extraConfigLuaPre =
       # lua
@@ -63,10 +64,10 @@
         servers = {
           nil-ls = {
             enable = true;
-            filetypes = ["nix"];
+            filetypes = [ "nix" ];
             settings = {
               formatting = {
-                command = ["${lib.getExe pkgs.nixfmt-rfc-style}"];
+                command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
               };
             };
           };
@@ -74,14 +75,19 @@
           pyright.enable = true;
           hls.enable = true;
           gopls.enable = true;
-          hls.installGhc = true;
+          # hls.installGhc = true;
+          hls.filetypes = [
+            "haskell"
+            "lhaskell"
+            "cabal"
+          ];
           leanls.enable = true;
           texlab.enable = true;
           html.enable = true;
 
           cmake = {
             enable = true;
-            filetypes = ["cmake"];
+            filetypes = [ "cmake" ];
           };
 
           # ccls = {

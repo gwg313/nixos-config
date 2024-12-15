@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./discord
     ./zathura.nix
@@ -27,5 +28,6 @@
     chromium
     vlc
     zotero
+    feishin
   ];
 }
