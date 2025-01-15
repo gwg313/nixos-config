@@ -8,7 +8,7 @@
   imports = [
     ./atuin.nix
     ./bat.nix
-    ./broot.nix
+    # ./broot.nix
     ./eza.nix
     ./git.nix
     ./pass.nix
@@ -16,13 +16,14 @@
     ./tmux/tmux.nix
     ./zoxide.nix
     ./zsh.nix
-    ./nushell.nix
+    ./nushell/default.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
   home.packages =
     with pkgs;
     [
+      ghostty
       # Editors
       #     neovim # Improved version of vim, often used with overlays.
       vim # Highly configurable text editor popular for efficiency and extensibility.

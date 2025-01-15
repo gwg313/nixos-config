@@ -19,7 +19,7 @@
     settings = {
       devices = {
         "candlekeep" = {
-          id = "762A3TK-Z3ZX6DG-V4VASMJ-H6DJHE5-PBD6YZQ-MPILUWT-E7EY4O7-4EAPHAX";
+          id = "OREQCG7-JQMPCU4-HWFEQVM-7C6VYSC-A25I3PD-BYQ6RSU-7FQGDFX-SJDPGQY";
         };
       };
 

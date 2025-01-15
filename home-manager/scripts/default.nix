@@ -7,5 +7,6 @@
     ./caffeine
     ./notification
     ./screenshot
+    ./sound
   ];
 }

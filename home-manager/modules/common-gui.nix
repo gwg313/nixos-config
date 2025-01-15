@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./fuzzel.nix
     ./kitty.nix
+    ./ghostty.nix
   ];
 
   fonts.fontconfig.enable = true;
