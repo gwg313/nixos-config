@@ -122,9 +122,13 @@
 
   environment = {
     loginShellInit = ''
-      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-        exec Hyprland
-      fi
+            # if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+            #   exec Hyprland
+            # fi
+
+      if (empty $env.DISPLAY) && ($tty == '/dev/tty1') {
+          exec Hyprland
+      }
     ''; # Will automatically open Hyprland when logged into tty1
     variables = {
       TERMINAL = "alacritty";

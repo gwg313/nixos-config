@@ -1,11 +1,13 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   plugins-repo = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "a3ee7173bff700214bc2d993ef605c3c41d800c9";
-    hash = "sha256-m2A/vIgGMzFzhaOgFL21cZua8h2XaYu7Jb6yuZQKiTw=";
+    rev = "02d18be03812415097e83c6a912924560e4cec6d";
+    hash = "sha256-1FZ8wcf2VVp6ZWY27vm1dUU1KAL32WwoYbNA/8RUAog=";
   };
-in {
+in
+{
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
@@ -28,8 +30,8 @@ in {
       starship = pkgs.fetchFromGitHub {
         owner = "Rolv-Apneseth";
         repo = "starship.yazi";
-        rev = "dc9989c2bdd3d04e615d3bbb5f3bf99ed6ce1a35";
-        sha256 = "sha256-AwBqOKWtz5BzY7Sye1JljWI2t+JQGGQfOT6oQN7YTOg=";
+        rev = "af8bf6f82165b83272b6501ce7445cf2c61fbf51";
+        sha256 = "sha256-L7MkZZqJ+t+A61ceC4Q1joLF6ytoWdgx9BwZWAGAoCA=";
       };
     };
 
@@ -46,7 +48,10 @@ in {
           desc = "Maximize or restore the preview pane";
         }
         {
-          on = ["c" "m"];
+          on = [
+            "c"
+            "m"
+          ];
           run = "plugin chmod";
           desc = "Chmod on selected files";
         }

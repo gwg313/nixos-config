@@ -15,7 +15,7 @@
         # general binds
         ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
         # "$mod, RETURN, exec, ${pkgs.alacritty}/bin/alacritty"
-        "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
+        "$mod, RETURN, exec, ${pkgs.ghostty}/bin/ghostty"
         "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, ${pkgs.wlogout}/bin/wlogout"

@@ -58,11 +58,11 @@
         mv = "mv -i -v";
         mkdir = "mkdir -v";
         df = "df -h";
-        du = "du -h";
+        # du = "du -h";
         dd = "dd status=progress bs=4M conv=fdatasync ";
         wgetpaste = "wgetpaste -Xx";
         sudo = "sudo "; # Makes sudo work with       es
-        # ssh = "TERM=xterm ssh"; # Fixes some issues with ssh on some terminals
+        ssh = "TERM=xterm ssh"; # Fixes some issues with ssh on some terminals
         wget = "wget -c";
         ping = "ping -c 5";
         ftp = "ftp -p";

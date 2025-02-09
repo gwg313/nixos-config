@@ -8,6 +8,7 @@
   imports = [
     ./atuin.nix
     ./bat.nix
+    ./btop.nix
     # ./broot.nix
     ./eza.nix
     ./git.nix
@@ -23,10 +24,12 @@
   home.packages =
     with pkgs;
     [
-      ghostty
       # Editors
       #     neovim # Improved version of vim, often used with overlays.
       vim # Highly configurable text editor popular for efficiency and extensibility.
+
+      sshfs
+      lurk
 
       # Builtin Replacements
       bottom # Similar to 'htop,' providing a top-like interface with additional features.

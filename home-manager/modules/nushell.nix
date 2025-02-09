@@ -22,9 +22,6 @@
       "..." = "cd ../../../";
       "...." = "cd ../../../../";
 
-      ls = "ls | grid -c -i";
-      ll = "ls";
-
       ps = "procs";
       grep = "rg";
       cat = "bat";

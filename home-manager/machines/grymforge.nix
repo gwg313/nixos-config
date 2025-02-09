@@ -7,7 +7,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -17,8 +18,14 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
+
+    ./candlekeep/variables.nix
+    ../modules/hyprpanel.nix
+    ../modules/hyprlock.nix
+    # ../modules/hypridle.nix
     # ./nvim.nix
     ../modules/common.nix
+
     ../modules/hyprland.nix
     ../modules/common-gui.nix
     ../modules/linux-gui.nix
@@ -106,7 +113,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [openvpn];
+  home.packages = with pkgs; [ openvpn ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

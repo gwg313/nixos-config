@@ -106,7 +106,7 @@
       "$mod, SPACE, exec, pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel" # pkill or allows for toggle
       "SUPER_SHIFT, SPACE, togglefloating"
       # "$mod, F, fullscreen"
-      "$mod,F, exec, hyprfocus-toggle" # Toggle HyprFocus
+      "$mod,F, exec, fullscreen"
       "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
       "$mod, B, exec, ${pkgs.grim}/bin/grim \"desktop-$(${pkgs.busybox}/bin/date +\"%Y%m%d%H%m\").png"
       "SUPER_SHIFT, B, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard}/bin/wl-copy" # Screenshot selection directly to clipboard

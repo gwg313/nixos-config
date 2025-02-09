@@ -22,7 +22,8 @@
     ./candlekeep/variables.nix
     # ./nvim.nix
     ../modules/common.nix
-    ../modules/hyprland.nix
+    # ../modules/hyprland.nix
+    ../modules/hyprland
     ../modules/common-gui.nix
     ../modules/linux-gui.nix
     ../modules/devenv.nix

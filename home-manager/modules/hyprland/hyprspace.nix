@@ -11,7 +11,7 @@
       };
 
       bind = [
-        "$mod,TAB, overview:toggle" # Overview
+        "$mod,TAB, overview:toggle"
 
       ];
     };

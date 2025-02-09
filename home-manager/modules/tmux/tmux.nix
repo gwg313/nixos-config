@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   stylix.targets.tmux.enable = false;
   programs.tmux = {
     enable = true;
@@ -181,5 +182,17 @@
       bindkey -M vicmd '\es' sesh-sessions
       bindkey -M viins '\es' sesh-sessions
     '';
+  };
+
+  programs.nushell = {
+    shellAliases = {
+      tx = "sesh connect /home/${config.home.username}";
+      ta = "tmux attach -t";
+      tad = "tmux attach -d -t";
+      ts = "tmux new-session -s";
+      tl = "tmux list-sessions";
+      tksv = "tmux kill-server";
+      tkss = "tmux kill-session -t";
+    };
   };
 }

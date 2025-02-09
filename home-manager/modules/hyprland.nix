@@ -99,14 +99,14 @@
       # general binds
       ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
       # "$mod, RETURN, exec, ${pkgs.alacritty}/bin/alacritty"
-      "$mod, RETURN, exec, ${pkgs.kitty}/bin/kitty"
+      "$mod, RETURN, exec, ${pkgs.ghostty}/bin/ghostty"
       "$shiftMod,SPACE, exec, hyprfocus-toggle" # Toggle HyprFocus
       "$mod, Q, killactive"
       "SUPER_SHIFT, Q, exec, ${pkgs.wlogout}/bin/wlogout"
       "$mod, SPACE, exec, pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel" # pkill or allows for toggle
       "SUPER_SHIFT, SPACE, togglefloating"
-      # "$mod, F, fullscreen"
-      "$mod,F, exec, hyprfocus-toggle" # Toggle HyprFocus
+      "$mod, F, fullscreen"
+      # "$mod,F, exec, hyprfocus-toggle" # Toggle HyprFocus
       "$mod, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
       "$mod, B, exec, ${pkgs.grim}/bin/grim \"desktop-$(${pkgs.busybox}/bin/date +\"%Y%m%d%H%m\").png"
       "SUPER_SHIFT, B, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard}/bin/wl-copy" # Screenshot selection directly to clipboard
@@ -167,7 +167,15 @@
       "$mod_ALT, mouse:272, resizewindow"
     ];
 
-    monitor = [ ",preferred,auto,1" ];
+    monitor = [
+      # "eDP-1,highres,0x0,1"
+      # "DP-1,preferred,0x0,1"
+      # "HDMI-A-1,2560x0,auto,1"
+      ",preferred,auto,1"
+    ];
+    # monitor = [ "DP-1,preferred,0x0,1" ];
+    # monitor = [ "HDMI-A-1,2560x0,auto,1" ];
+
     # monitor = [ "HDMI-A-1,1920x1080@144,auto,1" ];
     exec = [ "${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill" ];
     exec-once = [
