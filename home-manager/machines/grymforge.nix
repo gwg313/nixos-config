@@ -19,14 +19,14 @@
 
     # You can also split up your configuration and import pieces of it here:
 
-    ./candlekeep/variables.nix
+    ./grymforge/variables.nix
     ../modules/hyprpanel.nix
     ../modules/hyprlock.nix
     # ../modules/hypridle.nix
     # ./nvim.nix
     ../modules/common.nix
-
-    ../modules/hyprland.nix
+    ../modules/hyprland
+    # ../modules/hyprland.nix
     ../modules/common-gui.nix
     ../modules/linux-gui.nix
     ../modules/devenv.nix

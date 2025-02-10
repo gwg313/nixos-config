@@ -19,7 +19,7 @@
     settings = {
       devices = {
         "grymforge" = {
-          id = "N2TYFZ4-ODIIHIZ-UP27V4V-NYMAZNI-SIATS5S-5NTM6JX-A67HCZ5-ZB4TVQJ";
+          id = "MYJZ7YS-WWHZDW7-KMADKI7-WZNEV3V-AZP2J6Z-4AJOYHZ-G3HLEDO-KTVZPAF";
         };
       };
 

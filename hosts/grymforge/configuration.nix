@@ -57,8 +57,9 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    initrd.luks.devices."luks-276bd2e3-9d6d-4df6-9155-3684907b48f0".device =
-      "/dev/disk/by-uuid/276bd2e3-9d6d-4df6-9155-3684907b48f0";
+
+    initrd.luks.devices."luks-ab8d2b18-14de-44ff-a7b5-91d5f5d0e937".device =
+      "/dev/disk/by-uuid/ab8d2b18-14de-44ff-a7b5-91d5f5d0e937";
   };
 
   # sops
@@ -122,11 +123,11 @@
   };
 
   environment = {
-    # loginShellInit = ''
-    #   # if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-    #   #   exec Hyprland
-    #   # fi
-    # ''; # Will automatically open Hyprland when logged into tty1
+    loginShellInit = ''
+      # if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+      #   exec Hyprland
+      # fi
+    ''; # Will automatically open Hyprland when logged into tty1
     variables = {
       TERMINAL = "alacritty";
       EDITOR = "nvim";
