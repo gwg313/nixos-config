@@ -4,6 +4,7 @@
   ...
 }:
 {
+
   services.syncthing = {
     enable = true;
     dataDir = "/home/gwg313";

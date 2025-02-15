@@ -32,7 +32,6 @@
         prepend /home/myuser/.apps |
         append /usr/bin/env
         )
-        fastfetch
       '';
       shellAliases = {
         cd = "z";

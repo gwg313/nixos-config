@@ -34,6 +34,7 @@
     ../modules/ssh.nix
     ../modules/neovim/default.nix
     ../modules/yazi.nix
+    ../modules/qutebrowser.nix
   ];
 
   nixpkgs = {
@@ -74,7 +75,7 @@
   stylix = {
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    image = ../../wallpapers/nixos-wallpaper-catppuccin-latte.png;
+    image = ../../wallpapers/hollow-knight.jpg;
     #    polarity = "dark";
     autoEnable = true;
     enable = true;

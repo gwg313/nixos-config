@@ -57,6 +57,8 @@ in
       "$shiftMod" = "SUPER_SHIFT";
 
       monitor = [
+        "DP-1,2560x2880,0x0, 1"
+        "HDMI-A-1,3840x2160, 2560x0, 1"
         ",prefered,auto,1"
       ];
 
@@ -74,7 +76,6 @@ in
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         # "GTK_THEME,FlatColor:dark"
-        # "GTK2_RC_FILES,/home/hadi/.local/share/themes/FlatColor/gtk-2.0/gtkrc"
         "__GL_GSYNC_ALLOWED,0"
         "__GL_VRR_ALLOWED,0"
         "DISABLE_QT5_COMPAT,0"
