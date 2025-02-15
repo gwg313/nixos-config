@@ -101,7 +101,8 @@ in
         gaps_out = gaps-out;
         border_size = border-size;
         border_part_of_window = true;
-        layout = "master";
+        # layout = "master";
+        layout = "dwindle";
       };
 
       decoration = {
@@ -122,6 +123,11 @@ in
         new_status = true;
         allow_small_split = true;
         mfact = 0.5;
+      };
+
+      dwindle = {
+        force_split = 2;
+        preserve_split = true;
       };
 
       gestures = {
