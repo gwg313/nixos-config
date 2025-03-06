@@ -11,6 +11,7 @@
     ./btop.nix
     # ./broot.nix
     ./eza.nix
+    ./lazygit.nix
     ./git.nix
     ./pass.nix
     ./starship.nix
@@ -26,7 +27,7 @@
     [
       # Editors
       #     neovim # Improved version of vim, often used with overlays.
-      vim # Highly configurable text editor popular for efficiency and extensibility.
+      # vim # Highly configurable text editor popular for efficiency and extensibility.
 
       sshfs
       lurk

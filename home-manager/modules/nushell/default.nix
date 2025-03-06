@@ -34,7 +34,7 @@
         )
       '';
       shellAliases = {
-        cd = "z";
+        # cd = "z";
 
         update = "sudo nixos-rebuild switch";
         clean = "nix-collect-garbage -d";

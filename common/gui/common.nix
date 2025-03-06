@@ -5,7 +5,6 @@
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
     gnome-themes-extra
-    firefox-wayland
     librewolf
     discord
     qt5.qtwayland

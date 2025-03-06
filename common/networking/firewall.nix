@@ -5,7 +5,8 @@
   inputs,
   outputs,
   ...
-}: {
+}:
+{
   options = {
     firewall.enable = lib.mkEnableOption "Enable the Firewall";
   };

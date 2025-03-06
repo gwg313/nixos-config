@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  # boot.kernelPackages = pkgs.linuxPackages_hardened;
+  boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.kernelParams = [
     # Disable slab merging to prevent heap exploitation
     "slab_nomerge"

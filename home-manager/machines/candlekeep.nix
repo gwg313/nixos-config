@@ -76,7 +76,7 @@
 
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    image = ../../wallpapers/forrest.png;
+    image = ../../wallpapers/hollow-knight.jpg;
     autoEnable = true;
     enable = true;
 

@@ -1,4 +1,3 @@
-# A cat clone with syntax highlighting and Git integration.
 { pkgs, ... }:
 {
   programs.nushell = {
@@ -30,7 +29,7 @@
       # Default flags
       rm = "rm -i";
       chmod = "chmod -R";
-      cp = "cp -i -v";
+      cp = "cp -r -i -v";
       mv = "mv -i -v";
       mkdir = "mkdir -p -v";
       df = "df -h";

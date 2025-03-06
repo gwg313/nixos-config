@@ -5,7 +5,8 @@
   inputs,
   outputs,
   ...
-}: {
+}:
+{
   options = {
     zerotier.enable = lib.mkEnableOption "Enables zerotier and joins my network";
   };
@@ -18,9 +19,9 @@
     };
 
     networking.extraHosts = ''
-      192.168.194.241 nothing.zt
-      192.168.191.213 candlekeep.zt
-      192.168.191.168 grymforge.zt
+      192.168.194.54 graphene.zt
+      192.168.191.218 candlekeep.zt
+      192.168.191.201 grymforge.zt
     '';
   };
 }
