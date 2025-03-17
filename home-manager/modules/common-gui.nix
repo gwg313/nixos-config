@@ -5,6 +5,7 @@
     ./fuzzel.nix
     ./kitty.nix
     ./ghostty.nix
+    ./obs.nix
   ];
 
   fonts.fontconfig.enable = true;
