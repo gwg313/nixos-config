@@ -6,6 +6,9 @@
     ./kitty.nix
     ./ghostty.nix
     ./obs.nix
+    ./thunar.nix
+    ./zen.nix
+    ./xdg.nix
   ];
 
   fonts.fontconfig.enable = true;

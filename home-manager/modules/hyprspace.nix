@@ -1,6 +1,5 @@
 { inputs, pkgs, ... }:
 {
-
   wayland.windowManager.hyprland = {
     plugins = [ inputs.hyprspace.packages.${pkgs.system}.Hyprspace ];
     settings = {
@@ -9,11 +8,6 @@
           autoDrag = false;
         };
       };
-
-      bind = [
-        "$mod,S, overview:toggle" # Overview
-
-      ];
     };
   };
 }

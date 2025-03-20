@@ -4,11 +4,13 @@
   pkgs,
   user,
   ...
-}: {
+}:
+{
   programs.git = {
     enable = true;
     userName = "gwg313";
     userEmail = "gwg313@pm.me";
+
     extraConfig = {
       user = {
         signingkey = "60FF63B4826B7400";
@@ -55,13 +57,23 @@
       pull = {
         rebase = false;
       };
+
+      color.ui = "1";
     };
     ignores = [
       "__pycache__"
       ".direnv"
-      # Node
       "npm-debug.log"
+      ".cache/"
+      ".DS_Store"
+      ".idea/"
       "*.swp"
+      "*.elc"
+      "auto-save-list"
+      ".direnv/"
+      "node_modules"
+      "result"
+      "result-*"
     ];
   };
 
@@ -69,6 +81,8 @@
     shellAliases = {
       trackme = "git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)";
       rebasemain = "git pull origin main --rebase";
+      hist = ''log --pretty=format:"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)" --graph --date=relative --decorate --all'';
+      llog = ''log --graph --name-status --pretty=format:"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset" --date=relative'';
     };
   };
 

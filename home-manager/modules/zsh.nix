@@ -8,6 +8,10 @@
 {
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch";
       clean = "nix-collect-garbage -d";
@@ -51,32 +55,12 @@
       octal = "stat -c '%a %n'";
     };
 
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
-        { name = "MichaelAquilina/zsh-you-should-use"; }
-      ];
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "copyfile"
-      ];
-      theme = "robbyrussell";
-    };
-
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
     initExtra = ''
       eval $(thefuck --alias)
-      fastfetch
     '';
   };
 

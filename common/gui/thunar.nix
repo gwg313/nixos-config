@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     thunar.enable = lib.mkEnableOption "Enables thunar and its plugins";
   };
@@ -11,6 +12,8 @@
     programs.thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
+        xfconf
+        tumbler
         thunar-archive-plugin
         thunar-volman
       ];

@@ -10,7 +10,7 @@
     ./pipewire.nix
     ./wayland.nix
     ./displayManager.nix
-    ./xdg.nix
+    # ./xdg.nix
   ];
 
   # Security
@@ -76,9 +76,12 @@
   environment.systemPackages = with pkgs; [
     libva-utils
     gsettings-desktop-schemas
+    xdg-utils
+    hyprland-qtutils
   ];
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
   };
 }

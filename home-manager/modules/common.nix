@@ -18,6 +18,7 @@
     ./tmux/tmux.nix
     ./zoxide.nix
     ./zsh.nix
+    ./fzf.nix
     ./nushell/default.nix
   ];
   nixpkgs.config.allowUnfree = true;

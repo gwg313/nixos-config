@@ -20,7 +20,7 @@ in
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
-    # ./hyprspace.nix
+    ./hyprspace.nix
   ];
 
   home.packages = with pkgs; [
@@ -100,7 +100,7 @@ in
         gaps_in = gaps-in;
         gaps_out = gaps-out;
         border_size = border-size;
-        border_part_of_window = true;
+        # border_part_of_window = true;
         # layout = "master";
         layout = "dwindle";
       };

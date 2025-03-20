@@ -31,7 +31,8 @@
       # Don't follow nixpkgs or cache will miss
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    zen-browser.url = "git+https://git.sr.ht/~canasta/zen-browser-flake/";
+    nixcord.url = "github:kaylorben/nixcord";
     devenv = {
       url = "github:cachix/devenv/main";
       inputs.nixpkgs.follows = "nixpkgs";

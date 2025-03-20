@@ -20,8 +20,8 @@
       "audio"
       "wireshark"
     ];
-    # shell = pkgs.zsh;
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
+    # shell = pkgs.nushell;
     uid = 1000;
   };
 }
