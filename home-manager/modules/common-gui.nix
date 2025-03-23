@@ -9,6 +9,7 @@
     ./thunar.nix
     ./zen.nix
     ./xdg.nix
+    ./mime.nix
   ];
 
   fonts.fontconfig.enable = true;

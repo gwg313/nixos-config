@@ -1,6 +1,7 @@
 {
   config,
   user,
+  inputs,
   ...
 }:
 {
@@ -17,9 +18,13 @@
     overrideFolders = true;
 
     settings = {
+      gui = {
+        user = inputs.secrets.syncthing.gui_user;
+        password = inputs.secrets.syncthing.gui_password;
+      };
       devices = {
         "candlekeep" = {
-          id = "OREQCG7-JQMPCU4-HWFEQVM-7C6VYSC-A25I3PD-BYQ6RSU-7FQGDFX-SJDPGQY";
+          id = inputs.secrets.syncthing.candlekeep_id;
         };
       };
 
@@ -37,17 +42,6 @@
         };
         "documents" = {
           path = "/home/gwg313/Documents";
-          devices = [ "candlekeep" ];
-          versioning = {
-            type = "staggered";
-            params = {
-              cleanInterval = "3600";
-              maxAge = "15768000";
-            };
-          };
-        };
-        "obsidian" = {
-          path = "/home/gwg313/vault";
           devices = [ "candlekeep" ];
           versioning = {
             type = "staggered";

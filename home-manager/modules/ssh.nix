@@ -1,5 +1,6 @@
 # A modern replacement for 'ls'.
-{...}: {
+{ ... }:
+{
   programs.ssh = {
     enable = true;
     hashKnownHosts = true;
@@ -47,6 +48,18 @@
         hostname = "bytebastion3.local.gwg313.xyz";
         user = "gwg313";
         identityFile = "/home/gwg313/.ssh/home/id_ed25519";
+      };
+      "onedev.local" = {
+        hostname = "git.local.gwg313.xyz";
+        user = "gwg313";
+        identityFile = "/home/gwg313/.ssh/onedev/id_ed25519";
+        port = 2222;
+      };
+      "onedev" = {
+        hostname = "git.gwg313.xyz";
+        user = "gwg313";
+        identityFile = "/home/gwg313/.ssh/onedev/id_ed25519";
+        port = 2222;
       };
     };
   };

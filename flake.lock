@@ -2002,10 +2002,26 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "pre-commit-hooks": "pre-commit-hooks_3",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "superfile": "superfile",
         "zen-browser": "zen-browser"
+      }
+    },
+    "secrets": {
+      "locked": {
+        "lastModified": 1742622103,
+        "narHash": "sha256-eYKgwqm7jkoxzaSuvLSQq78L4ks4gtEQF8BkTt9an7k=",
+        "ref": "refs/heads/main",
+        "rev": "13c13466e8aa371bf8cb53f0f36fb0e086294f45",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/gwg313/nixos-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/gwg313/nixos-secrets.git"
       }
     },
     "sops-nix": {

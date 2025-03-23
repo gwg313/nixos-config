@@ -26,7 +26,7 @@
     ../../common/gui
     ../../common/virtualization
 
-    ./auditd.nix
+    # ./auditd.nix
     ./kernel.nix
     ./sysctl.nix
     ./earlyoom.nix

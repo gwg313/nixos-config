@@ -62,7 +62,7 @@
           };
         };
         servers = {
-          nil-ls = {
+          nil_ls = {
             enable = true;
             filetypes = [ "nix" ];
             settings = {

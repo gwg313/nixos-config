@@ -36,7 +36,8 @@ _: {
     ./noice.nix
     ./notify.nix
     ./precognition.nix
-    ./spectre.nix
+    # ./spectre.nix
+    ./grug-far.nix
     ./snacks.nix
     ./refactoring.nix
     ./render-markdown.nix

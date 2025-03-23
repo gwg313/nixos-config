@@ -1,10 +1,10 @@
 {
   config,
   user,
+  inputs,
   ...
 }:
 {
-
   services.syncthing = {
     enable = true;
     dataDir = "/home/gwg313";
@@ -16,11 +16,14 @@
 
     overrideDevices = true;
     overrideFolders = true;
-
     settings = {
+      gui = {
+        user = inputs.secrets.syncthing.gui_user;
+        password = inputs.secrets.syncthing.gui_password;
+      };
       devices = {
         "grymforge" = {
-          id = "MYJZ7YS-WWHZDW7-KMADKI7-WZNEV3V-AZP2J6Z-4AJOYHZ-G3HLEDO-KTVZPAF";
+          id = inputs.secrets.syncthing.grymforge_id;
         };
       };
 
@@ -38,17 +41,6 @@
         };
         "documents" = {
           path = "/home/gwg313/Documents";
-          devices = [ "grymforge" ];
-          versioning = {
-            type = "staggered";
-            params = {
-              cleanInterval = "3600";
-              maxAge = "15768000";
-            };
-          };
-        };
-        "obsidian" = {
-          path = "/home/gwg313/vault";
           devices = [ "grymforge" ];
           versioning = {
             type = "staggered";

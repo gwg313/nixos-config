@@ -28,7 +28,7 @@
     ../../common/gui
 
     ./syncthing.nix
-    ./auditd.nix
+    # ./auditd.nix
     ./kernel.nix
     ./sysctl.nix
     ./earlyoom.nix

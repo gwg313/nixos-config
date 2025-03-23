@@ -1,29 +1,32 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     plugins = {
       clangd-extensions = {
         enable = true;
         enableOffsetEncodingWorkaround = true;
-
-        ast = {
-          roleIcons = {
-            type = "";
-            declaration = "";
-            expression = "";
-            specifier = "";
-            statement = "";
-            templateArgument = "";
-          };
-          kindIcons = {
-            compound = "";
-            recovery = "";
-            translationUnit = "";
-            packExpansion = "";
-            templateTypeParm = "";
-            templateTemplateParm = "";
-            templateParamObject = "";
+        settings = {
+          ast = {
+            role_icons = {
+              type = "";
+              declaration = "";
+              expression = "";
+              specifier = "";
+              statement = "";
+              templateArgument = "";
+            };
+            kind_icons = {
+              compound = "";
+              recovery = "";
+              translationUnit = "";
+              packExpansion = "";
+              templateTypeParm = "";
+              templateTemplateParm = "";
+              templateParamObject = "";
+            };
           };
         };
+
       };
     };
   };

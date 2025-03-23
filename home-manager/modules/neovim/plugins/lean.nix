@@ -1,9 +1,12 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     plugins.lean = {
       enable = true;
-      lsp.enable = false;
-      abbreviations.enable = false;
+      settings = {
+        abbreviations.enable = false;
+        lsp.enable = false;
+      };
     };
   };
 }
