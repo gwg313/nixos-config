@@ -3,9 +3,10 @@ let
   plugins-repo = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "02d18be03812415097e83c6a912924560e4cec6d";
-    hash = "sha256-1FZ8wcf2VVp6ZWY27vm1dUU1KAL32WwoYbNA/8RUAog=";
+    rev = "273019910c1111a388dd20e057606016f4bd0d17";
+    hash = "sha256-80mR86UWgD11XuzpVNn56fmGRkvj0af2cFaZkU8M31I=";
   };
+
 in
 {
   programs.yazi = {
@@ -30,8 +31,8 @@ in
       starship = pkgs.fetchFromGitHub {
         owner = "Rolv-Apneseth";
         repo = "starship.yazi";
-        rev = "af8bf6f82165b83272b6501ce7445cf2c61fbf51";
-        sha256 = "sha256-L7MkZZqJ+t+A61ceC4Q1joLF6ytoWdgx9BwZWAGAoCA=";
+        rev = "6c639b474aabb17f5fecce18a4c97bf90b016512";
+        sha256 = "sha256-bhLUziCDnF4QDCyysRn7Az35RAy8ibZIVUzoPgyEO1A=";
       };
     };
 
@@ -44,7 +45,7 @@ in
       manager.prepend_keymap = [
         {
           on = "T";
-          run = "plugin --sync max-preview";
+          run = "plugin sync max-preview";
           desc = "Maximize or restore the preview pane";
         }
         {

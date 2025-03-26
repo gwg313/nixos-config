@@ -167,6 +167,7 @@
           modules = [
             # > Our main home-manager configuration file <
             ./home-manager/machines/candlekeep.nix
+            inputs.nixcord.homeManagerModules.nixcord
             inputs.stylix.homeManagerModules.stylix
           ];
         };
@@ -181,6 +182,7 @@
           modules = [
             # > Our main home-manager configuration file <
             ./home-manager/machines/grymforge.nix
+            inputs.nixcord.homeManagerModules.nixcord
             inputs.stylix.homeManagerModules.stylix
           ];
         };

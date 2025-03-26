@@ -10,6 +10,7 @@
     ./zen.nix
     ./xdg.nix
     ./mime.nix
+    ./nixcord.nix
   ];
 
   fonts.fontconfig.enable = true;

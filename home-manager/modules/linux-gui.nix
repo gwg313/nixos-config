@@ -1,17 +1,15 @@
 { pkgs, ... }:
 {
   imports = [
-    ./discord
     ./zathura.nix
   ];
 
-  programs.discord = {
-    enable = true;
-    wrapDiscord = true;
-  };
+  # programs.discord = {
+  #   enable = true;
+  #   wrapDiscord = true;
+  # };
 
   home.packages = with pkgs; [
-    betterdiscordctl # A utility for managing BetterDiscord, enhancing features and customization in the Discord desktop client.
     element-desktop # A feature-rich client for Matrix.org
     gimp # GNU Image Manipulation Program, a powerful and open-source raster graphics editor for tasks like photo editing and graphic design.
     gparted # Gnome Partition Editor, a graphical partition manager for creating, resizing, and managing disk partitions.
@@ -29,5 +27,6 @@
     vlc
     zotero
     feishin
+    picard
   ];
 }

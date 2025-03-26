@@ -6,7 +6,6 @@
     adwaita-icon-theme
     gnome-themes-extra
     librewolf
-    discord
     qt5.qtwayland
     qt6.qmake
     qt6.qtwayland

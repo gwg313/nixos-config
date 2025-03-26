@@ -51,13 +51,13 @@
       };
       "onedev.local" = {
         hostname = "git.local.gwg313.xyz";
-        user = "gwg313";
+        user = "git";
         identityFile = "/home/gwg313/.ssh/onedev/id_ed25519";
         port = 2222;
       };
       "onedev" = {
         hostname = "git.gwg313.xyz";
-        user = "gwg313";
+        user = "git";
         identityFile = "/home/gwg313/.ssh/onedev/id_ed25519";
         port = 2222;
       };
