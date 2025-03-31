@@ -9,6 +9,7 @@
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+    nixpkgs-24_05.url = "github:NixOS/nixpkgs/nixos-24.05";
     secrets.url = "git+ssh://git@github.com/gwg313/nixos-secrets.git";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
@@ -59,6 +60,7 @@
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
+    colmena.url = "github:zhaofengli/colmena";
   };
 
   outputs =
@@ -66,6 +68,7 @@
       self,
       nixpkgs,
       home-manager,
+      colmena,
       ...
     }@inputs:
     let
@@ -82,6 +85,7 @@
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
       user = "gwg313";
+
     in
     {
       # Your custom packages
@@ -199,6 +203,33 @@
             ./home-manager/machines/dorino.nix
             inputs.stylix.homeManagerModules.stylix
           ];
+        };
+      };
+
+      # colmena managed systems
+      colmenaHive = colmena.lib.makeHive self.outputs.colmena;
+      colmena = {
+        meta = {
+          specialArgs = {
+            inherit user inputs outputs;
+          };
+          nixpkgs = import nixpkgs {
+            system = "x86_64-linux";
+          };
+        };
+
+        waypoint = {
+          deployment = {
+            targetHost = "waypoint"; # <- defined in ~/.ssh/config
+          };
+          imports = [ ./hosts/waypoint/configuration.nix ];
+        };
+
+        seikan = {
+          deployment = {
+            targetHost = "seikan"; # <- defined in ~/.ssh/config
+          };
+          imports = [ ./hosts/seikan/configuration.nix ];
         };
       };
     };
