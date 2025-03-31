@@ -6,7 +6,6 @@
     config = {
       # useQuickCss = true;
       themeLinks = [
-        "https://clearvision.github.io/ClearVision-v6/main.css"
       ];
       frameless = true; # set some Vencord options
       plugins = {
