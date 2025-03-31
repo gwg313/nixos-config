@@ -1,4 +1,3 @@
-# A modern replacement for 'ls'.
 { ... }:
 {
   programs.ssh = {
@@ -34,20 +33,17 @@
         user = "gwg313";
         identityFile = "/home/gwg313/.ssh/home/id_ed25519";
       };
-      "bytebastion1" = {
-        hostname = "bytebastion1.local.gwg313.xyz";
-        user = "gwg313";
-        identityFile = "/home/gwg313/.ssh/home/id_ed25519";
+
+      "waypoint" = {
+        hostname = "waypoint.local.gwg313.xyz";
+        user = "root";
+        identityFile = "/home/gwg313/.ssh/colmena/id_ed25519";
       };
-      "bytebastion2" = {
-        hostname = "bytebastion2.local.gwg313.xyz";
-        user = "gwg313";
-        identityFile = "/home/gwg313/.ssh/home/id_ed25519";
-      };
-      "bytebastion3" = {
-        hostname = "bytebastion3.local.gwg313.xyz";
-        user = "gwg313";
-        identityFile = "/home/gwg313/.ssh/home/id_ed25519";
+
+      "seikan" = {
+        hostname = "147.182.147.32";
+        user = "root";
+        identityFile = "/home/gwg313/.ssh/digital_ocean/id_ed25519";
       };
       "onedev.local" = {
         hostname = "git.local.gwg313.xyz";
