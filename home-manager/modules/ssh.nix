@@ -52,7 +52,7 @@
         port = 2222;
       };
       "onedev" = {
-        hostname = "git.gwg313.xyz";
+        hostname = "10.1.10.3";
         user = "git";
         identityFile = "/home/gwg313/.ssh/onedev/id_ed25519";
         port = 2222;

@@ -61,6 +61,29 @@
             middlewares = [ "headers" ];
           };
 
+          privatebin_local = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`pastebin.local.gwg313.xyz`)";
+            service = "pastebin_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          snippets_local = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`snippets.local.gwg313.xyz`)";
+            service = "snippets_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          git_local = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`git.local.gwg313.xyz`)";
+            service = "git_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
         };
       };
     };

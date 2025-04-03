@@ -46,6 +46,30 @@
             middlewares = [ "headers" ];
           };
 
+          pastebin = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`pastebin.gwg313.xyz`)";
+            service = "pastebin_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          snippets = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`snippets.gwg313.xyz`)";
+            service = "snippets_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          git = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`git.gwg313.xyz`)";
+            service = "git_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
         };
       };
     };

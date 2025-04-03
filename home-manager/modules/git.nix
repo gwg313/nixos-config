@@ -17,9 +17,13 @@
       };
       commit = {
         gpgsign = true;
+        verbose = "true";
       };
       diff = {
-        algorithm = "patience";
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicPrefix = "true";
+        renames = "true";
         compactionHeuristic = "true";
         tool = "nvimdiff";
       };
@@ -29,6 +33,7 @@
       merge = {
         tool = "nvimdiff4";
         prompt = "false";
+        conflictstyle = "zdiff3";
       };
       "mergetool \"nvimdiff4\"" = {
         cmd = "nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
@@ -44,7 +49,7 @@
         editor = "nvim";
       };
       delta = {
-        features = "side-by-side line-numbers decorations";
+        features = "line-numbers decorations";
         navigate = "true";
         whitespace-error-style = "22 reverse";
       };
@@ -52,10 +57,37 @@
         diffFilter = "delta --color-only";
       };
       push = {
-        autoSetupRemote = true;
+        default = "simple";
+        autoSetupRemote = "true";
+        followTags = "true";
+
       };
       pull = {
-        rebase = false;
+        rebase = "true";
+      };
+      rebase = {
+        autoSquash = "true";
+        autoStash = "true";
+        updateRefs = "true";
+      };
+      fetch = {
+        prune = "true";
+        pruneTags = "true";
+        all = "true";
+      };
+      tag = {
+        sort = "version:refname";
+      };
+      branch = {
+        sort = "-committerdate";
+      };
+
+      help = {
+        autocorrect = "true";
+      };
+      rerere = {
+        enabled = "true";
+        autoupdate = "true";
       };
 
       color.ui = "1";

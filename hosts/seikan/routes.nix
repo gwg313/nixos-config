@@ -33,6 +33,24 @@
               url = "https://scholarsome.zerotier.gwg313.xyz";
             }
           ];
+
+          pastebin_zt.loadBalancer.servers = [
+            {
+              url = "https://pastebin.zerotier.gwg313.xyz";
+            }
+          ];
+
+          snippets_zt.loadBalancer.servers = [
+            {
+              url = "https://snippets.zerotier.gwg313.xyz";
+            }
+          ];
+
+          git_zt.loadBalancer.servers = [
+            {
+              url = "https://git.zerotier.gwg313.xyz";
+            }
+          ];
         };
 
         routers = {
@@ -73,6 +91,29 @@
             entryPoints = [ "websecure" ];
             rule = "Host(`scholarsome.gwg313.xyz`)";
             service = "scholarsome_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          pastebin_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`pastebin.gwg313.xyz`)";
+            service = "pastebin_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+          snippets_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`snippets.gwg313.xyz`)";
+            service = "snippets_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          git_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`git.gwg313.xyz`)";
+            service = "git_zt";
             tls.certResolver = "le";
             middlewares = [ "headers" ];
           };

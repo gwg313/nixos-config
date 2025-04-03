@@ -8,7 +8,9 @@ in
     enable = true;
     settings = lib.mkForce {
 
-      git.overrideGpg = true;
+      git = {
+        overrideGpg = true;
+      };
       gui = {
         theme = {
           activeBorderColor = [

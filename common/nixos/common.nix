@@ -12,6 +12,7 @@
     ./packages.nix
     ./users.nix
     ./locale.nix
+    ./documentation.nix
     ../../common/style/stylix.nix
   ];
   #

@@ -50,6 +50,22 @@
               url = "http://10.1.10.3:30099";
             }
           ];
+
+          pastebin_local.loadBalancer.servers = [
+            {
+              url = "http://10.1.10.3:32090";
+            }
+          ];
+          snippets_local.loadBalancer.servers = [
+            {
+              url = "http://10.1.10.3:31111";
+            }
+          ];
+          git_local.loadBalancer.servers = [
+            {
+              url = "http://10.1.10.3:32221";
+            }
+          ];
         };
 
       };

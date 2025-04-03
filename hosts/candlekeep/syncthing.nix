@@ -50,6 +50,30 @@
             };
           };
         };
+
+        "password-store" = {
+          path = "/home/gwg313/.local/share/password-store";
+          devices = [ "grymforge" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              cleanInterval = "3600";
+              maxAge = "15768000";
+            };
+          };
+        };
+        "ssh-keys" = {
+          path = "/home/gwg313/.ssh";
+          devices = [ "grymforge" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              cleanInterval = "3600";
+              maxAge = "15768000";
+            };
+          };
+        };
+
       };
     };
   };

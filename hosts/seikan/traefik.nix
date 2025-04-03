@@ -13,6 +13,12 @@
     group = config.users.users.traefik.group;
   };
 
+  sops.secrets.basic-auth = {
+    mode = "0440";
+    owner = config.users.users.traefik.name;
+    group = config.users.users.traefik.group;
+  };
+
   systemd.services.traefik.environment = {
     CF_DNS_API_TOKEN_FILE = "${config.sops.secrets.cf-api-token.path}";
   };
@@ -69,10 +75,10 @@
       http = {
         routers = {
           dashboard = {
-            rule = "Host(`monitor.local.gwg313.xyz`)";
+            rule = "Host(`monitor.gwg313.xyz`)";
             service = "api@internal";
             middlewares = [
-              # "auth"
+              "auth"
               "headers"
             ];
             entrypoints = [ "websecure" ];
@@ -82,6 +88,11 @@
           };
         };
         middlewares = {
+          auth = {
+            basicAuth = {
+              usersFile = "${config.sops.secrets.basic-auth.path}";
+            };
+          };
           headers = {
             headers = {
               browserxssfilter = true;
