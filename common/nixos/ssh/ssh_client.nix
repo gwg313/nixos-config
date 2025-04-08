@@ -50,7 +50,6 @@
 
       # disable unnecessary authentication methods
       ChallengeResponseAuthentication no
-      GSSAPIAuthentication no
       HostbasedAuthentication no
 
       # define authentication methods to be used

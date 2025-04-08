@@ -3,7 +3,8 @@
   lib,
   user,
   ...
-}: {
+}:
+{
   options = {
     ssh.enable = lib.mkEnableOption "enable ssh settings";
   };
@@ -45,7 +46,7 @@
 
         ########## Authentication ##########
 
-        AllowUsers = ["${user}"];
+        AllowUsers = [ "${user}" ];
 
         # Use keys only. Remove if you want to SSH using password (not recommended)
         PasswordAuthentication = false;
@@ -145,6 +146,10 @@
         ########## Connection Preferences ##########
         # disable reverse DNS lookups
         UseDNS no
+
+        ##########       Disable GSS      ##########
+
+        GSSAPIAuthentication no
       '';
     };
   };
