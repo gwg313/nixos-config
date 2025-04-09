@@ -20,7 +20,7 @@ in
     defaultOptions = [
       "--margin=1"
       "--layout=reverse"
-      "--border=rounded"
+      "--border=none"
       "--info='hidden'"
       "--header=''"
       "--prompt='/ '"

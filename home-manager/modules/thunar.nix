@@ -1,5 +1,5 @@
 # Thunar is a file explorer
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   # ctrl + m to toggle the menubar
   home.packages = with pkgs.xfce; [
@@ -8,6 +8,26 @@
     tumbler
     thunar-archive-plugin
     thunar-volman
+  ];
+  gtk = {
+    iconTheme = {
+      name = "WhiteSur";
+      package = pkgs.whitesur-icon-theme.override {
+        boldPanelIcons = true;
+        alternativeIcons = true;
+      };
+    };
+  };
+
+  home.sessionVariables = {
+    XDG_ICON_DIR = "${pkgs.whitesur-icon-theme}/share/icons/WhiteSur";
+  };
+
+  # bookmarks for the side pane
+  gtk.gtk3.bookmarks = [
+    "file:///home/gwg313/Documents Documents"
+    "file:///home/gwg313/Downloads Downloads"
+    "file:///home/gwg313/repos Repositories"
   ];
 
   home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''

@@ -115,6 +115,22 @@
       rebasemain = "git pull origin main --rebase";
       hist = ''log --pretty=format:"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)" --graph --date=relative --decorate --all'';
       llog = ''log --graph --name-status --pretty=format:"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset" --date=relative'';
+      g = "lazygit";
+      ga = "git add";
+      gc = "git commit";
+      gcu = "git add . && git commit -m 'Update'";
+      gp = "git push";
+      gpl = "git pull";
+      gs = "git status";
+      gd = "git diff";
+      gco = "git checkout";
+      gcb = "git checkout -b";
+      gbr = "git branch";
+      grs = "git reset HEAD~1";
+      grh = "git reset --hard HEAD~1";
+
+      gaa = "git add .";
+      gcm = "git commit -m";
     };
   };
 

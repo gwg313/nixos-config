@@ -20,6 +20,9 @@ in
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+    ./hyprpanel.nix
     # ./hyprspace.nix
   ];
 

@@ -11,6 +11,14 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    syntaxHighlighting.highlighters = [
+      "main"
+      "brackets"
+      "pattern"
+      "regexp"
+      "root"
+      "line"
+    ];
     historySubstringSearch.enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch";

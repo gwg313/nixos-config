@@ -17,11 +17,13 @@
       remember_window_size = "no";
       disable_ligatures = "never";
       url_style = "curly";
+      copy_on_select = "clipboard";
       cursor_shape = "Underline";
       cursor_underline_thickness = 3;
       cursor_trail = 3;
       cursor_trail_decay = "0.1 0.4";
       window_padding_width = 10;
+      open_url_with = "default";
     };
     font = {
       # name = lib.mkForce "Comic Code";

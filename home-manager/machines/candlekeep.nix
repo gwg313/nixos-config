@@ -32,9 +32,9 @@
     ../modules/ags.nix
     ../modules/neovim
     ../modules/yazi.nix
-    ../modules/hyprpanel.nix
-    ../modules/hyprlock.nix
-    ../modules/hypridle.nix
+    # ../modules/hyprpanel.nix
+    # ../modules/hyprlock.nix
+    # ../modules/hypridle.nix
     # ../modules/hyprspace.nix
     ../modules/qutebrowser.nix
     ../scripts/default.nix

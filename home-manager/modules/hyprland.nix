@@ -27,9 +27,7 @@
       touchpad = {
         natural_scroll = true;
         scroll_factor = 0.38;
-        tap-and-drag = true;
-        middle_button_emulation = true;
-        tap-to-click = true;
+        clickfinger_behavior = true;
       };
     };
 

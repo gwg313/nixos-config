@@ -5,6 +5,13 @@
     settings = {
       plugin = {
         overview = {
+          centerAligned = true;
+          hideTopLayers = true;
+          hideOverlayLayers = true;
+          showNewWorkspace = true;
+          exitOnClick = true;
+          exitOnSwitch = true;
+          drawActiveWorkspace = true;
           autoDrag = false;
         };
       };

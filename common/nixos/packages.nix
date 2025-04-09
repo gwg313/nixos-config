@@ -15,6 +15,10 @@
     enableSSHSupport = true;
   };
 
+  environment.sessionVariables = {
+    SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
