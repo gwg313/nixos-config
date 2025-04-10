@@ -20,8 +20,8 @@
     # You can also split up your configuration and import pieces of it here:
 
     ./grymforge/variables.nix
-    ../modules/hyprpanel.nix
-    ../modules/hyprlock.nix
+    # ../modules/hyprpanel.nix
+    # ../modules/hyprlock.nix
     # ../modules/hypridle.nix
     # ./nvim.nix
     ../modules/common.nix

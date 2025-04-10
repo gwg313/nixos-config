@@ -19,7 +19,7 @@
     ../../common/style/stylix.nix
     # ../../common/style/vars/candlekeep.nix
     ../../common/nixos/sysctl
-    # ../../common/nixos/tuigreet.nix
+    ../../common/nixos/tuigreet.nix
 
     ../../common/networking
     ../../common/nixos
