@@ -3,7 +3,6 @@
     dynamicConfigOptions = {
       http = {
         services = {
-
           music_zt.loadBalancer.servers = [
             {
               url = "https://music.zerotier.gwg313.xyz";
@@ -51,10 +50,33 @@
               url = "https://git.zerotier.gwg313.xyz";
             }
           ];
+
+          registry_zt.loadBalancer.servers = [
+            {
+              url = "https://registry.zerotier.gwg313.xyz";
+            }
+          ];
+
+          ci_zt.loadBalancer.servers = [
+            {
+              url = "https://ci.zerotier.gwg313.xyz";
+            }
+          ];
+
+          s3_zt.loadBalancer.servers = [
+            {
+              url = "https://s3.zerotier.gwg313.xyz";
+            }
+          ];
+
+          s3_console_zt.loadBalancer.servers = [
+            {
+              url = "https://s3-console.zerotier.gwg313.xyz";
+            }
+          ];
         };
 
         routers = {
-
           music_zt = {
             entryPoints = [ "websecure" ];
             rule = "Host(`music.gwg313.xyz`)";
@@ -118,9 +140,39 @@
             middlewares = [ "headers" ];
           };
 
+          ci_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`ci.gwg313.xyz`)";
+            service = "ci_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          registry_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`registry.gwg313.xyz`)";
+            service = "registry_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          s3_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`s3.gwg313.xyz`)";
+            service = "s3_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          s3_console = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`s3-console.gwg313.xyz`)";
+            service = "s3_console_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
         };
       };
     };
   };
-
 }

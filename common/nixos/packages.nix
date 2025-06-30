@@ -35,6 +35,6 @@
     # inputs.superfile.packages.${system}.default
   ];
   environment.sessionVariables = {
-    FLAKE = "/home/${user}/repos/nixos-config";
+    NH_FLAKE = "/home/${user}/repos/nixos-config";
   };
 }

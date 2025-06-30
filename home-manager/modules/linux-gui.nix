@@ -22,7 +22,7 @@
     inkscape
     nicotine-plus
     anki
-    obsidian
+    # obsidian
     chromium
     vlc
     zotero

@@ -19,6 +19,7 @@
     ../../common/gui/hyprland.nix
     ../../common/gui/steam.nix
     ../../common/gui/thunar.nix
+    ../../common/gui/retroarch.nix
     ../../common/style/stylix.nix
     ../../common/nixos/sysctl
 
@@ -45,6 +46,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
+  programs.obs-studio.enableVirtualCamera = true;
 
   ssh.enable = true;
   ssh_guard.enable = true;

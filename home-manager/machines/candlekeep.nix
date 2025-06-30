@@ -19,6 +19,8 @@
     inputs.ags.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
+
+    ../modules/nvf
     ./candlekeep/variables.nix
     # ./nvim.nix
     ../modules/common.nix
@@ -30,7 +32,7 @@
     ../modules/ssh.nix
     ../modules/gh-dash.nix
     ../modules/ags.nix
-    ../modules/neovim
+    # ../modules/neovim
     ../modules/yazi.nix
     # ../modules/hyprpanel.nix
     # ../modules/hyprlock.nix
@@ -50,7 +52,7 @@
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      (final: prev: { neovim = inputs.neovim-config.packages."x86_64-linux".default; })
+      # (final: prev: { neovim = inputs.neovim-config.packages."x86_64-linux".default; })
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -75,28 +77,38 @@
   };
 
   stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    image = ../../wallpapers/hollow-knight.jpg;
+    fonts = {
+      sizes = {
+        applications = 13; # UI font (GTK/Qt)
+        terminal = 14; # Comfortable for reading code/math
+        desktop = 13; # WM, notifications
+        popups = 12; # Tooltips, menus
+      };
+    };
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-sulphurpool-light.yaml";
+    image = ../../wallpapers/floating_city.jpg;
+    #    polarity = "dark";
     autoEnable = true;
     enable = true;
+    targets.nixvim.enable = false;
 
     opacity.terminal = 1.0;
-    fonts.sizes.terminal = 15;
 
     fonts = {
       serif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "MesloLGS NF";
+        package = pkgs.lmodern;
+        name = "Latin Modern Roman";
       };
 
       sansSerif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "MesloLGS NF";
+        package = pkgs.inter;
+        name = "Inter";
       };
 
       monospace = {
-        package = pkgs.ibm-plex;
-        name = "IBM Plex Mono";
+        package = pkgs.fira-code;
+        name = "Fire Code";
       };
 
       emoji = {
@@ -105,10 +117,28 @@
       };
     };
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 20;
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 24;
     };
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "WhiteSur-Light";
+      package = pkgs.whitesur-icon-theme.override {
+        boldPanelIcons = true;
+        alternativeIcons = true;
+      };
+    };
+    # font.name = "Inter 13";
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "adwaita";
   };
 
   # Add stuff for your user as you see fit:

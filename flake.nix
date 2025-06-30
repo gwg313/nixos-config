@@ -9,6 +9,8 @@
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+    nix-ld.url = "github:Mic92/nix-ld";
+    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/nixos-24.05";
     secrets.url = "git+ssh://git@github.com/gwg313/nixos-secrets.git";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
@@ -57,6 +59,10 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
@@ -69,6 +75,7 @@
       nixpkgs,
       home-manager,
       colmena,
+      nix-ld,
       ...
     }@inputs:
     let
@@ -85,7 +92,6 @@
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
       user = "gwg313";
-
     in
     {
       # Your custom packages
@@ -145,6 +151,7 @@
           modules = [
             # > Our main nixos configuration file <
             ./hosts/candlekeep/configuration.nix
+            nix-ld.nixosModules.nix-ld
           ];
         };
       };
@@ -172,7 +179,7 @@
           modules = [
             # > Our main home-manager configuration file <
             ./home-manager/machines/candlekeep.nix
-            inputs.nixcord.homeManagerModules.nixcord
+            inputs.nixcord.homeModules.nixcord
             inputs.stylix.homeManagerModules.stylix
           ];
         };
@@ -187,7 +194,7 @@
           modules = [
             # > Our main home-manager configuration file <
             ./home-manager/machines/grymforge.nix
-            inputs.nixcord.homeManagerModules.nixcord
+            inputs.nixcord.homeModules.nixcord
             inputs.stylix.homeManagerModules.stylix
           ];
         };
@@ -225,6 +232,13 @@
           };
           imports = [ ./hosts/waypoint/configuration.nix ];
         };
+
+        # kerby = {
+        #   deployment = {
+        #     targetHost = "waypoint"; # <- defined in ~/.ssh/config
+        #   };
+        #   imports = [./hosts/kerby/configuration.nix];
+        # };
 
         seikan = {
           deployment = {

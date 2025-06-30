@@ -1,11 +1,9 @@
 # Traefik
-{
-  config,
-  ...
-}:
+{ config, ... }:
 {
   imports = [
     ./routes.nix
+    ../../common/networking/hosts.nix
   ];
   sops.secrets.cf-api-token = {
     mode = "0440";

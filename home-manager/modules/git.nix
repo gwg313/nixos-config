@@ -10,8 +10,10 @@
     enable = true;
     userName = "gwg313";
     userEmail = "gwg313@pm.me";
-
     extraConfig = {
+      credential = {
+        helper = "!pass-git-helper $@";
+      };
       user = {
         signingkey = "60FF63B4826B7400";
       };
@@ -60,7 +62,6 @@
         default = "simple";
         autoSetupRemote = "true";
         followTags = "true";
-
       };
       pull = {
         rebase = "true";
@@ -142,5 +143,12 @@
     pre-commit
     graphite-cli
     tig
+    pass-git-helper
   ];
+
+  xdg.configFile."pass-git-helper/git-pass-mapping.ini".text = ''
+    [git.gwg313.xyz*]
+    target=git/https/git.gwg313.xyz
+    line_username=1
+  '';
 }

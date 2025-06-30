@@ -101,6 +101,7 @@
           #
           #   initOptions.compilationDatabaseDirectory = "build";
           # };
+          jdtls.enable = true;
           clangd = {
             enable = true;
             filetypes = [

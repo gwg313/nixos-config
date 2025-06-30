@@ -46,9 +46,12 @@
   ];
 
   laptop.enable = true;
-  nfs.enable = true;
+  # nfs.enable = true;
   ssh.enable = true;
   ssh_guard.enable = true;
+  steam.enable = true;
+
+  programs.nix-ld.dev.enable = true;
 
   # Bootloader.
   boot = {

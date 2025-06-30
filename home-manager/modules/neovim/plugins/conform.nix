@@ -99,6 +99,7 @@
             fsharp = [ "fantomas" ];
             go = [ "gofmt" ];
             haskell = [ "ormolu" ];
+            java = [ "google-java-format" ];
             javascript = [
               [
                 "prettierd"

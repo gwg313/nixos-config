@@ -1,10 +1,10 @@
 {
-  rounding = 15;
-  gaps-in = 10;
-  gaps-out = 10 * 2;
+  rounding = 0;
+  gaps-in = 5;
+  gaps-out = 10;
   active-opacity = 1;
-  inactive-opacity = 0.89;
-  blur = true;
+  inactive-opacity = 1;
+  blur = false;
   border-size = 3;
   animation-speed = "medium"; # "fast" | "medium" | "slow"
   fetch = "fastfetch"; # "nerdfetch" | "neofetch" | "pfetch" | "none"

@@ -144,6 +144,7 @@ in
         disable_autoreload = true;
         focus_on_activate = true;
         new_window_takes_over_fullscreen = 2;
+        middle_click_paste = false;
       };
 
       windowrulev2 = [

@@ -2,22 +2,25 @@
 { pkgs, user, ... }:
 {
   # ctrl + m to toggle the menubar
-  home.packages = with pkgs.xfce; [
-    thunar
-    xfconf
-    tumbler
-    thunar-archive-plugin
-    thunar-volman
+  home.packages = with pkgs; [
+    xfce.thunar
+    xfce.xfconf
+    xfce.tumbler
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
+    xfce.thunar-media-tags-plugin
+    p7zip
+    xarchiver
   ];
-  gtk = {
-    iconTheme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme.override {
-        boldPanelIcons = true;
-        alternativeIcons = true;
-      };
-    };
-  };
+  # gtk = {
+  #   iconTheme = {
+  #     name = "WhiteSur";
+  #     package = pkgs.whitesur-icon-theme.override {
+  #       boldPanelIcons = true;
+  #       alternativeIcons = true;
+  #     };
+  #   };
+  # };
 
   home.sessionVariables = {
     XDG_ICON_DIR = "${pkgs.whitesur-icon-theme}/share/icons/WhiteSur";
@@ -29,6 +32,38 @@
     "file:///home/gwg313/Downloads Downloads"
     "file:///home/gwg313/repos Repositories"
   ];
+
+  home.file.".config/xarchiver/xarchiverrc".text = ''
+    [xarchiver]
+    preferred_format=0
+    prefer_unzip=true
+    confirm_deletion=true
+    sort_filename_content=false
+    advanced_isearch=true
+    auto_expand=true
+    store_output=false
+    icon_size=2
+    show_archive_comment=false
+    show_sidebar=true
+    show_location_bar=true
+    show_toolbar=true
+    preferred_custom_cmd=
+    preferred_temp_dir=/tmp
+    preferred_extract_dir=/home/gwg313/Downloads
+    allow_sub_dir=0
+    ensure_directory=true
+    overwrite=false
+    full_path=2
+    touch=false
+    fresh=false
+    update=false
+    store_path=false
+    updadd=true
+    freshen=false
+    recurse=true
+    solid_archive=false
+    remove_files=false
+  '';
 
   home.file.".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''
     <?xml version="1.0" encoding="UTF-8"?>

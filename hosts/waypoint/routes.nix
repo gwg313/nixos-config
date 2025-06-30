@@ -6,7 +6,6 @@
     dynamicConfigOptions = {
       http = {
         routers = {
-
           music = {
             entryPoints = [ "websecure" ];
             rule = "Host(`music.gwg313.xyz`)";
@@ -70,9 +69,39 @@
             middlewares = [ "headers" ];
           };
 
+          registry = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`registry.gwg313.xyz`)";
+            service = "registry_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          ci = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`ci.gwg313.xyz`)";
+            service = "ci_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          s3 = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`s3.gwg313.xyz`)";
+            service = "s3_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          s3_console = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`s3-console.gwg313.xyz`)";
+            service = "s3_console_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
         };
       };
     };
   };
-
 }

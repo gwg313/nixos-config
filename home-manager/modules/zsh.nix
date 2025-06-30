@@ -61,6 +61,7 @@
       c = "clear";
       listen = "lsof -P -i -n";
       octal = "stat -c '%a %n'";
+      f = "$(pay-respects zsh)";
     };
 
     history = {
@@ -68,67 +69,67 @@
       path = "${config.xdg.dataHome}/zsh/history";
     };
     initExtra = ''
-      eval $(thefuck --alias)
+      eval "$(pay-respects zsh --alias)"
 
-      # search history based on what's typed in the prompt
-      autoload -U history-search-end
-      zle -N history-beginning-search-backward-end history-search-end
-      zle -N history-beginning-search-forward-end history-search-end
-      bindkey "^[OA" history-beginning-search-backward-end
-      bindkey "^[OB" history-beginning-search-forward-end
-
-
-      # General completion behavior
-      zstyle ':completion:*' completer _extensions _complete _approximate
-      # Use cache
-      zstyle ':completion:*' use-cache on
-      zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+            # search history based on what's typed in the prompt
+            autoload -U history-search-end
+            zle -N history-beginning-search-backward-end history-search-end
+            zle -N history-beginning-search-forward-end history-search-end
+            bindkey "^[OA" history-beginning-search-backward-end
+            bindkey "^[OB" history-beginning-search-forward-end
 
 
-      # Complete the alias
-      zstyle ':completion:*' complete true
-      # Autocomplete options
-      zstyle ':completion:*' complete-options true
+            # General completion behavior
+            zstyle ':completion:*' completer _extensions _complete _approximate
+            # Use cache
+            zstyle ':completion:*' use-cache on
+            zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
 
-      # Completion matching control
-      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-      zstyle ':completion:*' keep-prefix true
+            # Complete the alias
+            zstyle ':completion:*' complete true
+            # Autocomplete options
+            zstyle ':completion:*' complete-options true
 
 
-      # Group matches and describe
-      zstyle ':completion:*' menu select
-      zstyle ':completion:*' list-grouped false
-      zstyle ':completion:*' list-separator '''
-      zstyle ':completion:*' group-name '''
-      zstyle ':completion:*' verbose yes
-      zstyle ':completion:*:matches' group 'yes'
-      zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-      zstyle ':completion:*:messages' format '%d'
-      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-      zstyle ':completion:*:descriptions' format '[%d]'
+            # Completion matching control
+            zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+            zstyle ':completion:*' keep-prefix true
 
 
-      # Colors
-      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+            # Group matches and describe
+            zstyle ':completion:*' menu select
+            zstyle ':completion:*' list-grouped false
+            zstyle ':completion:*' list-separator '''
+            zstyle ':completion:*' group-name '''
+            zstyle ':completion:*' verbose yes
+            zstyle ':completion:*:matches' group 'yes'
+            zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
+            zstyle ':completion:*:messages' format '%d'
+            zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+            zstyle ':completion:*:descriptions' format '[%d]'
 
 
-      # case insensitive tab completion
-      zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
-      zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
-      zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-      zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
-      zstyle ':completion:*' special-dirs true
-      zstyle ':completion:*' squeeze-slashes true
+            # Colors
+            zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
 
-      # Sort
-      zstyle ':completion:*' sort false
-      zstyle ":completion:*:git-checkout:*" sort false
-      zstyle ':completion:*' file-sort modification
-      zstyle ':completion:*:eza' sort false
-      zstyle ':completion:complete:*:options' sort false
-      zstyle ':completion:files' sort false
+            # case insensitive tab completion
+            zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
+            zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+            zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+            zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
+            zstyle ':completion:*' special-dirs true
+            zstyle ':completion:*' squeeze-slashes true
+
+
+            # Sort
+            zstyle ':completion:*' sort false
+            zstyle ":completion:*:git-checkout:*" sort false
+            zstyle ':completion:*' file-sort modification
+            zstyle ':completion:*:eza' sort false
+            zstyle ':completion:complete:*:options' sort false
+            zstyle ':completion:files' sort false
     '';
   };
 

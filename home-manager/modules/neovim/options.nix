@@ -8,6 +8,8 @@
       loaded_python_provider = 0; # Python 2
     };
 
+    colorscheme = "base16-atelier-sulphurpool-light";
+
     clipboard = {
       # Use system clipboard
       register = "unnamedplus";

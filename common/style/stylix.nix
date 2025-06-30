@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   stylix = {
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-sulphurpool-light.yaml";
     #    image = ./wallpaper.jpg;
     image = ../../wallpapers/nixos-wallpaper-catppuccin-latte.png;
     #polarity = "dark";
@@ -9,22 +10,22 @@
     enable = true;
 
     opacity.terminal = 1.0;
-    fonts.sizes.terminal = 15;
+    fonts.sizes.terminal = 18;
 
     fonts = {
       serif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "MesloLGS NF";
+        package = pkgs.lmodern;
+        name = "Latin Modern Roman";
       };
 
       sansSerif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "MesloLGS NF";
+        package = pkgs.inter;
+        name = "Inter";
       };
 
       monospace = {
-        package = pkgs.ibm-plex;
-        name = "IBM Plex Mono";
+        package = pkgs.fira-code;
+        name = "Fire Code";
       };
 
       emoji = {

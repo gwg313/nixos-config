@@ -6,7 +6,6 @@
     dynamicConfigOptions = {
       http = {
         routers = {
-
           music_zerotier = {
             entryPoints = [ "websecure" ];
             rule = "Host(`music.zerotier.gwg313.xyz`)";
@@ -69,9 +68,47 @@
             middlewares = [ "headers" ];
           };
 
+          git_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`git.zerotier.gwg313.xyz`)";
+            service = "git_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          ci_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`ci.zerotier.gwg313.xyz`)";
+            service = "ci_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          registry_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`registry.zerotier.gwg313.xyz`)";
+            service = "registry_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          s3_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`s3.zerotier.gwg313.xyz`)";
+            service = "s3_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          s3_console_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`s3-console.zerotier.gwg313.xyz`)";
+            service = "s3_console_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
         };
       };
     };
   };
-
 }

@@ -24,6 +24,7 @@
     # ../modules/hyprlock.nix
     # ../modules/hypridle.nix
     # ./nvim.nix
+    ../modules/nvf
     ../modules/common.nix
     ../modules/hyprland
     # ../modules/hyprland.nix
@@ -32,9 +33,10 @@
     ../modules/devenv.nix
     ../modules/gh-dash.nix
     ../modules/ssh.nix
-    ../modules/neovim/default.nix
+    # ../modules/neovim/default.nix
     ../modules/yazi.nix
     ../modules/qutebrowser.nix
+    ../scripts/default.nix
   ];
 
   nixpkgs = {
@@ -73,31 +75,38 @@
   };
 
   stylix = {
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    fonts = {
+      sizes = {
+        applications = 13; # UI font (GTK/Qt)
+        terminal = 14; # Comfortable for reading code/math
+        desktop = 13; # WM, notifications
+        popups = 12; # Tooltips, menus
+      };
+    };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    image = ../../wallpapers/hollow-knight.jpg;
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-sulphurpool-light.yaml";
+    image = ../../wallpapers/nixos-wallpaper-catppuccin-latte.png;
     #    polarity = "dark";
     autoEnable = true;
     enable = true;
     targets.nixvim.enable = false;
 
     opacity.terminal = 1.0;
-    fonts.sizes.terminal = 20;
 
     fonts = {
       serif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "MesloLGS NF";
+        package = pkgs.lmodern;
+        name = "Latin Modern Roman";
       };
 
       sansSerif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "MesloLGS NF";
+        package = pkgs.inter;
+        name = "Inter";
       };
 
       monospace = {
-        package = pkgs.ibm-plex;
-        name = "IBM Plex Mono";
+        package = pkgs.fira-code;
+        name = "Fire Code";
       };
 
       emoji = {
@@ -106,12 +115,29 @@
       };
     };
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 20;
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 24;
     };
   };
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "WhiteSur-Light";
+      package = pkgs.whitesur-icon-theme.override {
+        boldPanelIcons = true;
+        alternativeIcons = true;
+      };
+    };
+    # font.name = "Inter 13";
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "adwaita";
+  };
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ openvpn ];

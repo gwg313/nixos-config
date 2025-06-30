@@ -3,7 +3,8 @@ _: {
     # ./none-ls.nix
     ./autopairs.nix
     ./bufferline.nix
-    ./catppuccin.nix
+    ./base16.nix
+    # ./catppuccin.nix
     ./comment.nix
     ./conform.nix
     ./clangd-extensions.nix

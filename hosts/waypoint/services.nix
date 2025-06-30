@@ -3,7 +3,6 @@
     dynamicConfigOptions = {
       http = {
         services = {
-
           argocd_local.loadBalancer.servers = [
             {
               url = "https://10.1.10.3:30007";
@@ -11,7 +10,7 @@
           ];
           music_local.loadBalancer.servers = [
             {
-              url = "http://10.1.10.3:30033";
+              url = "https://music.gwg313.xyz";
             }
           ];
 
@@ -63,11 +62,34 @@
           ];
           git_local.loadBalancer.servers = [
             {
-              url = "http://10.1.10.3:32221";
+              url = "https://git.gwg313.xyz";
+            }
+          ];
+
+          registry_local.loadBalancer.servers = [
+            {
+              url = "https://registry.gwg313.xyz";
+            }
+          ];
+
+          ci_local.loadBalancer.servers = [
+            {
+              url = "https://ci.gwg313.xyz";
+            }
+          ];
+
+          s3_local.loadBalancer.servers = [
+            {
+              url = "https://s3.gwg313.xyz";
+            }
+          ];
+
+          s3_console_local.loadBalancer.servers = [
+            {
+              url = "https://s3-console.gwg313.xyz";
             }
           ];
         };
-
       };
     };
   };

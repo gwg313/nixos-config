@@ -26,6 +26,7 @@
   home.packages =
     with pkgs;
     [
+      ncdu
       # Editors
       #     neovim # Improved version of vim, often used with overlays.
       # vim # Highly configurable text editor popular for efficiency and extensibility.
@@ -46,7 +47,7 @@
       ripgrep # Faster alternative to 'grep,' recursively searching directories for a regex pattern.
       rm-improved # Enhanced file and directory removal tool with interactive prompts, advanced options, and improved user feedback.
       tealdeer # Command-line utility providing simplified and community-driven man pages.
-      thefuck # Handy tool that corrects mistyped console commands.
+      pay-respects # Handy tool that corrects mistyped console commands.
       viddy # A modern watch command. Time machine and pager etc.
 
       # Multiplexers
