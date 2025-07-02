@@ -45,17 +45,11 @@
         user = "root";
         identityFile = "/home/gwg313/.ssh/digital_ocean/id_ed25519";
       };
-      "onedev.local" = {
-        hostname = "git.local.gwg313.xyz";
-        user = "git";
-        identityFile = "/home/gwg313/.ssh/onedev/id_ed25519";
-        port = 2222;
-      };
-      "onedev" = {
-        hostname = "10.1.10.3";
-        user = "git";
-        identityFile = "/home/gwg313/.ssh/onedev/id_ed25519";
-        port = 2222;
+
+      "panopticon" = {
+        hostname = "10.1.10.9";
+        user = "root";
+        identityFile = "/home/gwg313/.ssh/colmena/id_ed25519";
       };
     };
   };

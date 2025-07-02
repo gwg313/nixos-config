@@ -246,6 +246,13 @@
           };
           imports = [ ./hosts/seikan/configuration.nix ];
         };
+
+        panopticon = {
+          deployment = {
+            targetHost = "panopticon"; # <- defined in ~/.ssh/config
+          };
+          imports = [ ./hosts/panopticon/configuration.nix ];
+        };
       };
     };
 }
