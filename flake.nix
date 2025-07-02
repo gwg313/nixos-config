@@ -14,7 +14,6 @@
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/nixos-24.05";
     secrets.url = "git+ssh://git@github.com/gwg313/nixos-secrets.git";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprspace = {
       url = "github:KZDKM/Hyprspace";
     };
@@ -108,7 +107,7 @@
       nixosModules = import ./modules/nixos;
       # Reusable home-manager modules you might want to export
       # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+      homeModules = import ./modules/home-manager;
 
       devShells = forAllSystems (
         system:
@@ -180,7 +179,7 @@
             # > Our main home-manager configuration file <
             ./home-manager/machines/candlekeep.nix
             inputs.nixcord.homeModules.nixcord
-            inputs.stylix.homeManagerModules.stylix
+            inputs.stylix.homeModules.stylix
           ];
         };
       };
@@ -195,7 +194,7 @@
             # > Our main home-manager configuration file <
             ./home-manager/machines/grymforge.nix
             inputs.nixcord.homeModules.nixcord
-            inputs.stylix.homeManagerModules.stylix
+            inputs.stylix.homeModules.stylix
           ];
         };
       };
@@ -209,7 +208,7 @@
           modules = [
             # > Our main home-manager configuration file <
             ./home-manager/machines/dorino.nix
-            inputs.stylix.homeManagerModules.stylix
+            inputs.stylix.homeModules.stylix
           ];
         };
       };
