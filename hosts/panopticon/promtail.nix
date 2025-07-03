@@ -1,9 +1,13 @@
 { config, ... }:
 {
+  systemd.tmpfiles.rules = [
+    "d /var/lib/promtail 0755 promtail promtail -"
+  ];
   services.promtail = {
     enable = true;
     configuration = {
       server.http_listen_port = 9080;
+      server.grpc_listen_port = 0;
       positions = {
         filename = "/var/lib/promtail/positions.yaml";
       };

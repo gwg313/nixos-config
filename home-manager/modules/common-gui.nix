@@ -8,7 +8,6 @@
     ./obs.nix
     ./thunar.nix
     ./zen.nix
-    ./xdg.nix
     ./mime.nix
     ./nixcord.nix
   ];

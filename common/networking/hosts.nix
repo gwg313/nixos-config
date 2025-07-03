@@ -12,6 +12,7 @@ _: {
     10.147.17.246 s3-console.zerotier.gwg313.xyz
     10.147.17.246 registry.zerotier.gwg313.xyz
     10.147.17.246 ci.zerotier.gwg313.xyz
+    10.147.17.246 uptime.zerotier.gwg313.xyz
 
 
 
@@ -22,5 +23,7 @@ _: {
     10.1.10.50 s3.gwg313.xyz
     10.1.10.50 s3-console.gwg313.xyz
     10.1.10.50 pastebin.gwg313.xyz
+    10.1.10.50 audiobooks.gwg313.xyz
+    10.1.10.9 uptime.gwg313.xyz
   '';
 }

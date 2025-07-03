@@ -1,29 +1,31 @@
+# So best window tiling manager
 {
   pkgs,
   config,
   inputs,
+  lib,
   ...
 }:
 let
-  border-size = config.var.theme.border-size;
-  gaps-in = config.var.theme.gaps-in;
-  gaps-out = config.var.theme.gaps-out;
-  active-opacity = config.var.theme.active-opacity;
-  inactive-opacity = config.var.theme.inactive-opacity;
-  rounding = config.var.theme.rounding;
-  blur = config.var.theme.blur;
+  border-size = config.theme.border-size;
+  gaps-in = config.theme.gaps-in;
+  gaps-out = config.theme.gaps-out;
+  active-opacity = config.theme.active-opacity;
+  inactive-opacity = config.theme.inactive-opacity;
+  rounding = config.theme.rounding;
+  blur = config.theme.blur;
   keyboardLayout = config.var.keyboardLayout;
+  background = "rgb(" + config.lib.stylix.colors.base00 + ")";
 in
 {
-
   imports = [
     ./animations.nix
     ./bindings.nix
     ./polkitagent.nix
-    ./hyprlock.nix
-    ./hypridle.nix
+    ./hyprspace.nix
     ./hyprpanel.nix
-    # ./hyprspace.nix
+    ./hyprlock.nix
+    ../gammastep.nix
   ];
 
   home.packages = with pkgs; [
@@ -52,21 +54,32 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    systemd.enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    systemd = {
+      enable = false;
+      variables = [
+        "--all"
+      ]; # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
+    };
+    package = null;
+    portalPackage = null;
 
     settings = {
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
+      exec-once = [
+        "dbus-update-activation-environment --systemd --all &"
+        "systemctl --user enable --now hyprpaper.service &"
+        "systemctl --user enable --now hypridle.service &"
+        "systemctl --user enable --now nextcloud-client.service  &"
+      ];
+
       monitor = [
-        "DP-1,2560x2880,0x0, 1"
-        "HDMI-A-1,3840x2160, 2560x0, 1"
-        ",prefered,auto,1"
+        "eDP-2,highres,0x0,1" # My internal laptop screen
+        ",prefered,auto,1" # default
       ];
 
       env = [
-        "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "MOZ_ENABLE_WAYLAND,1"
         "ANKI_WAYLAND,1"
@@ -78,7 +91,6 @@ in
         "QT_QPA_PLATFORM=wayland,xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        # "GTK_THEME,FlatColor:dark"
         "__GL_GSYNC_ALLOWED,0"
         "__GL_VRR_ALLOWED,0"
         "DISABLE_QT5_COMPAT,0"
@@ -87,10 +99,8 @@ in
         "WLR_BACKEND,vulkan"
         "WLR_RENDERER,vulkan"
         "WLR_NO_HARDWARE_CURSORS,1"
-        "XDG_SESSION_TYPE,wayland"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-        "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1" # CHANGEME: Related to the GPU
       ];
 
       cursor = {
@@ -103,9 +113,8 @@ in
         gaps_in = gaps-in;
         gaps_out = gaps-out;
         border_size = border-size;
-        # border_part_of_window = true;
-        # layout = "master";
-        layout = "dwindle";
+        layout = "master";
+        "col.inactive_border" = lib.mkForce background;
       };
 
       decoration = {
@@ -119,6 +128,7 @@ in
         };
         blur = {
           enabled = if blur then "true" else "false";
+          size = 18;
         };
       };
 
@@ -126,11 +136,6 @@ in
         new_status = true;
         allow_small_split = true;
         mfact = 0.5;
-      };
-
-      dwindle = {
-        force_split = 2;
-        preserve_split = true;
       };
 
       gestures = {
@@ -144,13 +149,40 @@ in
         disable_autoreload = true;
         focus_on_activate = true;
         new_window_takes_over_fullscreen = 2;
-        middle_click_paste = false;
       };
 
       windowrulev2 = [
         "float, tag:modal"
         "pin, tag:modal"
         "center, tag:modal"
+        # telegram media viewer
+        "float, title:^(Media viewer)$"
+
+        # Bitwarden extension
+        "float, title:^(.*Bitwarden Password Manager.*)$"
+
+        # gnome calculator
+        "float, class:^(org.gnome.Calculator)$"
+        "size 360 490, class:^(org.gnome.Calculator)$"
+
+        # make Firefox/Zen PiP window floating and sticky
+        "float, title:^(Picture-in-Picture)$"
+        "pin, title:^(Picture-in-Picture)$"
+
+        # idle inhibit while watching videos
+        "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
+        "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
+        "idleinhibit fullscreen, class:^(zen)$"
+
+        "dimaround, class:^(gcr-prompter)$"
+        "dimaround, class:^(xdg-desktop-portal-gtk)$"
+        "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
+        "dimaround, class:^(zen)$, title:^(File Upload)$"
+
+        # fix xwayland apps
+        "rounding 0, xwayland:1"
+        "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
+        "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
       ];
 
       layerrule = [
@@ -161,7 +193,6 @@ in
       input = {
         # kb_layout = keyboardLayout;
 
-        # kb_options = "caps:escape";
         follow_mouse = 1;
         sensitivity = 0.5;
         repeat_delay = 300;
@@ -173,8 +204,6 @@ in
           clickfinger_behavior = true;
         };
       };
-
     };
   };
-  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
 }

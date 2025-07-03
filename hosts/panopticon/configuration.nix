@@ -22,7 +22,9 @@
     ./grafana.nix
     ./promtail.nix
     ./loki.nix
+    ./uptime-kuma.nix
     ./prometheus_node_exporter.nix
+    ./traefik.nix
     inputs.sops-nix.nixosModules.sops
   ];
 

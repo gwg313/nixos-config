@@ -24,7 +24,7 @@
     ./candlekeep/variables.nix
     # ./nvim.nix
     ../modules/common.nix
-    # ../modules/hyprland.nix
+    ../../common/style/vars/vars.nix
     ../modules/hyprland
     ../modules/common-gui.nix
     ../modules/linux-gui.nix
@@ -60,7 +60,6 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      inputs.hyprpanel.overlay
     ];
     # Configure your nixpkgs instance
     config = {
@@ -74,53 +73,6 @@
   home = {
     username = "gwg313";
     homeDirectory = "/home/gwg313";
-  };
-
-  stylix = {
-    fonts = {
-      sizes = {
-        applications = 13; # UI font (GTK/Qt)
-        terminal = 14; # Comfortable for reading code/math
-        desktop = 13; # WM, notifications
-        popups = 12; # Tooltips, menus
-      };
-    };
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-sulphurpool-light.yaml";
-    image = ../../wallpapers/floating_city.jpg;
-    #    polarity = "dark";
-    autoEnable = true;
-    enable = true;
-    targets.nixvim.enable = false;
-
-    opacity.terminal = 1.0;
-
-    fonts = {
-      serif = {
-        package = pkgs.lmodern;
-        name = "Latin Modern Roman";
-      };
-
-      sansSerif = {
-        package = pkgs.inter;
-        name = "Inter";
-      };
-
-      monospace = {
-        package = pkgs.fira-code;
-        name = "Fire Code";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
-    cursor = {
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
-      size = 24;
-    };
   };
 
   gtk = {

@@ -74,6 +74,12 @@
               url = "https://s3-console.zerotier.gwg313.xyz";
             }
           ];
+
+          uptime_zt.loadBalancer.servers = [
+            {
+              url = "https://uptime.zerotier.gwg313.xyz";
+            }
+          ];
         };
 
         routers = {
@@ -167,6 +173,14 @@
           s3_console = {
             entryPoints = [ "websecure" ];
             rule = "Host(`s3-console.gwg313.xyz`)";
+            service = "s3_console_zt";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
+
+          uptime_console = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`uptime.gwg313.xyz`)";
             service = "s3_console_zt";
             tls.certResolver = "le";
             middlewares = [ "headers" ];

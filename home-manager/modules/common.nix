@@ -27,6 +27,8 @@
     with pkgs;
     [
       ncdu
+      minio-client
+
       # Editors
       #     neovim # Improved version of vim, often used with overlays.
       # vim # Highly configurable text editor popular for efficiency and extensibility.

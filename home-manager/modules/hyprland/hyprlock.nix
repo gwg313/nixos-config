@@ -1,7 +1,10 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
-  foreground = "rgba(216, 222, 233, 0.70)";
-  imageStr = toString config.stylix.image;
+  foreground = "rgba(${config.theme.textColorOnWallpaper}ee)";
   font = config.stylix.fonts.serif.name;
 in
 {
@@ -17,7 +20,6 @@ in
       # BACKGROUND
       background = {
         monitor = "";
-        # path = imageStr;
         blur_passes = 0;
         contrast = 0.8916;
         brightness = 0.7172;
@@ -73,8 +75,8 @@ in
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "rgba(255, 255, 255, 0)";
-        inner_color = "rgba(255, 255, 255, 0.1)";
+        outer_color = "rgba(25, 25, 25, 0)";
+        inner_color = "rgba(25, 25, 25, 0.1)";
         font_color = foreground;
         fade_on_empty = false;
         font_family = font + " Bold";

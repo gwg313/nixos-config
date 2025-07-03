@@ -107,6 +107,14 @@
             tls.certResolver = "le";
             middlewares = [ "headers" ];
           };
+
+          uptime_zt = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`uptime.zerotier.gwg313.xyz`)";
+            service = "uptime_local";
+            tls.certResolver = "le";
+            middlewares = [ "headers" ];
+          };
         };
       };
     };

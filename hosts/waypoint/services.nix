@@ -34,7 +34,7 @@
 
           audiobooks_local.loadBalancer.servers = [
             {
-              url = "http://10.1.10.3:30080";
+              url = "https://audiobooks.gwg313.xyz";
             }
           ];
 
@@ -87,6 +87,12 @@
           s3_console_local.loadBalancer.servers = [
             {
               url = "https://s3-console.gwg313.xyz";
+            }
+          ];
+
+          uptime_local.loadBalancer.servers = [
+            {
+              url = "https://uptime.gwg313.xyz";
             }
           ];
         };

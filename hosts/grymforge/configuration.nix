@@ -34,6 +34,8 @@
     ./sysctl.nix
     ./earlyoom.nix
 
+    ./sleep.nix
+
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd

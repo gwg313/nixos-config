@@ -2,6 +2,7 @@
 { config, ... }:
 {
   imports = [
+    ./routes.nix
   ];
   sops.secrets.cf-api-token = {
     mode = "0440";
@@ -60,22 +61,22 @@
           };
         };
       };
-      log = {
-        level = "DEBUG";
-        filePath = "/var/log/traefik/traefik.log";
-      };
-
-      accessLog = {
-        filePath = "/var/log/traefik/access.log";
-        bufferingSize = 0;
-        filters = { };
-        fields = {
-          defaultMode = "keep";
-          names = {
-            StartUTC = "drop";
-          };
-        };
-      };
+      # log = {
+      #   level = "DEBUG";
+      #   filePath = "/var/log/traefik/traefik.log";
+      # };
+      #
+      # accessLog = {
+      #   filePath = "/var/log/traefik/access.log";
+      #   bufferingSize = 0;
+      #   filters = {};
+      #   fields = {
+      #     defaultMode = "keep";
+      #     names = {
+      #       StartUTC = "drop";
+      #     };
+      #   };
+      # };
     };
     dynamicConfigOptions = {
       http = {

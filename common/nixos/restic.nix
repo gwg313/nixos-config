@@ -27,7 +27,7 @@
         ];
         # extraBackupArgs = [ "--exclude-file=/home/gwg313/Documents/Celsus" ];
         timerConfig = {
-          OnCalendar = "23:00";
+          OnCalendar = "06:40";
         };
       };
     };
