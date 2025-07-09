@@ -51,6 +51,12 @@
         user = "root";
         identityFile = "/home/gwg313/.ssh/colmena/id_ed25519";
       };
+
+      "vault-tec" = {
+        hostname = "10.1.10.13";
+        user = "root";
+        identityFile = "/home/gwg313/.ssh/colmena/id_ed25519";
+      };
     };
   };
 }

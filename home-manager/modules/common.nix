@@ -26,6 +26,7 @@
   home.packages =
     with pkgs;
     [
+      attic-client
       ncdu
       minio-client
 
