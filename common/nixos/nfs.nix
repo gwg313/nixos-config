@@ -11,17 +11,6 @@
 
   config = lib.mkIf config.nfs.enable {
     fileSystems = {
-      "/media" = {
-        device = inputs.secrets.nfs.devices.media;
-        fsType = "nfs";
-        options = [
-          "x-systemd.automount"
-          "noauto"
-          "x-systemd.after=network-online.target"
-          "x-systemd.mount-timeout=90"
-        ];
-      };
-
       "/books" = {
         device = inputs.secrets.nfs.devices.books;
         fsType = "nfs";
@@ -44,8 +33,8 @@
         ];
       };
 
-      "/projects" = {
-        device = inputs.secrets.nfs.devices.projects;
+      "/personal" = {
+        device = inputs.secrets.nfs.devices.personal;
         fsType = "nfs";
         options = [
           "x-systemd.automount"
