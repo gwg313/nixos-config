@@ -25,7 +25,6 @@ in
     ./hyprspace.nix
     ./hyprpanel.nix
     ./hyprlock.nix
-    ../gammastep.nix
   ];
 
   home.packages = with pkgs; [
@@ -76,6 +75,8 @@ in
 
       monitor = [
         "eDP-2,highres,0x0,1" # My internal laptop screen
+        "DP-1, highres, 0x0,1"
+        "HDMI-A-1, highres, auto-right,1"
         ",prefered,auto,1" # default
       ];
 
