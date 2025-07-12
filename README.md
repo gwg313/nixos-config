@@ -1,54 +1,89 @@
-# NixOS Flake Configuration
+# ❄️ NixOS Configurations
 
-## Overview
+This repository contains my declarative and fully reproducible system
+configurations using [Nix flakes](https://nixos.wiki/wiki/Flakes). It manages
+multiple machines—including laptops, desktops, and servers—using both NixOS and
+[Home Manager](https://nix-community.github.io/home-manager/).
 
-This repository contains my NixOS configuration as a flake. This configuration
-is designed to provide a reproducible and declarative setup for my system. It
-includes system configuration, package management, and various other NixOS
-features.
+## 🧱 Structure
 
-### Window Manager
+This flake manages:
 
-- hyrpland
-- waybar
-- swaylock
-- wofi
-- light
-- grimshot
-- mako
+- 🖥️ **Desktop** (NixOS + Home Manager)
+- 💻 **Laptop** (NixOS + Home Manager)
+- 🗄️ **Servers** (headless NixOS deployments)
+- 👤 User environments (via Home Manager, on both NixOS and non-NixOS systems)
 
-### Terminal
+### Key Directories
 
-- alacritty
-- zsh
-- starship
-- tmux
-- neovim(my configuration can be found
-  [here](https://github.com/gwg313/nvim-nix))
-- eza
-- ripgrep
-- fd
+- `hosts/` – Per-machine NixOS configurations (e.g., `candlekeep.nix`,
+  `grymforge.nix`)
+- `home-manager/` – User-specific Home Manager modules and machines etc.)
+- `flake.nix` / `flake.lock` – Flake definition and dependency pinning
 
-## Prerequisites
+## 🚀 Getting Started
 
-Before using this NixOS flake configuration, you should have the following
-prerequisites:
+### Requirements
 
-- NixOs should be installed on your system.
-- Familiarity with Nix and NixOS concepts is helpful but not required.
+- `nix` with flakes enabled
+- Optional: [home-manager](https://github.com/nix-community/home-manager) and
+  [direnv](https://direnv.net/)
 
-## Usage
-
-NixOS and home-manager are called seperately,
-
-To rebuild and switch to the new NixOS configuration:
+### Bootstrap a New Machine
 
 ```bash
-nixos-rebuild switch --flake .#candlekeep
+nix run github:yourusername/nixos-configurations#your-hostname
 ```
 
-To rebuild and switch to the new home-manager configuration:
+Or, if you're already inside the repo:
 
 ```bash
-home-manager switch --flake .#gwg313@candlekeep
+sudo nixos-rebuild switch --flake .#your-hostname
 ```
+
+### Update All Machines
+
+```bash
+nix flake update
+git commit -am "flake: update"
+```
+
+You can also run automated rebuilds and deployments using tools like:
+
+- [`colmena`](https://github.com/zhaofengli/colmena)
+- [`deploy-rs`](https://github.com/serokell/deploy-rs)
+- [`nixos-rebuild --target-host`](https://nixos.org/manual/nixos/stable/#sec-deploying-to-a-remote-machine)
+
+## 🔐 Secrets
+
+Secrets are managed via:
+
+- [sops-nix](https://github.com/Mic92/sops-nix)
+- Encrypted with age
+- Stored in `.sops.yaml` and `secrets/` directory
+
+## 💡 Features
+
+- Flake-based multi-machine setup
+- Home Manager integrated per-user config
+- Declarative hardware profiles
+- Secure secret management with sops-nix
+- Support for remote servers and local workstations.
+
+## 📝 Hosts
+
+| Hostname     | Role                 | Description                     |
+| ------------ | -------------------- | ------------------------------- |
+| `candlekeep` | Laptop               | Hyprland, Kitty, Zsh, Neovim    |
+| `grymforge`  | Main Workstation     | Hyprland, Kitty, Zsh, Neovim    |
+| `seikan`     | Reverse Proxy Server | Cloud Server, Traefik, Zerotier |
+| `waypoint`   | Reverse Proxy Server | Traefik, Zerotier               |
+| `panopticon` | Log Server           | Loki, Promtail, Grafana         |
+| `vault-tec`  | Nix Cache Server     | Attic                           |
+
+## 🔄 Workflow
+
+1. Edit your configs (in `hosts/`, `home/`, or `modules/`)
+2. Rebuild locally or deploy remotely
+3. Commit and push to Git
+4. (Optional) CI/CD runs remote rebuilds
