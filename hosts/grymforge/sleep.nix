@@ -15,7 +15,7 @@
     description = "Timer to suspend PC at 10PM daily";
     wantedBy = [ "timers.target" ];
     timerConfig = {
-      OnCalendar = "daily 22:00";
+      OnCalendar = "*-*-* 22:00:00";
       Persistent = true;
     };
   };
