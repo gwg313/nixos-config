@@ -49,6 +49,7 @@
 
     environment.systemPackages = with pkgs; [
       protonup
+      steam-devices-udev-rules
       scanmem
     ];
   };
