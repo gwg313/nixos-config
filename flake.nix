@@ -120,6 +120,7 @@
             buildInputs = with pkgs; [
               alejandra
               apacheHttpd
+              jq
             ];
           };
         }
@@ -163,6 +164,22 @@
           modules = [
             # > Our main nixos configuration file <
             ./hosts/grymforge/configuration.nix
+          ];
+        };
+      };
+
+      nixosConfigurations = {
+        iso = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit user inputs outputs;
+          };
+          modules = [
+            # > Our main nixos configuration file <
+
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+            ./hosts/iso/configuration.nix
           ];
         };
       };
@@ -251,6 +268,13 @@
             targetHost = "panopticon"; # <- defined in ~/.ssh/config
           };
           imports = [ ./hosts/panopticon/configuration.nix ];
+        };
+
+        vault-tec = {
+          deployment = {
+            targetHost = "vault-tec"; # <- defined in ~/.ssh/config
+          };
+          imports = [ ./hosts/vault-tec/configuration.nix ];
         };
       };
     };
